@@ -1,13 +1,6 @@
 $(document).ready(function(){
 	$("#flip1").click(function(){
-		$("#panel1").slideToggle("slow",function(){
-			$("#flip1").replaceWith("<div id=\"flipped1\">Transportation -</div>");
-		});
-	});
-	$("#flipped1").click(function(){
-		$("#panel1").slideToggle("slow",function(){
-			$("flipped1").replacewith("<div id=\"flip1\">Transportation	+</div>");
-		});
+		$("#panel1").slideToggle("slow");
 	});
 	$("#flip2").click(function(){
 		$("#panel2").slideToggle("slow");
