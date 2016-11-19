@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src=animation.js></script>
+ 
+<style type="text/css"> 
+	#panel1,#panel2,#panel3,#panel4,#panel5,#panel6,#flip1,#flip2,#flip3,#flip4,#flip5,#flip6{
+		padding:5px;
+		text-align:right;
+		background-color:#FFF;
+		border:none;
+		font-size:2em;
+		font-weight:bold;
+	}
+	#flipped1{
+		padding:5px;
+		text-align:right;
+		background-color:#FFF;
+		border:none;
+		font-size:2em;
+		font-weight:bold;
+	}
+	#panel1,#panel2,#panel3,#panel4,#panel5,#panel6{
+		font-size:1.15em;
+		padding:15px;
+		display:none;
+		text-align:left;
+		font-weight:normal;
+	}
+	#flip2A,#flip2B,#flip2C,#flip2D{
+		padding:15px;
+		text-align:right;
+		background-color:#FFF;
+		border:none;
+		font-size:1.5em;
+		font-weight:bold;
+	}
+	#panel2A,#panel2B,#panel2C,#panel2D{
+		font-size=1em;
+		padding=50px;
+		display:none;
+		text-align:left;
+	}
+	body{
+		font-family:courier,sans-serif;
+		margin-left:15%;
+		width:65%;
+	}
+	head{
+		text-align:left;
+		font-weight:normal;
+	}
+	h1{
+		margin-bottom:-.5em
+	}
+	a{
+		color:#000;
+		text-decoration:none;
+	}
+</style>
+<h1>D. Scott Boggs, Jr.</h1>
+<h3>scott@tams.tech<br>(724) 393 - 5536</h3>
+</head>
+<body>
+
+<div id="flip1" class="flip">Transportation	+</div>
+<div class="flipped">Transportation -</div>
+<div id="panel1">
+	My largest range of official experience is in the transportation industry. I have about two years of professional experience. I drive a manual transmission vehicle, do my own maintenance, and am comfortable behind the wheel of large vehicles as well as small.<br>
+	<ul>
+		<li><em>DDC4 Certified</em>> - an accredited defensive driving course from the National Safety Council</li>
+		<li><em>Pizza delivery</em> for <i>Pizza Bellagio</i> (2014-2015), <i>Pizza Hut</i> (2014-2015), <i>Nonni's Pizza</i> (2015), <i>Pizza Rivera</i> (2016), and <i>Luciano's Pizza</i> (2016)</li>
+		<li><em>Courier/Package delivery</em> for <i>Amazon</i> and <i>American Expediting</i> (current client)</li>
+		<li><em>Livery/Cab driver</em> for <i>Yellow Cab</i>, <i>Lyft</i> (both 2016), and <i>Uber</i> (2015-2016)</li>
+		<li><em>Driver Helper</em> at <i>United Parcel Service</i> (2012)</li>
+		<li><em>Internal Technical Support</em>, Tier I, for Innosource, Inc., under contract with FedEx</li>
+	</ul>
+</div>
+
+<div id="flip2">Technology	+</div>
+<div id="panel2">While professionally I am very qualified as a transportation professional, my real passion is to creatively solve problems, especially through technology. I don't have a lot of official qualifications in that regard, but I do study any material available to me constantly and I'm always adding to the list below.
+	<div id="flip2A">Hardware</div>
+	<div id="panel2A"><ul>
+		<li>I began my study of the inner workings of electronics on my own when I was younger, but at 14 a local TV repairman agreed to teach me, and I spent a year and a half learning how electricity and circuits work and learning to troubleshoot hardware under his guidance.</li>
+		<li>I also have worked for a few computer repair shops over the years.</li>
+		<li>I have built several custom computers</li>
+		<li>I'm experimenting with Raspberry Pi and Arduino.</li>
+	</ul></div>
+	<div id="flip2B">Software</div>
+	<div id="panel2B">
+		<ul>
+			<li>LAMP setup for web site, cloud server, etc.</li>
+			<li>Virtualization and scalable computing (Citrix, QEMU/Linux KVM, Hyper-V, VirtualBox).</li>
+			<li>Linux BASH and command interface (I run linux and live in the terminal for most of my computing)</li>
+			<li>MS Office (including some Excel)</li>
+		</ul>
+	</div>
+	<div id="flip2C">Networking</div>
+	<div id="panel2C">
+		<ul>
+			<li>Network configuration and security, routing.</li>
+			<li>LAMP setup for web site, cloud server, etc.</li>
+			<li>More to come (pfSense, VPN, security and IOT)</li>
+		</ul>
+	</div>
+	<div id="flip2D">Code and More...</div>	
+	<div id="panel2D">
+		<ul>
+			<li>Java - studied at college and HS, up through data structures (see my <a href="https://github.com/dscottboggs">github</a>)</li>
+			<li>Web development - LAMP/server architecture, HTML(5), CSS, Jquery, XML, JSON/node.JS (see this web site - handwritten)</li>
+			<li>Python (see my <a href="https://github.com/dscottboggs">github</a>)</li>
+			<li>BASIC - the first language I learned, at age 12. I've always had a thing for old tech</li>
+			<li>BASH shell scripting (see my <a href="https://github.com/dscottboggs">github</a>) and some Windows shell/DOS</li>
+			<li>Some machine learning and data analysis</li>
+			<li>Currently studying ARM assembly</li>
+		</ul>
+	</div>
+</div> <!-- panel2 -->
+
+<div id="flip3">Audio	+</div>
+<div id="panel3">
+	I’ve been studying music theory through instruments for over a decade, but to be honest I became bored with simply playing music years ago. I got into electronic music a few years ago, and I love raw composition, and sound design. I have been producing music and experimenting with sound for 5 years now and would be quite capable of any sort of waveform manipulation or sound design/production situation.
+</div>
+<div id="flip4">Photography and Video	+</div>
+<div id="panel4">
+	I have been working with digital photography and videography quite steadily for the past year or so, and it’s been a passing interest most of my life. There were a lot of broken cameras when I was younger so there was a lot of time that I held an interest and studied it, but didn’t have the equipment to experiment with it, until more recently. I also have studied framing and composition throughout my life including times when I did not have a camera.
+</div>
+<div id="flip5">Education	+</div>
+<div id="panel5">
+	<ul>
+		<li>Graduated from Burrell High School in Lower Burrell, PA; class of 2011.</li>
+		<li>Attended some college at Westmoreland County Community Colllege and the Community College of Allegheny County, but I decided that it would be wiser to devote my time to less structured educational endeavors.</li>
+	</ul>
+</div>
+<div id="flip6">Relevant Equipment	+</div>
+<div id="panel6">
+	<ul>
+		<li>Transportion
+			<ul><li>2001 Isuzu Trooper</li></ul>
+		</li>
+		<li>Technology
+			<ul>
+				<li>Lenovo Thinkserver TS140+mods, running Debian Jessie, with Windows 7 in virtualbox and other linux workstations in qemu/kvm virtual machines.</li>
+				<li>Raspberry Pi Model B</li>
+				<li>Arduino Uno</li>
+				<li>A few vintage pieces and a lot of spare parts</li>
+			</ul>
+		</li>
+		<li>Photography
+			<ul>
+				<li>Nikon D3300, (24MP at 18-55mm and 5fps, or 1080p at up to 60fps)</li>
+				<li>Tripod</li>
+				<li>A steadicam that I built myself</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+</body>
+</html>
