@@ -1,4 +1,5 @@
 #panel1,#panel2,#panel3,#panel4,#panel5,#panel6,#flip1,#flip2,#flip3,#flip4,#flip5,#flip6{
+		position:relative;
 		padding:5px;
 		text-align:right;
 		background-color:#FFF;
@@ -7,12 +8,15 @@
 		font-weight:bold;
 	}
 	#flipped1{
+		position:relative;
 		padding:5px;
+		margin-top:-2em;
 		text-align:right;
 		background-color:#FFF;
 		border:none;
 		font-size:2em;
 		font-weight:bold;
+		z-index:-1;
 	}
 	#panel1,#panel2,#panel3,#panel4,#panel5,#panel6{
 		font-size:1.15em;
@@ -30,8 +34,8 @@
 		font-weight:bold;
 	}
 	#panel2A,#panel2B,#panel2C,#panel2D{
-		font-size=1em;
-		padding=50px;
+		font-size:1em;
+		padding:50px;
 		display:none;
 		text-align:left;
 	}

@@ -1,12 +1,12 @@
 $(document).ready(function(){
 	$("#flip1").click(function(){
-		$("#panel1").slideToggle("slow",function(){
-			$("#flip1").replaceWith("<div id=\"flipped1\">Transportation -</div>");
+		$("#panel1").slideDown("slow",function(){
+			$("flip1").hide();
 		});
 	});
 	$("#flipped1").click(function(){
-		$("#panel1").slideToggle("slow",function(){
-			$("flipped1").replacewith("<div id=\"flip1\">Transportation	+</div>");
+		$("#panel1").slideUp("slow",function(){
+			$("flip1").show();
 		});
 	});
 	$("#flip2").click(function(){
@@ -35,71 +35,5 @@ $(document).ready(function(){
 	});
 	$("#flip6").click(function(){
 		$("#panel6").slideToggle("slow");
-	});
-	$("#flip1").mouseenter(function(){
-		$("#flip1").fadeTo("fast",0.5);
-	});
-	$("#flip1").mouseleave(function(){
-		$("#flip1").fadeTo(500,1.0);
-	});
-	$("#flipped1").mouseenter(function(){
-		$("#flipped1").fadeTo("fast",0.5);
-	});
-	$("#fliped").mouseleave(function(){
-		$("#flipped1").fadeTo(500,1.0);
-	});
-	$("#flip2").mouseenter(function(){
-		$("#flip2").fadeTo("fast",0.5);
-	});
-	$("#flip2").mouseleave(function(){
-		$("#flip2").fadeTo(500,1.0);
-	});
-	$("#flip3").mouseenter(function(){
-		$("#flip3").fadeTo("fast",0.5);
-	});
-	$("#flip3").mouseleave(function(){
-		$("#flip3").fadeTo(500,1.0);
-	});
-	$("#flip4").mouseenter(function(){
-		$("#flip4").fadeTo("fast",0.5);
-	});
-	$("#flip4").mouseleave(function(){
-		$("#flip4").fadeTo(500,1.0);
-	});
-	$("#flip5").mouseenter(function(){
-		$("#flip5").fadeTo("fast",0.5);
-	});
-	$("#flip5").mouseleave(function(){
-		$("#flip5").fadeTo(500,1.0);
-	});
-	$("#flip6").mouseenter(function(){
-		$("#flip6").fadeTo("fast",0.5);
-	});
-	$("#flip6").mouseleave(function(){
-		$("#flip6").fadeTo(500,1.0);
-	});
-	$("#flip2A").mouseenter(function(){
-		$("#flip2A").fadeTo("fast",0.5);
-	});
-	$("#flip2A").mouseleave(function(){
-		$("#flip2A").fadeTo(500,1.0);
-	});
-	$("#flip2B").mouseenter(function(){
-		$("#flip2B").fadeTo("fast",0.5);
-	});
-	$("#flip2B").mouseleave(function(){
-		$("#flip2B").fadeTo(500,1.0);
-	});
-	$("#flip2C").mouseenter(function(){
-		$("#flip2C").fadeTo("fast",0.5);
-	});
-	$("#flip2C").mouseleave(function(){
-		$("#flip2C").fadeTo(500,1.0);
-	});
-	$("#flip2D").mouseenter(function(){
-		$("#flip2D").fadeTo("fast",0.5);
-	});
-	$("#flip2D").mouseleave(function(){
-		$("#flip2D").fadeTo(500,1.0);
 	});
 });
