@@ -83,6 +83,13 @@ div.footer{
 	left:0;
 	background:#FED;
 }
+
+div#f6{
+	border-bottom:3em solid #FED;
+}
+div#panel6{
+	border-bottom:4em solid #FED;
+}
 a.footlink{
 	margin-left:2em;
 	margin-right:2em;
@@ -97,7 +104,7 @@ h1{
 	margin-bottom:-.5em
 }
 a{
-	color:#000;
+	color:#036;
 	text-decoration:underline;
 }
 em{
