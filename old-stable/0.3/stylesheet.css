@@ -26,6 +26,11 @@
 		text-align:left;
 		font-weight:normal;
 	}
+	#intro{
+		display:inline;
+		width:60%;
+		text-align:right;
+	}
 	div.subflip{
 		padding:5px;
 		text-align:right;
