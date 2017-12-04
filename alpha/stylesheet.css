@@ -77,7 +77,7 @@ div.footer{
 	border-bottom:1.5em solid #FED;
 	text-align:center;
 	font-size:1em;
-	font-family: Quicksand;
+	font-family: Quicksand, sans-serif;
 	position:fixed;
 	bottom:0;
 	left:0;
@@ -93,6 +93,7 @@ div#panel6{
 a.footlink{
 	margin-left:2em;
 	margin-right:2em;
+	font-family: Quicksand, sans-serif;
 }
 body{
 	position:absolute;
