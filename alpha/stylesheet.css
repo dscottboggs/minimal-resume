@@ -63,9 +63,10 @@ div.subpanel{
     display:none;
     text-align:left;
 }
-head{
+div#header{
     text-align:left;
     font-weight:normal;
+    padding-left:15%;
 }
 h1,h3{
     font-family:Worksans,sans-serif;
@@ -80,7 +81,7 @@ div.footer{
     font-family: Quicksand, sans-serif;
     position:fixed;
     bottom:0;
-    left:0;
+
     background:#FED;
 }
 div#f6{
@@ -89,35 +90,14 @@ div#f6{
 div#panel6{
     border-bottom:4em solid #FED;
 }
-#dropup{
-    position: relative;
-    display: inline;
-}
-div.dropupContent{
-    display: none;
-    position: absolute;
-    z-index: 1001;
-    bottom: 100%;
-}
-div.dropupContent a{
-    text-decoration: none;
-    display: block;
-    z-index: 1002;
-    bottom: 100%;
-}/*
-#dropup:hover{
-    display: inline;
-    /*bottom: 100%;*/
-}  */
 a.footlink{
     margin-left:2em;
     margin-right:2em;
     font-family: Quicksand, sans-serif;
-    text-decoration: none;
     display: inline;
     z-index: 1000;
 }
-body{
+div#main_body{
     position:absolute;
     font-family:Quicksand,sans-serif;
     margin-left:15%;
