@@ -89,27 +89,33 @@ div#f6{
 div#panel6{
     border-bottom:4em solid #FED;
 }
-div.footer#dropup{
+#dropup{
     position: relative;
-    display: inline-block;
+    display: inline;
 }
-div.dropup-content{
+div.dropupContent{
     display: none;
     position: absolute;
-    z-index: 1;
+    z-index: 1001;
+    bottom: 100%;
 }
-div.dropup-content a{
+div.dropupContent a{
     text-decoration: none;
     display: block;
-}
-div#dropup:hover{
-    display: block;
-    bottom: 100%
-}
+    z-index: 1002;
+    bottom: 100%;
+}/*
+#dropup:hover{
+    display: inline;
+    /*bottom: 100%;*/
+}  */
 a.footlink{
     margin-left:2em;
     margin-right:2em;
     font-family: Quicksand, sans-serif;
+    text-decoration: none;
+    display: inline;
+    z-index: 1000;
 }
 body{
     position:absolute;

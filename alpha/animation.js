@@ -119,4 +119,18 @@ $(document).ready(function(){
 			$("#fd6").hide();
 		});
 	});
+	$("#dropup").hover(
+		function(){
+			$("#dropupContent").slideDown();
+		},
+		function(){
+			$("#dropupContent").slideUp();
+	});
+	$("#dropupContent").hover(
+		function(){
+			$("#dropupContent").show();
+		},
+		function(){
+			$("#dropupContent").fadeOut();
+	});
 });
