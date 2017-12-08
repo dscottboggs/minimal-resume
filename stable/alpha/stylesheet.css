@@ -1,0 +1,113 @@
+@font-face{
+    font-family: "Quicksand";
+    src: url('Quicksand-Regular.ttf');
+    }
+@font-face{
+    font-family: "Worksans";
+    src: url('WorkSans-Medium.ttf');
+}
+div.flip{
+    position:relative;
+    padding:5px;
+    text-align:right;
+    border:none;
+    font-size:2em;
+    font-weight:bold;
+    font-family:Worksans,sans-serif;
+}
+div.flipped{
+    position:relative;
+    padding:5px;
+/*  margin-top:-2em;    */
+    text-align:right;
+    border:none;
+    font-size:2em;
+    font-weight:bold;
+    display:none; /* by default */
+/*  z-index:-1;         */
+    font-family:Worksans,sans-serif;
+}
+div.panel{
+    font-size:1.15em;
+    padding:5px;
+    display:none;
+    text-align:left;
+    font-weight:normal;
+}
+#intro{
+    display:inline;
+    width:60%;
+    text-align:right;
+}
+div.subflip{
+    padding:5px;
+    text-align:right;
+    border:none;
+    font-size:1.5em;
+    font-weight:bold;
+    font-style:italic;
+    font-family:Worksans,sans-serif;
+}
+div.subflipped{
+    padding:5px;
+    text-align:right;
+    font-size:1.5em;
+    font-weight:bold;
+    font-style:italic;
+    font-family:Worksans,sans-serif;
+    display:none;
+}
+div.subpanel{
+    font-size:1em;
+    padding:50px;
+    display:none;
+    text-align:left;
+}
+div#header{
+    text-align:left;
+    font-weight:normal;
+    padding-left:15%;
+}
+h1,h3{
+    font-family:Worksans,sans-serif;
+}
+div.footer{
+    display:inline;
+    width:100%;
+    border-top:1.5em solid #FED;
+    border-bottom:1.5em solid #FED;
+    text-align:center;
+    font-size:1em;
+    font-family: Quicksand, sans-serif;
+    position:fixed;
+    bottom:0;
+    background:#FED;
+}
+a.footlink{
+    margin-left:2em;
+    margin-right:2em;
+    font-family: Quicksand, sans-serif;
+    display: inline;
+    z-index: 1000;
+}
+div#main_body{
+    position:absolute;
+    font-family:Quicksand,sans-serif;
+    margin-left:15%;
+    padding-bottom: 5em;
+    width:65%;
+}
+h1{
+    margin-bottom:-.5em
+}
+a{
+    color:#036;
+    text-decoration:underline;
+}
+em{
+    font-weight:bold;
+}
+html{
+    background:#FED;
+    color:#013;
+}
