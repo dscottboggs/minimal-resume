@@ -81,7 +81,6 @@ div.footer{
     font-family: Quicksand, sans-serif;
     position:fixed;
     bottom:0;
-
     background:#FED;
 }
 a.footlink{
@@ -95,6 +94,7 @@ div#main_body{
     position:absolute;
     font-family:Quicksand,sans-serif;
     margin-left:15%;
+    padding-bottom: 5em;
     width:65%;
 }
 h1{
