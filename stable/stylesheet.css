@@ -1,10 +1,10 @@
 @font-face{
     font-family: "Quicksand";
-    src: url('Quicksand-Regular.ttf');
+    src: url('Quicksand-Medium.ttf');
     }
 @font-face{
     font-family: "Worksans";
-    src: url('WorkSans-Medium.ttf');
+    src: url('WorkSans-Regular.ttf');
 }
 div.flip{
     position:relative;
@@ -77,11 +77,18 @@ div.footer{
     border-top:1.5em solid #FED;
     border-bottom:1.5em solid #FED;
     text-align:center;
-    font-size:1em;
+    font-size: 1em;
     font-family: Quicksand, sans-serif;
     position:fixed;
     bottom:0;
     background:#FED;
+}
+div#footer_title{
+  font-size:1.15em;
+  font-weight: bold;
+  margin-top: -0.5em;
+  margin-bottom: -0.5em;
+  font-family: WorkSans, sans-serif;
 }
 a.footlink{
     margin-left:2em;
@@ -89,6 +96,8 @@ a.footlink{
     font-family: Quicksand, sans-serif;
     display: inline;
     z-index: 1000;
+    font-size: 1em;
+    font-weight: normal;
 }
 div#main_body{
     position:absolute;
