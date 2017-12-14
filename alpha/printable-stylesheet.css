@@ -1,10 +1,10 @@
 @font-face{
     font-family: "Quicksand";
-    src: url('Quicksand-Regular.ttf');
+    src: url('Quicksand-Medium.ttf');
     }
 @font-face{
     font-family: "Worksans";
-    src: url('WorkSans-Medium.ttf');
+    src: url('WorkSans-Regular.ttf');
 }
 div.flip{
     position:relative;
@@ -31,7 +31,7 @@ div.panel{
     text-align:right;
 }
 div.subflip{
-    padding:2px;
+    padding:none;
     text-align:right;
     border:none;
     font-size:1.5em;
@@ -44,7 +44,7 @@ div.subflipped{
 }
 div.subpanel{
     font-size:1em;
-    padding:2px;
+    padding:none;
     display:block;
     text-align:left;
 }
