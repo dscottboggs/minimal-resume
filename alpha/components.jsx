@@ -35,9 +35,9 @@ export class Pane extends React.Component {
         className="panel-header">{this.props.title} + (
           {this.props.open}? "-": "+"
         )</div>
-      <div
+      {<div
         id=props_{this.props.identifier}
-        className="panel">{this.props.children}</div>
+        className="panel">{this.props.children}</div> && this.state.open}
     );
   }
 };
