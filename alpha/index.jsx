@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './content';
-import Header, Pane, Footer from './components'
+import Header, Pane, Footer from './components';
+import dedent from 'dedent-js';
 
 dom = ReactDOM
 
