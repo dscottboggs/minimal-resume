@@ -11,5 +11,8 @@
     "url": "."
   },
   "author": "D. Scott Boggs, Jr.",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "dependencies": {
+    "dedent-js": "^1.0.1"
+  }
 }
