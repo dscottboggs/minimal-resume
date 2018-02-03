@@ -24,26 +24,32 @@ export class Pane extends React.Component
       @state.open = yes
 
   render: ->
-    <div
-      id={"panel_header_#{ @props.identifier }"}
-      className="panel-header">{
-        if @props.open then "#{ @props.title }+" else "#{ @props.title }-"
-      }</div>
-    {<div
-      id={"props_#{ @props.identifier }"}
-      className="panel">{@props.children}</div> and @state.open}
+    <div id="panel_wrapper_#{ @props.identifier }">
+      <div
+        id={"panel_header_#{ @props.identifier }"}
+        className="panel-header">{
+          if @props.open then "#{ @props.title }-" else "#{ @props.title }+"
+        }</div>
+      {
+        if @state.open
+          <div
+            id={"props_#{ @props.identifier }"}
+            className="panel">{@props.children}</div>
+      }
+    </div>
     # ^^ only visible if @state.open is truthy
 
 export class Footer extends React.Component
+  createLinkDiv: (link, text, i) ->
+    <a
+      href={link}
+      target="_blank"
+      className="footlink"
+      id={"footer-link-#{ i }"}>{ text }</a>
   render: ->
     <div className="footer">
       <div id="footer-title">Quick Links</div><br />
       {
-        linkdiv = (link, text, i) -> <a
-          href={link}
-          target="_blank"
-          className="footlink"
-          id={"footer-link-#{ i }"}>{text}</a>
-        linkdiv link.link, link.text, i + 1 for link, i in @props.links
+        createLinkDiv(link.link, link.text, i + 1 for link, i in @props.links)
       }
     </div>
