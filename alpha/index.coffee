@@ -21,7 +21,7 @@ DocumentRoot ->
             Children of sections should be either strings/JSX or an array
             of more sections."
       perSection for section in @props.sections
-    <Footer links=FooterLinks />
+    <Footer links={FooterLinks} />
   </body>
 
-dom.render <DocumentRoot sections=Sections />, dom.getElementById('document')
+dom.render <DocumentRoot sections={Sections} />, dom.getElementById('document')

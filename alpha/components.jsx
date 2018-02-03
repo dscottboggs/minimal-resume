@@ -6,8 +6,8 @@ export class Header extends React.Component{
   get phone() => <h3 className='header' id='phone'>(724) 393 - 5536</h3>
   render () {
     <head id="header">
-          {this.name}<br>
-          {this.email}<br>
+          {this.name}<br />
+          {this.email}<br />
           {this.phone}
     <title name='site-title'>{this.name} - Resume</title>
     </head>
