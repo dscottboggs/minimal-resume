@@ -16,16 +16,24 @@ const DocumentRoot = ()=>{
       <div id="intro" className="panel">{IntroText}</div>
       {sections.map(
         function sect(section) {
-          if section.typeof === "object" {
+          if section.text.typeof === "string" {
             return <Pane
               identifier={section.identifier}
               title={section.title}>{section.text}</div>
           }
           else {
-            if section.typeof === "array" {
+            if Array.isArray(section.text.typeof) {
               section.map(function subsect(subsection){
-                sect(subsection);
+                return sect(subsection);
               });
+            }
+            else{
+              console.log(
+                `ERROR: Malformed child of ${section.title} follows:
+                  ${section.text}
+                Children of sections should be either strings/JSX or an array
+                of more sections.`
+              );
             }
           }
         }
