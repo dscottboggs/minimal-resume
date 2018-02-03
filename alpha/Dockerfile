@@ -10,4 +10,4 @@ ADD stylesheet.css ./
 ADD printable-stylesheet*.css ./
 ADD printable-version*.html ./
 ADD printable-version*.pdf ./
-RUN ./node_modules/.bin/browserify index.js -t babelify -o page.js
+RUN ./node_modules/.bin/browserify index.jsx -t babelify -o page.js
