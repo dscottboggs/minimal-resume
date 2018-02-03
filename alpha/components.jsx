@@ -32,8 +32,8 @@ export class Pane extends React.Component {
     return (
       <div
         id=panel_header_{this.props.identifier}
-        className="panel-header">{this.props.title} + (
-          {this.props.open}? "-": "+"
+        className="panel-header"> (
+          {this.state.open? `${this.props.title}-`: `${this.props.title}+`}
         )</div>
       {<div
         id=props_{this.props.identifier}

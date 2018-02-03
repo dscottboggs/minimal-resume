@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-js": "browserify index.jsx -t babelify -o page.js",
-    "build-coffee": "coffee --transpile --compile --inline-map ./",
     "build": "npm run build-coffee && npm run build-js"
   },
   "repository": {
@@ -26,6 +25,5 @@
   "devDependencies": {
     "browserify":         "^15.2.0",
     "babelify":           "^8.0.0",
-    "coffeescript":       ""
   }
 }
