@@ -28,9 +28,11 @@ const DocumentRoot = ()=>{
               });
             }
             else{
-              console.log(
-                `ERROR: Malformed child of ${section.title} follows:
+              console.log(dedent`
+                ERROR: Malformed child of ${section.title} follows:
                   ${section.text}
+                Type: ${typeof(section.text)}
+
                 Children of sections should be either strings/JSX or an array
                 of more sections.`
               );
