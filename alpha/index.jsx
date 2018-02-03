@@ -16,21 +16,24 @@ const DocumentRoot = ()=>{
           if( section.text.typeof === "string" ){
             return <Pane
               identifier={section.identifier}
-              title={section.title}>{section.text}</div>
+              title={section.title}>{section.text} />
           } else {
-            if Array.isArray(section.text.typeof) {
-              section.map(function subsect(subsection){
-                return sect(subsection);
-              });
-            } else{
-              console.log(dedent`
-                ERROR: Malformed child of ${section.title} follows:
-                  ${section.text}
-                Type: ${typeof(section.text)}
+            return () => {
+              if Array.isArray(section.text.typeof) {
+                section.map(function subsect(subsection){
+                  return sect(subsection);
+                });
+              } else {
+                throw () => {
+                  return dedent`
+                    ERROR: Malformed child of ${section.title} follows:
+                      ${section.text}
+                    Type: ${typeof(section.text)}
 
-                Children of sections should be either strings/JSX or an array
-                of more sections.`
-              );
+                    Children of sections should be either strings/JSX or an array
+                    of more sections.`
+                }
+              }
             }
           }
         }
