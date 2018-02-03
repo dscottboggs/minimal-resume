@@ -4,7 +4,9 @@
   "description": "My attempt at an animated resume that is kind on the eyes.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-js": "browserify index.jsx -t babelify -o page.js",
+    "build": "npm run build-js"
   },
   "repository": {
     "type": "git",
