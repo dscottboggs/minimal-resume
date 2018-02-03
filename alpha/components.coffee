@@ -13,7 +13,7 @@ export class Header extends React.Component
     </head>
 
 export class Pane extends React.Component
-  constructor: (properties): ->
+  constructor: (properties) ->
     super properties
     @properties = properties
 
