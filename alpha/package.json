@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-js": "browserify index.jsx -t babelify -o page.js",
-    "build": "npm run build-js"
+    "build": "npm run build-coffee && npm run build-js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,6 @@
   },
   "devDependencies": {
     "browserify":         "^15.2.0",
-    "babelify":           "^8.0.0"
+    "babelify":           "^8.0.0",
   }
 }
