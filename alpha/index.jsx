@@ -8,7 +8,7 @@ const dom = ReactDOM;
 
 const DocumentRoot = ()=>{
   return (
-    <body>
+    <div id="bodywrapper">
       <Header />
       <div id="intro" className="panel">{IntroText}</div>
       {sections.map(
@@ -34,7 +34,7 @@ const DocumentRoot = ()=>{
         }
       )}
       <Footer links={FooterLinks} />
-    </body>
+    </div>
   )
 }
 
