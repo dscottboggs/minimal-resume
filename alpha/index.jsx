@@ -30,6 +30,7 @@ const DocumentRoot = ()=>{
 
                 Children of sections should be either strings/JSX or an array
                 of more sections.` )
+              return <div id="errordiv"></div>
           }
         }
       )}
@@ -38,4 +39,4 @@ const DocumentRoot = ()=>{
   )
 }
 
-dom.render(<DocumentRoot />, dom.getElementById('document') );
+dom.render(<DocumentRoot />, document.getElementById('document') );
