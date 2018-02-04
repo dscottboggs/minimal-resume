@@ -20,6 +20,11 @@ function dockerDeployment {
 
 function buildpkg {
     npm run build-dev
+    xc=$?
+    if [[ $xc > 0 ]]; then
+        echo error running NPM
+        exit $xc
+    fi
 }
 
 function notAllFilesFound {
