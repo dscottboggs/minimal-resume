@@ -31,7 +31,7 @@ function notAllFilesFound {
     echo "      $(find . -type f -name docker-compose.yml -or -name docker-compose.yaml)"
 }
 
-if [ -f ./index.html ] && [ -f ./Dockerfile] && [ -f package.json ]; then
+if [[ -f ./index.html ]] && [[ -f ./Dockerfile ]] && [[ -f package.json ]]; then
     npm help
     xc=$?
     if [ $xc > 0 ]; then
