@@ -1,4 +1,4 @@
-FROM nginx:mainline-alipine
+FROM nginx:mainline-alpine
 LABEL maintainer "D. Scott Boggs, Jr. // madscientists.co"
 WORKDIR /usr/share/nginx/html
 ADD page.js page.js
