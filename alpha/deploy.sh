@@ -37,7 +37,7 @@ if [[ -f ./index.html ]] && [[ -f ./Dockerfile ]] && [[ -f package.json ]]; then
     if [ $xc > 0 ]; then
         echo "npm must be installed."
         echo "Type your password to give sudo permission to install it."
-        sudo aptidude update && sudo aptidude install -y npm
+        sudo aptitude update && sudo aptitude install -y npm
     fi
     buildpkg  # function call
     if [[ -f docker-compose.yml || -f docker-compose.yaml ]]; then
