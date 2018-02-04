@@ -40,7 +40,7 @@ if [[ -f ./index.html ]] && [[ -f ./Dockerfile ]] && [[ -f package.json ]]; then
     fi
     buildpkg  # function call
     if [[ -f docker-compose.yml || -f docker-compose.yaml ]]; then
-        docker-compose up
+        docker-compose up -d
     else
         notAllFilesFound
     fi
