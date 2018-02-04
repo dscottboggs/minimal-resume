@@ -61,9 +61,8 @@ export class Footer extends React.Component {
             target="_blank"
             className="footlink"
             id={`footer_link_${link.text.strip(' ')}`}>{link.text}</a>
-          }
-        );
-      }
+        }
+      )}
     </div>
   }
 }
