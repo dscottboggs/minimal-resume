@@ -18,7 +18,7 @@ function dockerDeployment {
     docker run --detach minimal-resume:$VERSION-dev
 }
 
-function exitOnFail( xc, command ) {
+function exitOnFail(xc, command) {
     if [[ $xc > 0 ]]; then
         echo error running $command
         exit $xc
