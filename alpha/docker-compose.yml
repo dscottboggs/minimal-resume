@@ -20,17 +20,18 @@ services:
   letsencrypt-nginx-proxy-companion: # should automatically handle
     image: jrcs/letsencrypt-nginx-proxy-companion #letsencrypt config
     volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "/run/docker.sock:/var/run/docker.sock:ro"
     volumes_from:
       - nginx-proxy
     environment:
       ACME_CA_URI: https://acme-staging.api.letsencrypt.org/directory
 
   resume:         # my resume
-    image: nginx
+    build: .
     environment:
-      VIRTUAL_HOST:       resume.tams.tech
-      LETSENCRYPT_HOST:   resume.tams.tech
+      VIRTUAL_HOST:       fzpch.tams.tech
+      DEFAULT_HOST:       fzpch.tams.tech
+      LETSENCRYPT_HOST:   fzpch.tams.tech
       LETSENCRYPT_EMAIL:  sysadmin@tams.tech
     volumes:
-      - ./resume/webroot:/usr/share/nginx/html
+      - ./resume/:/usr/share/nginx/html
