@@ -41,6 +41,6 @@ class DocumentRoot extends React.Component {
 }
 
 dom.render(
-  <DocumentRoot sections=Sections footerlinks=FooterLinks />,
+  <DocumentRoot sections={Sections} footerlinks={FooterLinks} />,
   document.getElementById('document')
 );
