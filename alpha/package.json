@@ -15,15 +15,15 @@
   "author": "D. Scott Boggs, Jr.",
   "license": "GPL-3.0",
   "dependencies": {
-    "dedent-js":          "^1.0.1",
-    "babel-preset-env":   "^1.6.1",
+    "dedent-js": "^1.0.1",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "react":              "^16.2.0",
-    "react-dom":          "^16.2.0",
-    "babel-core":         "^6.26.0"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "babel-core": "^6.26.0"
   },
   "devDependencies": {
-    "browserify":         "^15.2.0",
-    "babelify":           "^8.0.0"
+    "browserify": "^15.2.0",
+    "babelify": "^8.0.0"
   }
 }
