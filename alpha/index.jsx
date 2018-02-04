@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Sections, FooterLinks }'./content';
+import { Sections, FooterLinks } from './content';
 import { Header, Pane, Footer } from './components';
 
 const dedent = require('dedent-js');
@@ -14,12 +14,13 @@ const DocumentRoot = ()=>{
       {sections.map(
         function sect(section) {
           if( section.text.typeof === "string" ){
-            return <Pane
+            const pane = <Pane
               identifier={section.identifier}
-              title={section.title}>{section.text} />
+              title={section.title}>{section.text} />;
+            return pane;
           } else {
-            return () => {
-              if Array.isArray(section.text.typeof) {
+            ret = () => {
+              if (Array.isArray(section.text.typeof)) {
                 section.map(function subsect(subsection){
                   return sect(subsection);
                 });
@@ -34,9 +35,10 @@ const DocumentRoot = ()=>{
                     of more sections.`
                 }
               }
-            }
+            return ret();
+            };
           }
-        }
+        };
       )}
       <Footer links=FooterLinks />
     </body>
