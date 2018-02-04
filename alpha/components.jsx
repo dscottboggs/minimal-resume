@@ -36,14 +36,16 @@ export class Pane extends React.Component {
   }
   render() {
     return (
-      <div
-        id=panel_header_{this.props.identifier}
-        className="panel-header"> (
-          {this.state.open? `${this.props.title}-`: `${this.props.title}+`}
-        )</div>
-      {<div
-        id=props_{this.props.identifier}
-        className="panel">{this.props.children}</div> && this.state.open}
+      <div id={`panel_wrapper_${this.props.identifier.strip(" ")}`}>
+        <div
+          id={`panel_header_${this.props.identifier.strip(" ")}`}
+          className="panel-header"> (
+            {this.state.open? `${this.props.title}-`: `${this.props.title}+`}
+          )</div>
+        {<div
+          id={`panel_${this.props.identifier.strip(" ")}`}
+          className="panel">{this.props.children}</div> && this.state.open}
+      </div>
     );
   }
 };
