@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-js": "browserify index.jsx -t babelify -o page.js",
+    "build-js-dev": "browserify index.jsx -d -t babelify -o page.js",
+    "build-dev":"npm run build-js-dev",
     "build": "npm run build-js"
   },
   "repository": {
@@ -13,7 +15,7 @@
     "url": "."
   },
   "author": "D. Scott Boggs, Jr.",
-  "license": "GPL-3.0",
+  "license": "AGPL-3.0",
   "dependencies": {
     "dedent-js": "^1.0.1",
     "babel-preset-env": "^1.6.1",
