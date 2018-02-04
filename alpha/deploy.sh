@@ -29,11 +29,11 @@ if [ -f ./index.html ] && [ -f ./Dockerfile] && [ -f package.json ]; then
     echo "npm must be installed."
     exit $ec
   fi
-  buildpkg()
+  buildpkg  # function call
   xc=$?
   if [[ $xc > 0 ]]; then
-    dockerPrerequisites()
+    dockerPrerequisites  # function call
     if [[ -v $nginx_container && -v $nginx_container ]]; then
-      dockerDeployment()
+      dockerDeployment  # function call
     fi
   fi
