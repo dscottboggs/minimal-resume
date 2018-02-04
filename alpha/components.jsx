@@ -1,9 +1,9 @@
 import React from 'react';
 
 export class Header extends React.Component{
-  get name() => <h1 className='header' id='name'>D. Scott Boggs, Jr.</h1>
-  get email() => <h3 className='header' id='email'>scott@tams.tech</h3>
-  get phone() => <h3 className='header' id='phone'>(724) 393 - 5536</h3>
+  get name => <h1 className='header' id='name'>"D. Scott Boggs, Jr."</h1>
+  get email => <h3 className='header' id='email'>"scott@tams.tech"</h3>
+  get phone => <h3 className='header' id='phone'>"(724) 393 - 5536"</h3>
   render () {
     <head id="header">
           {this.name}<br />
