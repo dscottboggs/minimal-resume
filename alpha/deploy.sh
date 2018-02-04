@@ -18,18 +18,18 @@ function dockerDeployment {
     docker run --detach minimal-resume:$VERSION-dev
 }
 
-function exitOnFail(xc, command) {
-    if [[ $xc > 0 ]]; then
-        echo error running $command
-        exit $xc
+function exitOnFail() {
+    if [[ $1 > 0 ]]; then
+        echo error running $2
+        exit $1
     fi
 }
 
 function buildpkg {
     npm install
-    exitOnFail($?, "npm install")
+    exitOnFail $? "npm install"
     npm run build-dev
-    exitOnFail($?, "npm build")
+    exitOnFail $? "npm build"
 }
 
 function notAllFilesFound {
@@ -48,7 +48,7 @@ if [[ -f ./index.html ]] && [[ -f ./Dockerfile ]] && [[ -f package.json ]]; then
         echo "npm must be installed."
         echo "Type your password to give sudo permission to install it."
         sudo aptitude update && sudo aptitude install -y npm
-        exitOnFail($?, "aptitude installation of npm")
+        exitOnFail $? "aptitude installation of npm"
     fi
     buildpkg  # function call
     if [[ -f docker-compose.yml || -f docker-compose.yaml ]]; then
