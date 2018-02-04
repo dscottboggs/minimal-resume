@@ -32,7 +32,7 @@ function notAllFilesFound {
 }
 
 if [[ -f ./index.html ]] && [[ -f ./Dockerfile ]] && [[ -f package.json ]]; then
-    npm help
+    npm help > /dev/null
     xc=$?
     if [ $xc > 0 ]; then
         echo "npm must be installed."
