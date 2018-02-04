@@ -1,4 +1,4 @@
-export FooterLinks = [
+export const FooterLinks = [
   {
     text: "Code",
     link: "https://gitlab.com/users/dscottboggs/projects"
@@ -16,7 +16,7 @@ export FooterLinks = [
     link: "printable-version.pdf"
   }
 ]
-export Sections = [
+export const Sections = [
   {
     title: "Transportation",
     identifier: "Transportation",
