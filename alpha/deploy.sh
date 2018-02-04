@@ -14,26 +14,36 @@ function dockerPrerequisites {
 }
 
 function dockerDeployment {
-  docker build --tag minimal-resume:$VERSION-dev .
-  docker run --detach minimal-resume:$VERSION-dev
+    docker build --tag minimal-resume:$VERSION-dev .
+    docker run --detach minimal-resume:$VERSION-dev
 }
 
 function buildpkg {
-  npm run build-dev
+    npm run build-dev
+}
+
+function notAllFilesFound {
+    echo "File requirements not fulfilled. This script requires package.json,"
+    echo "index.html, docker-compose.yml and Dockerfile. Found:"
+    echo "      $(find . -type f -name Dockerfile)"
+    echo "      $(find . -type f -name index.html)"
+    echo "      $(find . -type f -name package.json)"
+    echo "      $(find . -type f -name docker-compose.yml -or -name docker-compose.yaml)"
 }
 
 if [ -f ./index.html ] && [ -f ./Dockerfile] && [ -f package.json ]; then
-  npm help
-  xc=$?
-  if [ $xc > 0 ]; then
-    echo "npm must be installed."
-    exit $ec
-  fi
-  buildpkg  # function call
-  xc=$?
-  if [[ $xc > 0 ]]; then
-    dockerPrerequisites  # function call
-    if [[ -v $nginx_container && -v $nginx_container ]]; then
-      dockerDeployment  # function call
+    npm help
+    xc=$?
+    if [ $xc > 0 ]; then
+        echo "npm must be installed."
+        exit $xc
     fi
-  fi
+    buildpkg  # function call
+    if [[ -f docker-compose.yml || -f docker-compose.yaml ]]; then
+        docker-compose up
+    else
+        notAllFilesFound
+    fi
+else
+    notAllFilesFound
+fi
