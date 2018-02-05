@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Sections, FooterLinks } from './content';
+import { Sections, IntroText, FooterLinks } from './content';
 import { Header, Pane, Footer } from './components';
 
 const dedent = require('dedent-js');
