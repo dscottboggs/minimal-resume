@@ -112,7 +112,7 @@ export const Sections = [
                                 (I run linux and live in the terminal for most of my computing)</li>
                             <li>I consider myself much more proficient in Linux/Unix-like systems than
                                 in Windows. I don't currently have Windows on any of my computers and rely
-                                solely on free (libre) software for my workflow.
+                                solely on free (libre) software for my workflow.</li>
                             <li>MS Office (including some Excel; although it has been some time - I use
                                 libreoffice or more recently collabora online for my personal documents)</li>
                         </ul>
