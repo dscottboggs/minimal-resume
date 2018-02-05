@@ -145,7 +145,7 @@ export const Sections = [
                                     href="https://www.ssllabs.com/ssltest/analyze.html?d=scott.madscientists.co"
                                     >SSLLabs</a> for detailed information on why all my sites have
                                     an A+ rating.</li>
-                            </ul>
+                            </ul></li>
                             <li>Python (see my <a target="_blank"
                                 href="https://github.com/dscottboggs?utf8=%E2%9C%93&tab=repositories&q=&type=&language=python">
                                 github</a> and <a target="_blank"
