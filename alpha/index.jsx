@@ -4,7 +4,7 @@ import { Sections, FooterLinks } from './content';
 import { Header, Pane, Footer } from './components';
 
 const dedent = require('dedent-js');
-const dom = ReactDOM;
+//const dom = ReactDOM;
 
 class DocumentRoot extends React.Component {
   sect(section) {
@@ -40,7 +40,7 @@ class DocumentRoot extends React.Component {
   }
 }
 
-dom.render(
+ReactDOM.render(
   <DocumentRoot sections={Sections} footerlinks={FooterLinks} />,
   document.getElementById('doc')
 );
