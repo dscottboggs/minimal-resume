@@ -202,7 +202,7 @@ export const Sections = [
                 I also have studied framing and composition throughout my life
                 including times when I did not have a camera.
 
-                <!-- TODO add photography -->
+                {/* TODO add photography */}
             </div>
         )
     },{
