@@ -1,6 +1,7 @@
 import React from 'react';
 
 export const Header = (props) => {
+    console.log("Rendering page header.");
     return (
         <div id="header">
             {props.name}<br />
@@ -12,22 +13,31 @@ export const Header = (props) => {
 
 export class PaneParent extends React.Component {
     constructor (props) {
+        console.log(`PaneParent: constructor reached for ${this.props.data.identifier} section.`);
         super(props);
         this.state = {open: false}
         this.flip = this.flip.bind(this)
+        console.log("PaneParent constructor completed.");
     }
     flip () {
-        this.setState(
-            {open: this.state.open? false: true}
-        )
+        if (this.state.open){
+            console.log(`Panel ${this.props.data.identifier} is open, closing.`)
+            this.setState({open: false})
+        } else {
+            console.log(`Panel ${this.props.data.identifier} is closed, opening.`)
+            this.setState({open: true})
+        }
     }
     render() {
-        if (this.props.hasChildPanes){
+        data = this.props.data
+        if (data.hasChildPanes){
+            console.log(`Panel ${this.props.data.identifier} has child panes.`)
             // The hasChildPanes option is used to note that the pane has subpanes
-            this.props.children.map(
+            data.children.map(
                 // in that case, PaneParents are recursively created for each
                 // subPanel
                 (childPane) => {
+                    console.log(`Calling for creation of child pane ${childPane.identifier}`)
                     return (
                         <PaneParent
                             identifier={childPane.identifier}
@@ -38,21 +48,30 @@ export class PaneParent extends React.Component {
                 }
             );
         }else {
+            console.log(dedent `
+                Calling for render of Pane for:
+                    ID/Key: ${data.identifier}
+                    Title: ${data.title}
+                    Child (text): ${data.children}`)
             return (
                 <Pane
-                    parentId={`panel_wrapper_${this.props.identifier.strip(" ")}`}
-                    titleId={`panel_header_${this.props.identifier.strip(" ")}`}
+                    parentId={`panel_wrapper_${data.identifier.strip(" ")}`}
+                    titleId={`panel_header_${data.identifier.strip(" ")}`}
                     titleClass="panel-header"
-                    childID={`panel_${this.props.identifier.strip(' ')}`}
+                    childID={`panel_${data.identifier.strip(' ')}`}
                     childClass="panel"
                     onclick={this.flip}
-                    children={this.props.children}
+                    children={data.children}
                 />
             )
         }
     }
 };
-const Pane = () => {
+const Pane = (props) => {
+    console.log(dedent `
+        Rendering Pane for:
+            ID/Key: ${data.identifier}
+            Title: ${data.title}`)
     return (
         <div id={props.parentId}>
             <div
@@ -70,7 +89,7 @@ const Pane = () => {
     )
 }
 
-const PaneText = () => {
+const PaneText = (props) => {
     if (props.open){
         return (
             <div id={props.id} className={props.className}>
@@ -82,20 +101,23 @@ const PaneText = () => {
 }
 
 export const Footer = () => {
-    <div className="footer">
-        <div id="footer-title">Quick Links</div><br />
-        { props.links.map(
-            function(link) {
-                return (
-                    <a
-                            href={link.link}
-                            target="_blank"
-                            className="footlink"
-                            id={`footer_link_${link.text.strip(' ')}`}
-                        >{link.text}
-                    </a>
-                )
-            }
-        )}
-    </div>
+    console.log("Rendering page footer.")
+    return(
+        <div className="footer">
+            <div id="footer-title">Quick Links</div><br />
+            { props.links.map(
+                function(link) {
+                    return (
+                        <a
+                                href={link.link}
+                                target="_blank"
+                                className="footlink"
+                                id={`footer_link_${link.text.strip(' ')}`}
+                            >{link.text}
+                        </a>
+                    )
+                }
+            )}
+        </div>
+    )
 }
