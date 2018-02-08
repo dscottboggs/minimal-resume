@@ -1,23 +1,13 @@
 import React from 'react';
 
-export class Header extends React.Component{
-    get name() {
-        <h1 className='header' id='name'>"D. Scott Boggs, Jr."</h1>
-    }
-    get email() {
-        <h3 className='header' id='email'>"scott@tams.tech"</h3>
-    }
-    get phone() {
-        <h3 className='header' id='phone'>"(724) 393 - 5536"</h3>
-    }
-    render () {
-        <head id="header">
-            {this.name}<br />
-            {this.email}<br />
-            {this.phone}
-            <title name='site-title'>{this.name} - Resume</title>
-        </head>
-    }
+export const Header = () => {
+    return (
+        <div id="header">
+            {this.props.name}<br />
+            {this.props.email}<br />
+            {this.props.phone}
+        </div>
+    )
 }
 
 export class PaneParent extends React.Component {
@@ -60,49 +50,49 @@ export class PaneParent extends React.Component {
         }
     }
 };
-class Pane extends React.Component {
-    render() {
-        return (
-            <div id={this.props.parentId}>
-                <div
+const Pane = () => {
+    return (
+        <div id={this.props.parentId}>
+            <div
                     id={this.props.titleId}
                     className={this.props.titleClass}
                     onClick{this.props.onClick}
-                >{this.props.title}</div>
+                >{this.props.title}
+            </div>
             <PaneText
                 id={this.props.childID}
                 className={this.props.childClass}
                 children={this.props.children} \>
-            </div>
-        )
-    }
-}
-class PaneText extends React.Component {
-    render(){
-        if (this.props.open){
-            return (
-                <div id={this.props.id} className={this.props.className}>
-                    {this.props.children}
-                </div>
-            )
-        }
-        return null
-    }
+        </div>
+    )
 }
 
-export class Footer extends React.Component {
-  render() {
+const PaneText = () => {
+    if (this.props.open){
+        return (
+            <div id={this.props.id} className={this.props.className}>
+                {this.props.children}
+            </div>
+        );
+    }
+    return null
+}
+
+export const Footer = () => {
     <div className="footer">
-      <div id="footer-title">Quick Links</div><br />
-      { this.props.links.map(
-        function(link) {
-          return <a
-            href={link.link}
-            target="_blank"
-            className="footlink"
-            id={`footer_link_${link.text.strip(' ')}`}>{link.text}</a>
-        }
-      )}
+        <div id="footer-title">Quick Links</div><br />
+        { this.props.links.map(
+            function(link) {
+                return (
+                    <a
+                            href={link.link}
+                            target="_blank"
+                            className="footlink"
+                            id={`footer_link_${link.text.strip(' ')}`}
+                        >{link.text}
+                    </a>
+                )
+            }
+        )}
     </div>
-  }
 }
