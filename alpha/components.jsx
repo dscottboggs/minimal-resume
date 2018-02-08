@@ -1,36 +1,36 @@
 import React from 'react';
 
 export class Header extends React.Component{
-  get name() {
-    <h1 className='header' id='name'>"D. Scott Boggs, Jr."</h1>
-  }
-  get email() {
-    <h3 className='header' id='email'>"scott@tams.tech"</h3>
-  }
-  get phone() {
-    <h3 className='header' id='phone'>"(724) 393 - 5536"</h3>
-  }
-  render () {
-    <head id="header">
-          {this.name}<br />
-          {this.email}<br />
-          {this.phone}
-    <title name='site-title'>{this.name} - Resume</title>
-    </head>
-  }
+    get name() {
+        <h1 className='header' id='name'>"D. Scott Boggs, Jr."</h1>
+    }
+    get email() {
+        <h3 className='header' id='email'>"scott@tams.tech"</h3>
+    }
+    get phone() {
+        <h3 className='header' id='phone'>"(724) 393 - 5536"</h3>
+    }
+    render () {
+        <head id="header">
+            {this.name}<br />
+            {this.email}<br />
+            {this.phone}
+            <title name='site-title'>{this.name} - Resume</title>
+        </head>
+    }
 }
 
 export class PaneParent extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = {open: false}
-    this.flip = this.flip.bind(this)
-  }
-  flip () {
-    this.setState(
-        {open: this.state.open? false: true}
-    )
-  }
+    constructor (props) {
+        super(props);
+        this.state = {open: false}
+        this.flip = this.flip.bind(this)
+    }
+    flip () {
+        this.setState(
+            {open: this.state.open? false: true}
+        )
+    }
     render() {
         if (this.props.hasChildPanes){
             // The hasChildPanes option is used to note that the pane has subpanes
