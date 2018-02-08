@@ -26,7 +26,8 @@ export const Sections = [
     {
         title: "Transportation",
         identifier: "Transportation",
-        text: (
+        hasChildren: false,
+        children: (
             <div id="panel1" className="panel">
                 My largest range of official experience is in the transportation industry.
                 I have around three years of professional experience. I prefer to drive a manual
@@ -64,11 +65,13 @@ export const Sections = [
     }, {
         title: "Technology",
         identifier: "Technology",
-        text: [
+        hasChildren: true,
+        children: [
             {
                 title: "Hardware",
                 identifier: "Hardware",
-                text: (
+                hasChildren: false,
+                children: (
                     <div class="subpanel"><ul>
                         <li>I began my study of the inner workings of electronics on my own when I was
                             younger, but at 14 a local TV repairman agreed to teach me, and I spent a
@@ -88,7 +91,8 @@ export const Sections = [
             },{
                 title: "Software",
                 identifier: "Software",
-                text: (
+                hasChildren: false,
+                children: (
                     <div class="subpanel">
                         <ul>
                             <li><a href="https://madscientists.co/category/tech/serving/" target="_blank">
@@ -121,7 +125,8 @@ export const Sections = [
             },{
                 title: "Code",
                 identifier: "Code",
-                text: (
+                hasChildren: false,
+                children: (
                     <div class="subpanel">
                         <ul>
                             <li>Java - studied at college and HS, up through data structures (see my
@@ -167,7 +172,8 @@ export const Sections = [
             },{
                 title: "Networking and more...",
                 identifier: "Networking and more...",
-                text: (
+                hasChildren: false,
+                children: (
                     <div class="subpanel">
                         <ul>
                             <li>Network configuration and security, routing.</li>
@@ -192,7 +198,8 @@ export const Sections = [
     },{
         title: "Photography and Video",
         identifier: "Photography and Video",
-        text: (
+        hasChildren: false,
+        children: (
             <div id="panel4" class="panel"      >
                 I have been working with digital photography and videography quite
                 steadily for the past year or so, and it's been a passing interest
@@ -208,7 +215,8 @@ export const Sections = [
     },{
         title: "Education",
         identifier: "Education",
-        text: (
+        hasChildren: false,
+        children: (
             <ul>
                 <li>Graduated from Burrell High School in Lower Burrell, PA; class of 2011.</li>
                 <li>Attended some college at Westmoreland County Community Colllege and the
@@ -217,9 +225,9 @@ export const Sections = [
             </ul>
         )
     },{
-        title: "Education",
-        identifier: "Education",
-        text: (
+        title: "Relevant Equipment",
+        identifier: "Relevant Equipment",
+        children: (
             <ul>
                 <li>Transportion
                     <ul><li>2009 Honda Civic</li></ul>
