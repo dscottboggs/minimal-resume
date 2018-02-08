@@ -38,15 +38,17 @@ export class PaneParent extends React.Component {
                 }
             );
         }else {
-        return (
-            <Pane
-                parentId={`panel_wrapper_${this.props.identifier.strip(" ")}`}
-                titleId={`panel_header_${this.props.identifier.strip(" ")}`}
-                titleClass="panel-header"
-                childID={`panel_${this.props.identifier.strip(' ')}`}
-                childClass="panel"
-                onclick={this.flip}
-                children={this.props.children}/>
+            return (
+                <Pane
+                    parentId={`panel_wrapper_${this.props.identifier.strip(" ")}`}
+                    titleId={`panel_header_${this.props.identifier.strip(" ")}`}
+                    titleClass="panel-header"
+                    childID={`panel_${this.props.identifier.strip(' ')}`}
+                    childClass="panel"
+                    onclick={this.flip}
+                    children={this.props.children}
+                />
+            )
         }
     }
 };
