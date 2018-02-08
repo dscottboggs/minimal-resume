@@ -1,11 +1,11 @@
 import React from 'react';
 
-export const Header = () => {
+export const Header = (props) => {
     return (
         <div id="header">
-            {this.props.name}<br />
-            {this.props.email}<br />
-            {this.props.phone}
+            {props.name}<br />
+            {props.email}<br />
+            {props.phone}
         </div>
     )
 }
@@ -54,27 +54,27 @@ export class PaneParent extends React.Component {
 };
 const Pane = () => {
     return (
-        <div id={this.props.parentId}>
+        <div id={props.parentId}>
             <div
-                    id={this.props.titleId}
-                    className={this.props.titleClass}
-                    onClick={this.props.onClick}
-                >{this.props.title}
+                    id={props.titleId}
+                    className={props.titleClass}
+                    onClick={props.onClick}
+                >{props.title}
             </div>
             <PaneText
-                id={this.props.childID}
-                className={this.props.childClass}
-                children={this.props.children}
+                id={props.childID}
+                className={props.childClass}
+                children={props.children}
             />
         </div>
     )
 }
 
 const PaneText = () => {
-    if (this.props.open){
+    if (props.open){
         return (
-            <div id={this.props.id} className={this.props.className}>
-                {this.props.children}
+            <div id={props.id} className={props.className}>
+                {props.children}
             </div>
         );
     }
@@ -84,7 +84,7 @@ const PaneText = () => {
 export const Footer = () => {
     <div className="footer">
         <div id="footer-title">Quick Links</div><br />
-        { this.props.links.map(
+        { props.links.map(
             function(link) {
                 return (
                     <a
