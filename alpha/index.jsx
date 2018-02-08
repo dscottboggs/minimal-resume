@@ -7,12 +7,11 @@ const dedent = require('dedent-js');
 
 class DocumentRoot extends React.Component {
     sect(section) {
-        const pane = (<PaneParent
+        return (<PaneParent
             identifier={section.identifier}
             title={section.title}
             children={section.text}></PaneParent>;
         )
-        return pane;
     }
     render() {
         return (

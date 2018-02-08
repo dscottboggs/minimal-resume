@@ -31,17 +31,34 @@ export class PaneParent extends React.Component {
         {open: this.state.open? false: true}
     )
   }
-  render() {
-    return (
-        <Pane
-            parentId={`panel_wrapper_${this.props.identifier.strip(" ")}`}
-            titleId={`panel_header_${this.props.identifier.strip(" ")}`}
-            titleClass="panel-header"
-            childID={`panel_${this.props.identifier.strip(' ')}`}
-            childClass="panel"
-            onclick={this.flip}
-            children={this.props.children}/>
-  }
+    render() {
+        if (this.props.hasChildPanes){
+            // The hasChildPanes option is used to note that the pane has subpanes
+            this.props.children.map(
+                // in that case, PaneParents are recursively created for each
+                // subPanel
+                (childPane) => {
+                    return (
+                        <PaneParent
+                            identifier={childPane.identifier}
+                            title={childPane.title}
+                            children={childPane.children}
+                        />
+                    )
+                }
+            );
+        }else {
+        return (
+            <Pane
+                parentId={`panel_wrapper_${this.props.identifier.strip(" ")}`}
+                titleId={`panel_header_${this.props.identifier.strip(" ")}`}
+                titleClass="panel-header"
+                childID={`panel_${this.props.identifier.strip(' ')}`}
+                childClass="panel"
+                onclick={this.flip}
+                children={this.props.children}/>
+        }
+    }
 };
 class Pane extends React.Component {
     render() {
