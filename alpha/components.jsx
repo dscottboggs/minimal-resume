@@ -80,13 +80,13 @@ class Pane extends React.Component {
 class PaneText extends React.Component {
     render(){
         if (this.props.open){
-            return null;
+            return (
+                <div id={this.props.id} className={this.props.className}>
+                    {this.props.children}
+                </div>
+            )
         }
-        return (
-            <div id={this.props.id} className={this.props.className}>
-                {this.props.children}
-            </div>
-        )
+        return null
     }
 }
 
