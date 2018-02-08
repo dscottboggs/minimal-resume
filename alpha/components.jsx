@@ -58,7 +58,7 @@ const Pane = () => {
             <div
                     id={this.props.titleId}
                     className={this.props.titleClass}
-                    onClick{this.props.onClick}
+                    onClick={this.props.onClick}
                 >{this.props.title}
             </div>
             <PaneText
