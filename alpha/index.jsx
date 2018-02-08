@@ -10,7 +10,7 @@ class DocumentRoot extends React.Component {
         return (<PaneParent
             identifier={section.identifier}
             title={section.title}
-            children={section.text}></PaneParent>;
+            children={section.text}></PaneParent>
         )
     }
     render() {
