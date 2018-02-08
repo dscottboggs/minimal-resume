@@ -7,17 +7,17 @@ const dedent = require('dedent-js');
 
 class DocumentRoot extends React.Component {
     constructor(props) {
+        console.log("DocumentRoot constructor reached");
         super(props);
         this.sect = this.sect.bind(this);
+        console.log("DocumentRoot constructor completed.");
     }
     sect(section) {
-        return (<PaneParent
-            identifier={section.identifier}
-            title={section.title}
-            children={section.text}></PaneParent>
-        );
+        console.log(`DocumentRoot.sect: Identifier/Key: ${section.identifier}`);
+        return <PaneParent data={section} />
     }
     render() {
+        console.log("DocumentRoot.render: Beginning rendering of document root");
         return (
             <div id="bodywrapper">
                 <Header />  //The header
