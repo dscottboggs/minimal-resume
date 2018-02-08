@@ -20,35 +20,58 @@ export class Header extends React.Component{
   }
 }
 
-export class Pane extends React.Component {
-  constructor (properties) {
-    super(properties);
-    this.state = {'open': false}
+export class PaneParent extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {open: false}
+    this.flip = this.flip.bind(this)
   }
   flip () {
-    if (this.state.open){
-      // close it
-      this.state.open = false;
-    } else {
-      // open it
-      this.state.open = true;
-    }
+    this.setState(
+        {open: this.state.open? false: true}
+    )
   }
   render() {
     return (
-      <div id={`panel_wrapper_${this.props.identifier.strip(" ")}`}>
-        <div
-          id={`panel_header_${this.props.identifier.strip(" ")}`}
-          className="panel-header"> (
-            {this.state.open? `${this.props.title}-`: `${this.props.title}+`}
-          )</div>
-        {<div
-          id={`panel_${this.props.identifier.strip(" ")}`}
-          className="panel">{this.props.children}</div> && this.state.open}
-      </div>
-    );
+        <Pane
+            parentId={`panel_wrapper_${this.props.identifier.strip(" ")}`}
+            titleId={`panel_header_${this.props.identifier.strip(" ")}`}
+            titleClass="panel-header"
+            childID={`panel_${this.props.identifier.strip(' ')}`}
+            childClass="panel"
+            onclick={this.flip}
+            children={this.props.children}/>
   }
 };
+class Pane extends React.Component {
+    render() {
+        return (
+            <div id={this.props.parentId}>
+                <div
+                    id={this.props.titleId}
+                    className={this.props.titleClass}
+                    onClick{this.props.onClick}
+                >{this.props.title}</div>
+            <PaneText
+                id={this.props.childID}
+                className={this.props.childClass}
+                children={this.props.children} \>
+            </div>
+        )
+    }
+}
+class PaneText extends React.Component {
+    render(){
+        if (this.props.open){
+            return null;
+        }
+        return (
+            <div id={this.props.id} className={this.props.className}>
+                {this.props.children}
+            </div>
+        )
+    }
+}
 
 export class Footer extends React.Component {
   render() {
