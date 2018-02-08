@@ -64,7 +64,8 @@ const Pane = () => {
             <PaneText
                 id={this.props.childID}
                 className={this.props.childClass}
-                children={this.props.children} \>
+                children={this.props.children}
+            />
         </div>
     )
 }
