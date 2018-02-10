@@ -15,6 +15,27 @@ export const Header = (props) => {
     )
 }
 
+const getChildrenPanes = (children) => {
+    if (!children.type === 'array'){
+        console.log(`ERROR: Array of children is not an array, it is ${children.type}`)
+        return null
+    }
+    return children.map(
+        // in that case, PaneParents are recursively created for each
+        // subPanel
+        (childPane) => {
+            console.log(`Calling for creation of child pane ${childPane.identifier}`)
+            return (
+                <PaneParent
+                    identifier={childPane.identifier}
+                    title={childPane.title}
+                    children={childPane.children}
+                />
+            )
+        }
+    );
+}
+
 export class PaneParent extends React.Component {
     constructor (props) {
         super(props);
@@ -37,20 +58,9 @@ export class PaneParent extends React.Component {
         if (data.hasChildPanes){
             console.log(`Panel ${this.props.data.identifier} has child panes.`)
             // The hasChildPanes option is used to note that the pane has subpanes
-            data.children.map(
-                // in that case, PaneParents are recursively created for each
-                // subPanel
-                (childPane) => {
-                    console.log(`Calling for creation of child pane ${childPane.identifier}`)
-                    return (
-                        <PaneParent
-                            identifier={childPane.identifier}
-                            title={childPane.title}
-                            children={childPane.children}
-                        />
-                    )
-                }
-            );
+            <span class="childPanes">
+                return getChildrenPanes(this.props.children)
+            </span>
         }else {
             console.log(dedent `
                 Calling for render of Pane for:
