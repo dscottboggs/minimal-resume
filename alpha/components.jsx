@@ -17,14 +17,14 @@ export const Header = (props) => {
 
 const getChildrenPanes = (children) => {
     if (!children.type === 'array'){
-        console.log(`ERROR: Array of children is not an array, it is ${children.type}`)
-        return null
+        console.log(`ERROR: Array of children is not an array, it is ${children.type}`);
+        return null;
     }
     return children.map(
         // in that case, PaneParents are recursively created for each
         // subPanel
         (childPane) => {
-            console.log(`Calling for creation of child pane ${childPane.identifier}`)
+            console.log(`Calling for creation of child pane ${childPane.identifier}`);
             return (
                 <PaneParent
                     identifier={childPane.identifier}
@@ -46,20 +46,20 @@ export class PaneParent extends React.Component {
     }
     flip () {
         if (this.state.open){
-            console.log(`Panel ${this.props.data.identifier} is open, closing.`)
-            this.setState({open: false})
+            console.log(`Panel ${this.props.data.identifier} is open, closing.`);
+            this.setState({open: false});
         } else {
-            console.log(`Panel ${this.props.data.identifier} is closed, opening.`)
-            this.setState({open: true})
+            console.log(`Panel ${this.props.data.identifier} is closed, opening.`);
+            this.setState({open: true});
         }
     }
     render() {
-        const data = this.props.data
+        const data = this.props.data;
         if (data.hasChildPanes){
-            console.log(`Panel ${this.props.data.identifier} has child panes.`)
+            console.log(`Panel ${this.props.data.identifier} has child panes.`);
             // The hasChildPanes option is used to note that the pane has subpanes
             <span className="childPanes">
-                return getChildrenPanes(this.props.children)
+                return getChildrenPanes(this.props.children);
             </span>
         }else {
             console.log(dedent `
@@ -74,10 +74,10 @@ export class PaneParent extends React.Component {
                     onclick={this.flip}
                     children={data.children}
                 />
-            )
+            );
         }
     }
-};
+}
 
 const getPaneParentId = (identifier) => `panel_wrapper_${identifier.replace(' ', '')}`
 const getPaneTitleId = (identifier) => `panel_header_${identifier.replace(' ', '')}`
