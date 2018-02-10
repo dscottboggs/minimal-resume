@@ -13,8 +13,8 @@ export const Header = (props) => {
 
 export class PaneParent extends React.Component {
     constructor (props) {
-        console.log(`PaneParent: constructor reached for ${this.props.data.identifier} section.`);
         super(props);
+        console.log(`PaneParent: constructor reached for ${this.props.data.identifier} section.`);
         this.state = {open: false}
         this.flip = this.flip.bind(this)
         console.log("PaneParent constructor completed.");
