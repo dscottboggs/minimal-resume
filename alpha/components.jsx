@@ -26,11 +26,7 @@ const getChildrenPanes = (children) => {
         (childPane) => {
             console.log(`Calling for creation of child pane ${childPane.identifier}`);
             return (
-                <PaneParent
-                    identifier={childPane.identifier}
-                    title={childPane.title}
-                    children={childPane.children}
-                />
+                <PaneParent data={childPane}/>
             )
         }
     );
