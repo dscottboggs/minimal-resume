@@ -20,11 +20,10 @@ class DocumentRoot extends React.Component {
         console.log("DocumentRoot.render: Beginning rendering of document root");
         return (
             <div id="bodywrapper">
-                <Header />  //The header
+                <Header />
                 <div id="intro" className="panel">{IntroText}</div>
-                // ^^ the text at the top that doesn't really fit in a section
-                {this.props.sections.map((section) => this.sect(section))}  // a loop over all of the sections
-                <Footer links={this.props.footerlinks} />    // the quick links section at the bottom
+                {this.props.sections.map((section) => this.sect(section))}
+                <Footer links={this.props.footerlinks} />
             </div>
         );
     }
