@@ -1,5 +1,7 @@
 import React from 'react';
 
+const dedent = require('dedent-js')
+
 export const Header = (props) => {
     console.log("Rendering page header.");
     return (
