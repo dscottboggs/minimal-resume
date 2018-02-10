@@ -31,7 +31,7 @@ export const Sections = [
     {
         title: "Transportation",
         identifier: "Transportation",
-        hasChildren: false,
+        hasChildPanes: false,
         children: (
             <div id="panel1" className="panel">
                 My largest range of official experience is in the transportation industry.
@@ -70,12 +70,12 @@ export const Sections = [
     }, {
         title: "Technology",
         identifier: "Technology",
-        hasChildren: true,
+        hasChildPanes: true,
         children: [
             {
                 title: "Hardware",
                 identifier: "Hardware",
-                hasChildren: false,
+                hasChildPanes: false,
                 children: (
                     <div class="subpanel"><ul>
                         <li>I began my study of the inner workings of electronics on my own when I was
@@ -96,7 +96,7 @@ export const Sections = [
             },{
                 title: "Software",
                 identifier: "Software",
-                hasChildren: false,
+                hasChildPanes: false,
                 children: (
                     <div class="subpanel">
                         <ul>
@@ -130,7 +130,7 @@ export const Sections = [
             },{
                 title: "Code",
                 identifier: "Code",
-                hasChildren: false,
+                hasChildPanes: false,
                 children: (
                     <div class="subpanel">
                         <ul>
@@ -177,7 +177,7 @@ export const Sections = [
             },{
                 title: "Networking and more...",
                 identifier: "Networking and more...",
-                hasChildren: false,
+                hasChildPanes: false,
                 children: (
                     <div class="subpanel">
                         <ul>
@@ -203,7 +203,7 @@ export const Sections = [
     },{
         title: "Photography and Video",
         identifier: "Photography and Video",
-        hasChildren: false,
+        hasChildPanes: false,
         children: (
             <div id="panel4" class="panel"      >
                 I have been working with digital photography and videography quite
@@ -220,7 +220,7 @@ export const Sections = [
     },{
         title: "Education",
         identifier: "Education",
-        hasChildren: false,
+        hasChildPanes: false,
         children: (
             <ul>
                 <li>Graduated from Burrell High School in Lower Burrell, PA; class of 2011.</li>
