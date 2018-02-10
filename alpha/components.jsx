@@ -58,7 +58,7 @@ export class PaneParent extends React.Component {
                     parentId={`panel_wrapper_${data.identifier.strip(" ")}`}
                     titleId={`panel_header_${data.identifier.strip(" ")}`}
                     titleClass="panel-header"
-                    childID={`panel_${data.identifier.strip(' ')}`}
+                    childID={`panel_${data.identifier.replace(' ', '')}`}
                     childClass="panel"
                     onclick={this.flip}
                     children={data.children}
@@ -112,7 +112,7 @@ export const Footer = () => {
                                 href={link.link}
                                 target="_blank"
                                 className="footlink"
-                                id={`footer_link_${link.text.strip(' ')}`}
+                                id={`footer_link_${link.text.replace(' ', '')}`}
                             >{link.text}
                         </a>
                     )
