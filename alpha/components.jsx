@@ -106,7 +106,7 @@ const PaneText = (props) => {
     return null
 }
 
-export const Footer = () => {
+export const Footer = (props) => {
     console.log("Rendering page footer.")
     return(
         <div className="footer">
