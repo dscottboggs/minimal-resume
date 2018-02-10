@@ -1,6 +1,8 @@
 import React from 'react';
 
 const dedent = require('dedent-js')
+const paneTitleClass="panel-header"
+const paneChildClass="panel"
 
 export const Header = (props) => {
     console.log("Rendering page header.");
@@ -57,11 +59,8 @@ export class PaneParent extends React.Component {
                     Child (text): ${data.children}`)
             return (
                 <Pane
-                    parentId={`panel_wrapper_${data.identifier.replace(' ', '')}`}
-                    titleId={`panel_header_${data.identifier.replace(' ', '')}`}
-                    titleClass="panel-header"
-                    childID={`panel_${data.identifier.replace(' ', '')}`}
-                    childClass="panel"
+                    identifier={data.identifier}
+                    title={data.title}
                     onclick={this.flip}
                     children={data.children}
                 />
@@ -69,22 +68,27 @@ export class PaneParent extends React.Component {
         }
     }
 };
+
+const getPaneParentId = (identifier) => `panel_wrapper_${identifier.replace(' ', '')}`
+const getPaneTitleId = (identifier) => `panel_header_${identifier.replace(' ', '')}`
+const getPaneChildId = (identifier) => `panel_${identifier.replace(' ', '')}`
+
 const Pane = (props) => {
     console.log(dedent `
         Rendering Pane for:
-            ID/Key: ${data.identifier}
-            Title: ${data.title}`)
+            ID/Key: ${props.identifier}
+            Title: ${props.title}`)
     return (
-        <div id={props.parentId}>
+        <div id={getPaneParentId(props.identifier)}>
             <div
-                    id={props.titleId}
-                    className={props.titleClass}
+                    id={getPaneTitleId(props.identifier)}
+                    className={paneTitleClass}
                     onClick={props.onClick}
                 >{props.title}
             </div>
             <PaneText
-                id={props.childID}
-                className={props.childClass}
+                id={getPaneChildId(props.identifier)}
+                className={paneChildClass}
                 children={props.children}
             />
         </div>
