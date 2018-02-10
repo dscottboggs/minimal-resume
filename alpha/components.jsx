@@ -57,8 +57,8 @@ export class PaneParent extends React.Component {
                     Child (text): ${data.children}`)
             return (
                 <Pane
-                    parentId={`panel_wrapper_${data.identifier.strip(" ")}`}
-                    titleId={`panel_header_${data.identifier.strip(" ")}`}
+                    parentId={`panel_wrapper_${data.identifier.replace(' ', '')}`}
+                    titleId={`panel_header_${data.identifier.replace(' ', '')}`}
                     titleClass="panel-header"
                     childID={`panel_${data.identifier.replace(' ', '')}`}
                     childClass="panel"
