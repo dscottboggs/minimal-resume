@@ -59,8 +59,8 @@ const footerLinkStyle = {
 }
 
 const documentRootStyle = {
-    background:#FED,
-    color:#013
+    background:"#FED",
+    color:"#013"
 }
 const mainBodyStyle = {
     position:"absolute",
