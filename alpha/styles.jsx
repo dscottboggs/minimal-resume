@@ -1,8 +1,8 @@
 
 const introStyle = {
-    display: "inline";
-    width: "60%";
-    text-align: "right";
+    display: "inline",
+    width: "60%",
+    text-align: "right"
 }
 
 const panelHeaderStyle = {
@@ -15,29 +15,29 @@ const panelHeaderStyle = {
     font-family: "Worksans,sans-serif"
 }
 const panelStyle = {
-    font-size: "1.15em";
-    padding: 5;
-    display: "none";
-    text-align: "left";
-    font-weight: "normal";
+    font-size: "1.15em",
+    padding: 5,
+    display: "none",
+    text-align: "left",
+    font-weight: "normal"
 }
 const headerTextStyle = {
-    text-align: "left";
-    font-weight: "normal";
-    padding-left: "15%";
-    font-family: "Worksans,sans-serif";
+    text-align: "left",
+    font-weight: "normal",
+    padding-left: "15%",
+    font-family: "Worksans,sans-serif"
 }
 const footerBlockStyle = {
-    display: "inline";
-    width: "100%";
-    border-top: "1.5em solid #FED";
-    border-bottom: "1.5em solid #FED";
-    text-align: "center";
-    font-size: "1em";
-    font-family: "Quicksand, sans-serif";
-    position: "fixed";
-    bottom: 0;
-    background: "#FED";
+    display: "inline",
+    width: "100%",
+    border-top: "1.5em solid #FED",
+    border-bottom: "1.5em solid #FED",
+    text-align: "center",
+    font-size: "1em",
+    font-family: "Quicksand, sans-serif",
+    position: "fixed",
+    bottom: 0,
+    background: "#FED"
 }
 
 const footerTitleStyle = {
