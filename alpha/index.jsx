@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Sections, IntroText, FooterLinks } from './content';
 import { Header, PaneParent, Footer } from './components';
+import {
+        introStyle, headerTextStyle, footerBlockStyle, documentRootStyle,
+        mainBodyStyle
+    } from './styles';
 
 const dedent = require('dedent-js');
 
@@ -19,11 +23,13 @@ class DocumentRoot extends React.Component {
     render() {
         console.log("DocumentRoot.render: Beginning rendering of document root");
         return (
-            <div id="bodywrapper">
-                <Header />
-                <div id="intro" className="panel">{IntroText}</div>
-                {this.props.sections.map((section) => this.sect(section))}
-                <Footer links={this.props.footerlinks} />
+            <div id="bodywrapper" style={documentRootStyle}>
+                <Header style={headerTextStyle}/>
+                <div id="intro" style={introStyle}>{IntroText}</div>
+                <div style={mainBodyStyle}>
+                    {this.props.sections.map((section) => this.sect(section))}
+                </div>
+                <Footer links={this.props.footerlinks} style={footerBlockStyle}/>
             </div>
         );
     }

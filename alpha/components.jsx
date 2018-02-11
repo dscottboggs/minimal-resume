@@ -1,8 +1,11 @@
 import React from 'react';
+import {
+        panelHeaderStyle, panelStyle, footerTitleStyle, footerLinkStyle
+    } from './styles';
 
-const dedent = require('dedent-js')
-const paneTitleClass="panel-header"
-const paneChildClass="panel"
+const dedent = require('dedent-js');
+const paneTitleClass="panel-header";
+const paneChildClass="panel";
 
 export const Header = (props) => {
     console.log("Rendering page header.");
@@ -89,6 +92,7 @@ const Pane = (props) => {
     return (
         <div id={getPaneParentId(props.identifier)}>
             <div
+                    style={panelHeaderStyle}
                     id={getPaneTitleId(props.identifier)}
                     className={paneTitleClass}
                     onClick={props.onClick}
@@ -97,6 +101,7 @@ const Pane = (props) => {
             <PaneText
                 id={getPaneChildId(props.identifier)}
                 className={paneChildClass}
+                style={panelStyle}
                 children={props.children}
             />
         </div>
@@ -118,7 +123,8 @@ export const Footer = (props) => {
     console.log("Rendering page footer.")
     return(
         <div className="footer">
-            <div id="footer-title">Quick Links</div><br />
+            <div id="footer-title" style={footerTitleStyle}>Quick Links</div>
+            <br />
             { props.links.map(
                 function(link) {
                     return (
@@ -127,6 +133,7 @@ export const Footer = (props) => {
                                 target="_blank"
                                 className="footlink"
                                 id={`footer_link_${link.text.replace(' ', '')}`}
+                                style={footerLinkStyle}
                             >{link.text}
                         </a>
                     )
