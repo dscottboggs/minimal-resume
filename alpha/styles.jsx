@@ -2,70 +2,70 @@
 const introStyle = {
     display: "inline",
     width: "60%",
-    text-align: "right"
+    textAlign: "right"
 }
 
 const panelHeaderStyle = {
     position: "relative",
     padding: 5,
-    text-align: "right",
+    textAlign: "right",
     border: "none",
-    font-size: "2em",
-    font-weight: "bold",
-    font-family: "Worksans,sans-serif"
+    fontSize: "2em",
+    fontWeight: "bold",
+    fontFamily: "Worksans,sans-serif"
 }
 const panelStyle = {
-    font-size: "1.15em",
+    fontSize: "1.15em",
     padding: 5,
     display: "none",
-    text-align: "left",
-    font-weight: "normal"
+    textAlign: "left",
+    fontWeight: "normal"
 }
 const headerTextStyle = {
-    text-align: "left",
-    font-weight: "normal",
-    padding-left: "15%",
-    font-family: "Worksans,sans-serif"
+    textAlign: "left",
+    fontWeight: "normal",
+    paddingLeft: "15%",
+    fontFamily: "Worksans,sans-serif"
 }
 const footerBlockStyle = {
     display: "inline",
     width: "100%",
-    border-top: "1.5em solid #FED",
-    border-bottom: "1.5em solid #FED",
-    text-align: "center",
-    font-size: "1em",
-    font-family: "Quicksand, sans-serif",
+    borderTop: "1.5em solid #FED",
+    borderBottom: "1.5em solid #FED",
+    textAlign: "center",
+    fontSize: "1em",
+    fontFamily: "Quicksand, sans-serif",
     position: "fixed",
     bottom: 0,
     background: "#FED"
 }
 
 const footerTitleStyle = {
-    font-size: "1.15em";
-    font-weight: "bold";
-    margin-top: "-0.5em";
-    margin-bottom: "-0.5em";
-    font-family: "WorkSans, sans-serif";
+    fontSize: "1.15em",
+    fontWeight: "bold",
+    marginTop: "-0.5em",
+    marginBottom: "-0.5em",
+    fontFamily: "WorkSans, sans-serif"
 }
 
 const footerLinkStyle = {
-    margin-left: "2em";
-    margin-right: "2em";
-    font-family: "Quicksand, sans-serif";
-    display: "inline";
-    z-index: 1000;
-    font-size: "1em";
-    font-weight: "normal";
+    marginLeft: "2em",
+    marginRight: "2em",
+    fontFamily: "Quicksand, sans-serif",
+    display: "inline",
+    zIndex: 1000,
+    fontSize: "1em",
+    fontWeight: "normal"
 }
 
 const documentRootStyle = {
-    background:#FED;
-    color:#013;
+    background:#FED,
+    color:#013
 }
 const mainBodyStyle = {
-    position:"absolute";
-    font-family: "Quicksand,sans-serif";
-    margin-left: "15%";
-    padding-bottom: "5em";
-    width: "65%";
+    position:"absolute",
+    fontFamily: "Quicksand,sans-serif",
+    marginLeft: "15%",
+    paddingBottom: "5em",
+    width: "65%"
 }
