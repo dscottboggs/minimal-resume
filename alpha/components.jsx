@@ -57,31 +57,21 @@ export class PaneParent extends React.Component {
         }
     }
     render() {
-        const data = this.props.data;
-        if (data.hasChildPanes){
-            console.log(`Panel ${data.identifier} has child panes.`);
-            // The hasChildPanes option is used to note that the pane has subpanes
-            return (
-                <span className="childPaness">
-                    {getChildrenPanes(data.children)}
-                </span>
-            )
-        }else {
-            console.log(dedent `
-                Calling for render of Pane for:
-                    ID/Key: ${data.identifier}
-                    Title: ${data.title}
-                    Child (text): ${data.children}`)
-            return (
-                <Pane
-                    identifier={data.identifier}
-                    title={data.title}
-                    onclick={this.flip}
-                    children={data.children}
-                    expanded={this.state.open}
-                />
-            );
-        }
+        console.log(dedent `
+            Calling for render of Pane for:
+                ID/Key: ${this.props.data.identifier}
+                Title: ${this.props.data.title}
+                Child (text): ${this.props.data.children}`)
+        return (
+            <Pane
+                identifier={this.props.data.identifier}
+                title={this.props.data.title}
+                onclick={this.flip}
+                children={this.props.data.children}
+                expanded={this.state.open}
+                hasChildPanes={this.props.this.props.data.hasChildPanes}
+            />
+        );
     }
 }
 
@@ -95,10 +85,26 @@ const Pane = (props) => {
         Rendering Pane for:
             ID/Key: ${props.identifier}
             Title: ${props.title}`)
+    if (props.hasChildPanes){
+        console.log(`Panel ${props.identifier} has child panes.`);
+        // The hasChildPanes option is used to note that the pane has subpanes
+        return (
+            <div id={getPaneParentId(props.identifier)}>
+                <div
+                        id={getPaneTitleId(props.identifier)}
+                        className={paneTitleClass}
+                        onClick={props.onClick}
+                    >{getPaneTitle(props.expanded, props.title)}
+                </div>
+                {getChildrenPanes(props.children)}
+            </div>
+        )
+    }
     return (
         <div id={getPaneParentId(props.identifier)}>
             <div
                     id={getPaneTitleId(props.identifier)}
+                    className={paneTitleClass}
                     onClick={props.onClick}
                 >{getPaneTitle(props.expanded, props.title)}
             </div>
