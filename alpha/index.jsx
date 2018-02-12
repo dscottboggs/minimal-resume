@@ -23,13 +23,13 @@ class DocumentRoot extends React.Component {
     render() {
         console.log("DocumentRoot.render: Beginning rendering of document root");
         return (
-            <div id="bodywrapper" style={documentRootStyle}>
-                <Header style={headerTextStyle}/>
-                <div id="intro" style={introStyle}>{IntroText}</div>
-                <div style={mainBodyStyle}>
+            <div id="bodywrapper">
+                <Header/>
+                <div id="intro" />
+                <div>
                     {this.props.sections.map((section) => this.sect(section))}
                 </div>
-                <Footer links={this.props.footerlinks} style={footerBlockStyle}/>
+                <Footer links={this.props.footerlinks}/>
             </div>
         );
     }

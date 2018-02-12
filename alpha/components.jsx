@@ -92,16 +92,12 @@ const Pane = (props) => {
     return (
         <div id={getPaneParentId(props.identifier)}>
             <div
-                    style={panelHeaderStyle}
                     id={getPaneTitleId(props.identifier)}
-                    className={paneTitleClass}
                     onClick={props.onClick}
                 >{props.title}
             </div>
             <PaneText
                 id={getPaneChildId(props.identifier)}
-                className={paneChildClass}
-                style={panelStyle}
                 children={props.children}
             />
         </div>
@@ -111,7 +107,7 @@ const Pane = (props) => {
 const PaneText = (props) => {
     if (props.open){
         return (
-            <div id={props.id} className={props.className}>
+            <div id={props.id} className={paneChildClass}>
                 {props.children}
             </div>
         );
@@ -123,7 +119,7 @@ export const Footer = (props) => {
     console.log("Rendering page footer.")
     return(
         <div className="footer">
-            <div id="footer-title" style={footerTitleStyle}>Quick Links</div>
+            <div id="footer-title">Quick Links</div>
             <br />
             { props.links.map(
                 function(link) {
@@ -133,7 +129,6 @@ export const Footer = (props) => {
                                 target="_blank"
                                 className="footlink"
                                 id={`footer_link_${link.text.replace(' ', '')}`}
-                                style={footerLinkStyle}
                             >{link.text}
                         </a>
                     )
