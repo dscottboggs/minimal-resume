@@ -36,8 +36,7 @@ const getChildrenPanes = (children) => {
 }
 
 getChildrenPanes.propTypes = {
-    children: PropTypes.array,
-    children[0]: PropTypes.object
+    children: PropTypes.array
 }
 
 export class PaneParent extends React.Component {
@@ -161,6 +160,5 @@ export const Footer = (props) => {
 }
 
 Footer.propTypes = {
-    links: PropTypes.array,
-    links[0]: PropTypes.element
+    links: PropTypes.array
 }
