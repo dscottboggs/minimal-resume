@@ -55,7 +55,7 @@ export class PaneParent extends React.Component {
             console.log(`Panel ${data.identifier} has child panes.`);
             // The hasChildPanes option is used to note that the pane has subpanes
             return (
-                <span className="childPanes">
+                <span className="childPaness">
                     {getChildrenPanes(data.children)}
                 </span>
             )
@@ -71,6 +71,7 @@ export class PaneParent extends React.Component {
                     title={data.title}
                     onclick={this.flip}
                     children={data.children}
+                    expanded={this.state.open}
                 />
             );
         }
@@ -80,6 +81,7 @@ export class PaneParent extends React.Component {
 const getPaneParentId = (identifier) => `panel_wrapper_${identifier.replace(' ', '')}`
 const getPaneTitleId = (identifier) => `panel_header_${identifier.replace(' ', '')}`
 const getPaneChildId = (identifier) => `panel_${identifier.replace(' ', '')}`
+const getPaneTitle = (expanded, title) => expanded? `${title}+`: `${title}-`
 
 const Pane = (props) => {
     console.log(dedent `
@@ -91,18 +93,19 @@ const Pane = (props) => {
             <div
                     id={getPaneTitleId(props.identifier)}
                     onClick={props.onClick}
-                >{props.title}
+                >{getPaneTitle(props.expanded, props.title)}
             </div>
             <PaneText
                 id={getPaneChildId(props.identifier)}
                 children={props.children}
+                expanded={props.expanded}
             />
         </div>
     )
 }
 
 const PaneText = (props) => {
-    if (props.open){
+    if (props.expanded){
         return (
             <div id={props.id} className={paneChildClass}>
                 {props.children}
