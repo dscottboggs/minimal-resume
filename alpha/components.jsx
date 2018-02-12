@@ -17,9 +17,9 @@ export const Header = (props) => {
 }
 
 Header.propTypes = {
-    name  = PropTypes.string,
-    email = proptypes.string,
-    phone = PropTypes.string
+    name : PropTypes.string,
+    email: proptypes.string,
+    phone: PropTypes.string
 }
 
 const getChildrenPanes = (children) => {
