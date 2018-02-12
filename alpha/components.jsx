@@ -58,7 +58,7 @@ export class PaneParent extends React.Component {
             console.log(`Panel ${data.identifier} has child panes.`);
             // The hasChildPanes option is used to note that the pane has subpanes
             return (
-                <span className="childPanes">
+                <span className="childPanes panel">
                     {getChildrenPanes(data.children)}
                 </span>
             )
