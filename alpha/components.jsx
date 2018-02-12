@@ -18,7 +18,7 @@ export const Header = (props) => {
 
 Header.propTypes = {
     name : PropTypes.string,
-    email: proptypes.string,
+    email: PropTypes.string,
     phone: PropTypes.string
 }
 
@@ -132,8 +132,8 @@ const PaneText = (props) => {
 
 PaneText.propTypes = {
     identifier: PropTypes.string,
-    expanded: propTypes.bool,
-    children: propTypes.element
+    expanded: PropTypes.bool,
+    children: PropTypes.element
 }
 
 export const Footer = (props) => {
