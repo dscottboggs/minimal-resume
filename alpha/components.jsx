@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const dedent = require('dedent-js');
 const paneTitleClass="panel-header";
@@ -15,11 +16,13 @@ export const Header = (props) => {
     )
 }
 
+Header.propTypes = {
+    name  = PropTypes.string,
+    email = proptypes.string,
+    phone = PropTypes.string
+}
+
 const getChildrenPanes = (children) => {
-    if (!children.type === 'array'){
-        console.log(`ERROR: Array of children is not an array, it is ${children.type}`);
-        return null;
-    }
     return children.map(
         // in that case, PaneParents are recursively created for each
         // subPanel
@@ -30,6 +33,11 @@ const getChildrenPanes = (children) => {
             )
         }
     );
+}
+
+getChildrenPanes.propTypes = {
+    children: PropTypes.array,
+    children[0]: PropTypes.object
 }
 
 export class PaneParent extends React.Component {
@@ -104,15 +112,29 @@ const Pane = (props) => {
     )
 }
 
+Pane.propTypes = {
+    identifier: PropTypes.string,
+    title: PropTypes.string,
+    onClick: PropTypes.func,
+    expanded: PropTypes.bool,
+    children: PropTypes.object
+}
+
 const PaneText = (props) => {
     if (props.expanded){
         return (
-            <div id={props.id} className={paneChildClass}>
+            <div id={props.identifier} className={paneChildClass}>
                 {props.children}
             </div>
         );
     }
     return null
+}
+
+PaneText.propTypes = {
+    identifier: PropTypes.string,
+    expanded: propTypes.bool,
+    children: propTypes.element
 }
 
 export const Footer = (props) => {
@@ -136,4 +158,9 @@ export const Footer = (props) => {
             )}
         </div>
     )
+}
+
+Footer.propTypes = {
+    links: PropTypes.array,
+    links[0]: PropTypes.element
 }
