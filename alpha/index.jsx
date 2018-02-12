@@ -2,10 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Sections, IntroText, FooterLinks } from './content';
 import { Header, PaneParent, Footer } from './components';
-import {
-        introStyle, headerTextStyle, footerBlockStyle, documentRootStyle,
-        mainBodyStyle
-    } from './styles';
 
 const dedent = require('dedent-js');
 

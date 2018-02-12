@@ -1,7 +1,4 @@
 import React from 'react';
-import {
-        panelHeaderStyle, panelStyle, footerTitleStyle, footerLinkStyle
-    } from './styles';
 
 const dedent = require('dedent-js');
 const paneTitleClass="panel-header";
