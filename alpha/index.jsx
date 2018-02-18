@@ -23,7 +23,7 @@ class DocumentRoot extends React.Component {
             <div id="bodywrapper">
                 <Header name={Head.name} phone={Head.phoneNumber} email={Head.email}/>
                 <div id="intro" />
-                <div>
+                <div id="mainbodywrapper">
                     {this.props.sections.map((section) => this.sect(section))}
                 </div>
                 <Footer links={this.props.footerlinks}/>

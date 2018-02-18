@@ -18,14 +18,12 @@ div.panel-header{
 div.panel{
     font-size:1.15em;
     padding:5px;
-    display:none;
     text-align:left;
     font-weight:normal;
 }
 span.childpanes div.panel{
     font-size:0.95em;
     padding:5px;
-    display:none;
     text-align:left;
     font-weight:normal;
 }
@@ -43,6 +41,9 @@ span.childpanes div.panel-header{
     display:inline;
     width:60%;
     text-align:right;
+}
+#mainbodywrapper {
+    margin-bottom: 6.15em;
 }
 div#header{
     text-align:left;
@@ -80,7 +81,7 @@ a.footlink{
     font-size: 1em;
     font-weight: normal;
 }
-div#main_body{
+div#bodywrapper{
     position:absolute;
     font-family:Quicksand,sans-serif;
     margin-left:15%;
