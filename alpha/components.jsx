@@ -8,9 +8,13 @@ export const Header = (props) => {
     console.log("Rendering page header.");
     return (
         <div id="header">
-            {props.name}<br />
-            {props.email}<br />
-            {props.phone}
+            <h1>
+                {props.name}<br />
+            </h1>
+            <h3>
+                {props.email}<br />
+                {props.phone}
+            </h3>
         </div>
     )
 }
