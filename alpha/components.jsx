@@ -40,7 +40,7 @@ export class PaneParent extends React.Component {
     constructor (props) {
         super(props);
         console.log(`PaneParent: constructor reached for ${this.props.data.identifier} section.`);
-        this.state = {open: false}
+        this.state = {open: true}
         this.flip = this.flip.bind(this)
         console.log("PaneParent constructor completed.");
     }
@@ -75,6 +75,7 @@ export class PaneParent extends React.Component {
                     title={data.title}
                     onclick={this.flip}
                     children={data.children}
+                    open={this.state.open}
                 />
             );
         }
@@ -101,6 +102,7 @@ const Pane = (props) => {
             <PaneText
                 id={getPaneChildId(props.identifier)}
                 children={props.children}
+                open={props.open}
             />
         </div>
     )
