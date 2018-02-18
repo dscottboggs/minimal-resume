@@ -77,7 +77,7 @@ export const Sections = [
                 identifier: "Hardware",
                 hasChildPanes: false,
                 children: (
-                    <div class="subpanel"><ul>
+                    <div className="subpanel"><ul>
                         <li>I began my study of the inner workings of electronics on my own when I was
                             younger, but at 14 a local TV repairman agreed to teach me, and I spent a
                             year and a half learning how electricity and circuits work and learning to
@@ -98,7 +98,7 @@ export const Sections = [
                 identifier: "Software",
                 hasChildPanes: false,
                 children: (
-                    <div class="subpanel">
+                    <div className="subpanel">
                         <ul>
                             <li><a href="https://madscientists.co/category/tech/serving/" target="_blank">
                               LAMP/LEMP setup</a> for web site, cloud server, etc. I prefer nginx over apache,
@@ -132,7 +132,7 @@ export const Sections = [
                 identifier: "Code",
                 hasChildPanes: false,
                 children: (
-                    <div class="subpanel">
+                    <div className="subpanel">
                         <ul>
                             <li>Java - studied at college and HS, up through data structures (see my
                                 <a target="_blank" href="https://github.com/dscottboggs/TemperatureConverter">
@@ -179,7 +179,7 @@ export const Sections = [
                 identifier: "Networking and more...",
                 hasChildPanes: false,
                 children: (
-                    <div class="subpanel">
+                    <div className="subpanel">
                         <ul>
                             <li>Network configuration and security, routing.</li>
                             <li>LAMP setup for web site, cloud server, etc.</li>
@@ -205,7 +205,7 @@ export const Sections = [
         identifier: "Photography and Video",
         hasChildPanes: false,
         children: (
-            <div id="panel4" class="panel"      >
+            <div id="panel4" className="panel"      >
                 I have been working with digital photography and videography quite
                 steadily for the past year or so, and it's been a passing interest
                 most of my life. There were a lot of broken cameras when I was younger
