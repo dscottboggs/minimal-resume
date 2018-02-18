@@ -89,6 +89,7 @@ const Pane = (props) => {
     return (
         <div id={getPaneParentId(props.identifier)}>
             <div
+                    className={paneTitleClass}
                     id={getPaneTitleId(props.identifier)}
                     onClick={props.onClick}
                 >{props.title}
