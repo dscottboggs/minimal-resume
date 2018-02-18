@@ -20,7 +20,7 @@ export const FooterLinks = [
 export const Header = {
     name: "D. Scott Boggs",
     phoneNumber: "(724) 393-5536",
-    emil: "scott@tams.tech"
+    email: "scott@tams.tech"
 }
 export const IntroText = (
     <div id="intro-text">

@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Sections, IntroText, FooterLinks } from './content';
+import { Header as Head, Sections, IntroText, FooterLinks } from './content';
 import { Header, PaneParent, Footer } from './components';
 
 const dedent = require('dedent-js');
+
 
 class DocumentRoot extends React.Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class DocumentRoot extends React.Component {
         console.log("DocumentRoot.render: Beginning rendering of document root");
         return (
             <div id="bodywrapper">
-                <Header/>
+                <Header name={Head.name} phone={Head.phoneNumber} email={Head.email}/>
                 <div id="intro" />
                 <div>
                     {this.props.sections.map((section) => this.sect(section))}
