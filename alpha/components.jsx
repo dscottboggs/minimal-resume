@@ -97,7 +97,8 @@ const Pane = (props) => {
     console.log(dedent `
         Rendering Pane for:
             Identifier: ${props.identifier}
-            Title: ${props.title}`)
+            Title: ${props.title}
+        ${props.open? "with": "without"} content.`)
     //console.log(`Props for Pane:\n${JSON.stringify(props)}`);
     return (
         <div id={getPaneParentId(props.identifier)}>
