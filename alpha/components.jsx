@@ -63,7 +63,7 @@ export class PaneParent extends React.Component {
             return (
                 <Pane
                     className="childPanes"
-                    key={data.key}
+                    identifier={data.key}
                     title={data.title}
                     onClick={this.flip}
                     children={getChildrenPanes(data.children)}
@@ -78,7 +78,7 @@ export class PaneParent extends React.Component {
                     Child (text): ${data.children}`)
             return (
                 <Pane
-                    key={data.key}
+                    identifier={data.key}
                     title={data.title}
                     onClick={this.flip}
                     children={data.children}
@@ -96,19 +96,19 @@ const getPaneChildId = (identifier) => `panel_${identifier.replace(' ', '')}`
 const Pane = (props) => {
     console.log(dedent `
         Rendering Pane for:
-            ID/Key: ${props.key}
+            ID/Key: ${props.identifier}
             Title: ${props.title}`)
     //console.log(`Props for Pane:\n${JSON.stringify(props)}`);
     return (
-        <div id={getPaneParentId(props.key)}>
+        <div id={getPaneParentId(props.identifier)}>
             <div
                     className={paneTitleClass}
-                    id={getPaneTitleId(props.key)}
+                    id={getPaneTitleId(props.identifier)}
                     onClick={props.onClick}
                 >{props.title}
             </div>
             <PaneText
-                id={getPaneChildId(props.key)}
+                id={getPaneChildId(props.identifier)}
                 children={props.children}
                 open={props.open}
             />
