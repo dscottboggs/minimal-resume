@@ -30,7 +30,7 @@ const getChildrenPanes = (children) => {
         (childPane) => {
             console.log(`Calling for creation of child pane ${childPane.identifier}`);
             return (
-                <PaneParent data={childPane}/>
+                <PaneParent data={childPane} key={childPane.identifier}/>
             )
         }
     );
@@ -100,7 +100,7 @@ const Pane = (props) => {
             Title: ${props.title}`)
     //console.log(`Props for Pane:\n${JSON.stringify(props)}`);
     return (
-        <div key={props.identifier} id={getPaneParentId(props.identifier)}>
+        <div id={getPaneParentId(props.identifier)}>
             <div
                     className={paneTitleClass}
                     id={getPaneTitleId(props.identifier)}
