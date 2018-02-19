@@ -28,7 +28,7 @@ const getChildrenPanes = (children) => {
         // in that case, PaneParents are recursively created for each
         // subPanel
         (childPane) => {
-            console.log(`Calling for creation of child pane ${childPane.key}`);
+            console.log(`Calling for creation of child pane ${childPane.identifier}`);
             return (
                 <PaneParent data={childPane}/>
             )
@@ -39,7 +39,7 @@ const getChildrenPanes = (children) => {
 export class PaneParent extends React.Component {
     constructor (props) {
         super(props);
-        console.log(`PaneParent: constructor reached for ${this.props.data.key} section.`);
+        console.log(`PaneParent: constructor reached for ${this.props.data.identifier} section.`);
         this.state = {open: false}
         this.flip = this.flip.bind(this)
         console.log(`PaneParent constructor completed. Current object status follows:`);
@@ -48,22 +48,22 @@ export class PaneParent extends React.Component {
     }
     flip () {
         if (this.state.open){
-            console.log(`Panel ${this.props.data.key} is open, closing.`);
+            console.log(`Panel ${this.props.data.identifier} is open, closing.`);
             this.setState({open: false});
         } else {
-            console.log(`Panel ${this.props.data.key} is closed, opening.`);
+            console.log(`Panel ${this.props.data.identifier} is closed, opening.`);
             this.setState({open: true});
         }
     }
     render() {
         const data = this.props.data;
         if (data.hasChildPanes){
-            console.log(`Panel ${data.key} has child panes.`);
+            console.log(`Panel ${data.identifier} has child panes.`);
             // The hasChildPanes option is used to note that the pane has subpanes
             return (
                 <Pane
                     className="childPanes"
-                    identifier={data.key}
+                    identifier={data.identifier}
                     title={data.title}
                     onClick={this.flip}
                     children={getChildrenPanes(data.children)}
@@ -73,12 +73,12 @@ export class PaneParent extends React.Component {
         }else {
             console.log(dedent `
                 Calling for render of Pane for:
-                    ID/Key: ${data.key}
+                    Identifier: ${data.identifier}
                     Title: ${data.title}
                     Child (text): ${data.children}`)
             return (
                 <Pane
-                    identifier={data.key}
+                    identifier={data.identifier}
                     title={data.title}
                     onClick={this.flip}
                     children={data.children}
@@ -96,11 +96,11 @@ const getPaneChildId = (identifier) => `panel_${identifier.replace(' ', '')}`
 const Pane = (props) => {
     console.log(dedent `
         Rendering Pane for:
-            ID/Key: ${props.identifier}
+            Identifier: ${props.identifier}
             Title: ${props.title}`)
     //console.log(`Props for Pane:\n${JSON.stringify(props)}`);
     return (
-        <div id={getPaneParentId(props.identifier)}>
+        <div key={props.identifier} id={getPaneParentId(props.identifier)}>
             <div
                     className={paneTitleClass}
                     id={getPaneTitleId(props.identifier)}
@@ -135,12 +135,15 @@ export const Footer = (props) => {
             <br />
             { props.links.map(
                 function(link) {
+                    console.log(`Rendering footer link ${link.text} to ${link.link}`)
+                    let identifier = link.text.replace(' ', '')
                     return (
                         <a
+                                key={identifier}
                                 href={link.link}
                                 target="_blank"
                                 className="footlink"
-                                id={`footer_link_${link.text.replace(' ', '')}`}
+                                id={`footer_link_${identifier}`}
                             >{link.text}
                         </a>
                     )
