@@ -14,7 +14,7 @@ class DocumentRoot extends React.Component {
         console.log("DocumentRoot constructor completed.");
     }
     sect(section) {
-        console.log(`DocumentRoot.sect: Identifier/Key: ${section.identifier}`);
+        console.log(`DocumentRoot.sect: Identifier/Key: ${section.key}`);
         return <PaneParent data={section} />
     }
     render() {

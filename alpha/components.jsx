@@ -28,7 +28,7 @@ const getChildrenPanes = (children) => {
         // in that case, PaneParents are recursively created for each
         // subPanel
         (childPane) => {
-            console.log(`Calling for creation of child pane ${childPane.identifier}`);
+            console.log(`Calling for creation of child pane ${childPane.key}`);
             return (
                 <PaneParent data={childPane}/>
             )
@@ -39,7 +39,7 @@ const getChildrenPanes = (children) => {
 export class PaneParent extends React.Component {
     constructor (props) {
         super(props);
-        console.log(`PaneParent: constructor reached for ${this.props.data.identifier} section.`);
+        console.log(`PaneParent: constructor reached for ${this.props.data.key} section.`);
         this.state = {open: false}
         this.flip = this.flip.bind(this)
         console.log(`PaneParent constructor completed. Current object status follows:`);
@@ -48,22 +48,22 @@ export class PaneParent extends React.Component {
     }
     flip () {
         if (this.state.open){
-            console.log(`Panel ${this.props.data.identifier} is open, closing.`);
+            console.log(`Panel ${this.props.data.key} is open, closing.`);
             this.setState({open: false});
         } else {
-            console.log(`Panel ${this.props.data.identifier} is closed, opening.`);
+            console.log(`Panel ${this.props.data.key} is closed, opening.`);
             this.setState({open: true});
         }
     }
     render() {
         const data = this.props.data;
         if (data.hasChildPanes){
-            console.log(`Panel ${data.identifier} has child panes.`);
+            console.log(`Panel ${data.key} has child panes.`);
             // The hasChildPanes option is used to note that the pane has subpanes
             return (
                 <Pane
                     className="childPanes"
-                    identifier={data.identifier}
+                    key={data.key}
                     title={data.title}
                     onClick={this.flip}
                     children={getChildrenPanes(data.children)}
@@ -73,12 +73,12 @@ export class PaneParent extends React.Component {
         }else {
             console.log(dedent `
                 Calling for render of Pane for:
-                    ID/Key: ${data.identifier}
+                    ID/Key: ${data.key}
                     Title: ${data.title}
                     Child (text): ${data.children}`)
             return (
                 <Pane
-                    identifier={data.identifier}
+                    key={data.key}
                     title={data.title}
                     onClick={this.flip}
                     children={data.children}
@@ -96,19 +96,19 @@ const getPaneChildId = (identifier) => `panel_${identifier.replace(' ', '')}`
 const Pane = (props) => {
     console.log(dedent `
         Rendering Pane for:
-            ID/Key: ${props.identifier}
+            ID/Key: ${props.key}
             Title: ${props.title}`)
-    console.log(`Props for Pane:\n${JSON.stringify(props)}`);
+    //console.log(`Props for Pane:\n${JSON.stringify(props)}`);
     return (
-        <div id={getPaneParentId(props.identifier)}>
+        <div id={getPaneParentId(props.key)}>
             <div
                     className={paneTitleClass}
-                    id={getPaneTitleId(props.identifier)}
+                    id={getPaneTitleId(props.key)}
                     onClick={props.onClick}
                 >{props.title}
             </div>
             <PaneText
-                id={getPaneChildId(props.identifier)}
+                id={getPaneChildId(props.key)}
                 children={props.children}
                 open={props.open}
             />

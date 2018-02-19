@@ -30,7 +30,7 @@ export const IntroText = (
 export const Sections = [
     {
         title: "Transportation",
-        identifier: "Transportation",
+        key: "Transportation",
         hasChildPanes: false,
         children: (
             <div id="panel1" className="panel">
@@ -69,12 +69,12 @@ export const Sections = [
         )
     }, {
         title: "Technology",
-        identifier: "Technology",
+        key: "Technology",
         hasChildPanes: true,
         children: [
             {
                 title: "Hardware",
-                identifier: "Hardware",
+                key: "Hardware",
                 hasChildPanes: false,
                 children: (
                     <div className="subpanel"><ul>
@@ -95,7 +95,7 @@ export const Sections = [
                 )
             },{
                 title: "Software",
-                identifier: "Software",
+                key: "Software",
                 hasChildPanes: false,
                 children: (
                     <div className="subpanel">
@@ -129,7 +129,7 @@ export const Sections = [
                 )
             },{
                 title: "Code",
-                identifier: "Code",
+                key: "Code",
                 hasChildPanes: false,
                 children: (
                     <div className="subpanel">
@@ -176,7 +176,7 @@ export const Sections = [
                 )
             },{
                 title: "Networking and more...",
-                identifier: "Networking and more...",
+                key: "Networking and more...",
                 hasChildPanes: false,
                 children: (
                     <div className="subpanel">
@@ -202,7 +202,7 @@ export const Sections = [
         ]
     },{
         title: "Photography and Video",
-        identifier: "Photography and Video",
+        key: "Photography and Video",
         hasChildPanes: false,
         children: (
             <div id="panel4" className="panel"      >
@@ -219,7 +219,7 @@ export const Sections = [
         )
     },{
         title: "Education",
-        identifier: "Education",
+        key: "Education",
         hasChildPanes: false,
         children: (
             <ul>
@@ -231,7 +231,7 @@ export const Sections = [
         )
     },{
         title: "Relevant Equipment",
-        identifier: "Relevant Equipment",
+        key: "Relevant Equipment",
         children: (
             <ul>
                 <li>Transportion
