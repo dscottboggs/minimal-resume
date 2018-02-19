@@ -66,7 +66,7 @@ export class PaneParent extends React.Component {
                     identifier={data.identifier}
                     title={data.title}
                     onClick={this.flip}
-                    children={{getChildrenPanes(data.children)}}
+                    children={getChildrenPanes(data.children)}
                     open={this.state.open}
                 />
             )
