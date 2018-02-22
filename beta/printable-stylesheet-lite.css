@@ -1,0 +1,95 @@
+
+div.flip{
+    position:relative;
+    padding:2px;
+    text-align:right;
+    border:none;
+    font-size:2em;
+    font-weight:bold;
+    font-family:Worksans,sans-serif;
+}
+div.flipped{
+  display: none;
+}
+div.panel{
+    font-size:1.15em;
+    padding:none;
+    display:block;
+    text-align:left;
+    font-weight:normal;
+}
+#intro{
+    display:inline;
+    width:60%;
+    text-align:right;
+}
+div.subflip{
+    padding:none;
+    text-align:right;
+    border:none;
+    font-size:1.5em;
+    font-weight:bold;
+    font-style:italic;
+    font-family:Worksans,sans-serif;
+}
+div.subflipped{
+  display: none;
+}
+div.subpanel{
+    font-size:1em;
+    padding:none;
+    display:block;
+    text-align:left;
+}
+head{
+    text-align:left;
+    font-weight:normal;
+}
+h1,h3{
+    font-family:Worksans,sans-serif;
+}
+div.footer{
+    display:none;
+}
+div.footer#dropup{
+    position: relative;
+    display: inline-block;
+}
+div.dropup-content{
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+div.dropup-content a{
+    text-decoration: none;
+    display: block;
+}
+div#dropup:hover{
+    display: block;
+    bottom: 100%
+}
+a.footlink{
+    margin-left:2em;
+    margin-right:2em;
+    font-family: Quicksand, sans-serif;
+}
+body{
+    position:absolute;
+    font-family:Quicksand,sans-serif;
+    margin-left:15%;
+    width:65%;
+}
+h1{
+    margin-bottom:-.5em
+}
+a{
+    color:#036;
+    text-decoration:underline;
+}
+em{
+    font-weight:bold;
+}
+html{
+    background:#FED;
+    color:#013;
+}
