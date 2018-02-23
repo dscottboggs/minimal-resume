@@ -54,10 +54,11 @@ export class PaneParent extends React.Component {
         if (this.state.open){
             console.log(`Panel ${this.props.data.identifier} is open, closing.`);
             if (this.state.componentClasses.length > 1){
-              componentClasses.pop()
+              this.state.componentClasses.pop()
             }
             else {
-              console.log(`componentClasses only had one member!\n${componentClasses[0]}`);
+              console.log(`componentClasses only had one member!
+                ${this.state.componentClasses[0]}`);
             }
             this.setState({open: false});
         } else {
