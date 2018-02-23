@@ -7,7 +7,7 @@
     src: url('WorkSans-Regular.ttf');
 }
 div.panel-header{
-    position:relative;
+    position: relative;
     padding:5px;
     text-align:right;
     border:none;
@@ -20,6 +20,9 @@ div.panel{
     padding:5px;
     text-align:left;
     font-weight:normal;
+}
+div.panel.hide{
+  display: none;
 }
 span.childpanes div.panel{
     font-size:0.95em;

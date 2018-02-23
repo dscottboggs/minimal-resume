@@ -14,12 +14,12 @@ const panelHeaderStyle = {
     fontWeight: "bold",
     fontFamily: "Worksans,sans-serif"
 }
-const panelStyle = {
+export const panelStyle = {
     fontSize: "1.15em",
     padding: 5,
-    display: "none",
     textAlign: "left",
-    fontWeight: "normal"
+    fontWeight: "normal",
+    animationDuration: "1s"
 }
 const headerTextStyle = {
     textAlign: "left",

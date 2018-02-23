@@ -1,4 +1,5 @@
 import React from 'react';
+import { panelStyle } from './styles.jsx';
 
 const dedent = require('dedent-js');
 const paneTitleClass="panel-header";
@@ -40,7 +41,10 @@ export class PaneParent extends React.Component {
     constructor (props) {
         super(props);
         console.log(`PaneParent: constructor reached for ${this.props.data.identifier} section.`);
-        this.state = {open: false}
+        this.state = {
+          componentClasses: [paneChildClass],
+          open: false
+        }
         this.flip = this.flip.bind(this)
         console.log(`PaneParent constructor completed. Current object status follows:`);
         console.log(`Props:\n${JSON.stringify(this['props'], null, 2)}`)
@@ -49,9 +53,16 @@ export class PaneParent extends React.Component {
     flip () {
         if (this.state.open){
             console.log(`Panel ${this.props.data.identifier} is open, closing.`);
+            if (this.state.componentClasses.length > 1){
+              componentClasses.pop()
+            }
+            else {
+              console.log(`componentClasses only had one member!\n${componentClasses[0]}`);
+            }
             this.setState({open: false});
         } else {
             console.log(`Panel ${this.props.data.identifier} is closed, opening.`);
+            this.state.componentClasses.push('hide')
             this.setState({open: true});
         }
     }
@@ -120,7 +131,7 @@ const Pane = (props) => {
 const PaneText = (props) => {
     if (props.open){
         return (
-            <div id={props.id} className={paneChildClass}>
+            <div id={props.id} style={panelStyle}>
                 {props.children}
             </div>
         );
