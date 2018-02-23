@@ -110,7 +110,7 @@ const Pane = (props) => {
         Rendering Pane for:
             Identifier: ${props.identifier}
             Title: ${props.title}
-        ${props.open? "with": "without"} content.`)
+        ${props.open? "...with": "...without"} content.`)
     //console.log(`Props for Pane:\n${JSON.stringify(props)}`);
     return (
         <div id={getPaneParentId(props.identifier)}>
@@ -130,14 +130,11 @@ const Pane = (props) => {
 }
 
 const PaneText = (props) => {
-    if (props.open){
-        return (
-            <div id={props.id} style={panelStyle}>
-                {props.children}
-            </div>
-        );
-    }
-    return null
+      return (
+          <div id={props.id} className={paneChildClass}>
+              {props.children}
+          </div>
+      );
 }
 
 export const Footer = (props) => {
