@@ -77,6 +77,7 @@ export class PaneParent extends React.Component {
                     title={data.title}
                     onClick={this.toggleSate}
                     children={getChildrenPanes(data.children)}
+                    childClass={this.state.childClass}
                     open={this.state.open}
                 />
             )
@@ -92,6 +93,7 @@ export class PaneParent extends React.Component {
                     title={data.title}
                     onClick={this.toggleSate}
                     children={data.children}
+                    childClass={this.state.childClass}
                     open={this.state.open}
                 />
             );
@@ -109,7 +111,6 @@ const Pane = (props) => {
             Identifier: ${props.identifier}
             Title: ${props.title}
         ${props.open? "...with": "...without"} content.`)
-    //console.log(`Props for Pane:\n${JSON.stringify(props)}`);
     return (
         <div id={getPaneParentId(props.identifier)}>
             <div
@@ -118,21 +119,13 @@ const Pane = (props) => {
                     onClick={props.onClick}
                 >{props.title}
             </div>
-            <PaneText
+            <div
                 id={getPaneChildId(props.identifier)}
                 children={props.children}
-                open={props.open}
-            />
+                className={props.childClass}
+            >{props.children}</div>
         </div>
     )
-}
-
-const PaneText = (props) => {
-      return (
-          <div id={props.id} className={paneChildClass}>
-              {props.children}
-          </div>
-      );
 }
 
 export const Footer = (props) => {
