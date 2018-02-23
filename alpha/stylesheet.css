@@ -21,7 +21,7 @@ div.panel{
     text-align:left;
     font-weight:normal;
 }
-div.panel.hide{
+div.panel_hide{
   display: none;
 }
 span.childpanes div.panel{

@@ -4,6 +4,15 @@ import { panelStyle } from './styles.jsx';
 const dedent = require('dedent-js');
 const paneTitleClass="panel-header";
 const paneChildClass="panel";
+const hiddenPaneChildClass="panel_hide";
+const defaultState={
+  open: false,
+  childClass: hiddenPaneChildClass
+}
+const visibleState={
+  open: true,
+  childClass: paneChildClass
+}
 
 export const Header = (props) => {
     console.log("Rendering page header.");
@@ -42,30 +51,19 @@ export class PaneParent extends React.Component {
         super(props);
         console.log(`PaneParent: constructor reached for ${this.props.data.identifier} section.`);
         this.state = {
-          componentClasses: [paneChildClass],
+          componentClasses: hiddenPaneChildClass,
           open: false
         }
-        this.flip = this.flip.bind(this)
+        this.toggleState = this.toggleState.bind(this)
         console.log(`PaneParent constructor completed. Current object status follows:`);
         console.log(`Props:\n${JSON.stringify(this['props'], null, 2)}`)
         console.log(`State:\n${JSON.stringify(this['state'], null, 2)}`);
     }
-    flip () {
-        if (this.state.open){
-            console.log(`Panel ${this.props.data.identifier} is open, closing.`);
-            if (this.state.componentClasses.length > 1){
-              this.state.componentClasses.pop()
-            }
-            else {
-              console.log(`componentClasses only had one member!
-                ${this.state.componentClasses[0]}`);
-            }
-            this.setState({open: false});
-        } else {
-            console.log(`Panel ${this.props.data.identifier} is closed, opening.`);
-            this.state.componentClasses.push('hide')
-            this.setState({open: true});
-        }
+    toggleState () {
+        console.log(`Panel ${this.props.data.identifier} is ${
+          this.state.open? "open, closing": "closed, opening."
+        }.`);
+        this.setState(this.state.open? defaultState: visibleState);
     }
     render() {
         const data = this.props.data;
@@ -77,7 +75,7 @@ export class PaneParent extends React.Component {
                     className="childPanes"
                     identifier={data.identifier}
                     title={data.title}
-                    onClick={this.flip}
+                    onClick={this.toggleSate}
                     children={getChildrenPanes(data.children)}
                     open={this.state.open}
                 />
@@ -92,7 +90,7 @@ export class PaneParent extends React.Component {
                 <Pane
                     identifier={data.identifier}
                     title={data.title}
-                    onClick={this.flip}
+                    onClick={this.toggleSate}
                     children={data.children}
                     open={this.state.open}
                 />
