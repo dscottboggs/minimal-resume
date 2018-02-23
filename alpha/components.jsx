@@ -4,12 +4,12 @@ import { panelStyle } from './styles.jsx';
 const dedent = require('dedent-js');
 const paneTitleClass="panel-header";
 const paneChildClass="panel";
-const hiddenPaneChildClass="panel_hide";
-const defaultState={
+const hiddenPaneChildClass="hidden_panel";
+const paneDefaultState={
   open: false,
   childClass: hiddenPaneChildClass
 }
-const visibleState={
+const paneVisibleState={
   open: true,
   childClass: paneChildClass
 }
@@ -50,11 +50,8 @@ export class PaneParent extends React.Component {
     constructor (props) {
         super(props);
         console.log(`PaneParent: constructor reached for ${this.props.data.identifier} section.`);
-        this.state = {
-          componentClasses: hiddenPaneChildClass,
-          open: false
-        }
-        this.toggleState = this.toggleState.bind(this)
+        this.state = paneDefaultState;
+        this.toggleState = this.toggleState.bind(this);
         console.log(`PaneParent constructor completed. Current object status follows:`);
         console.log(`Props:\n${JSON.stringify(this['props'], null, 2)}`)
         console.log(`State:\n${JSON.stringify(this['state'], null, 2)}`);
@@ -63,7 +60,7 @@ export class PaneParent extends React.Component {
         console.log(`Panel ${this.props.data.identifier} is ${
           this.state.open? "open, closing": "closed, opening."
         }.`);
-        this.setState(this.state.open? defaultState: visibleState);
+        this.setState(this.state.open? paneDefaultState: paneVisibleState);
     }
     render() {
         const data = this.props.data;
