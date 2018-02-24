@@ -51,16 +51,16 @@ export class PaneParent extends React.Component {
         super(props);
         console.log(`PaneParent: constructor reached for ${this.props.data.identifier} section.`);
         this.state = paneDefaultState;
-        this.toggleState = this.toggleState.bind(this);
+        this.togglePanelVisibility = this.togglePanelVisibility.bind(this);
         console.log(`PaneParent constructor completed. Current object status follows:`);
         console.log(`Props:\n${JSON.stringify(this['props'], null, 2)}`)
         console.log(`State:\n${JSON.stringify(this['state'], null, 2)}`);
     }
-    toggleState () {
+    togglePanelVisibility () {
         console.log(`Panel ${this.props.data.identifier} is ${
           this.state.open? "open, closing": "closed, opening."
         }.`);
-        this.setState(this.state.open? paneDefaultState: paneVisibleState);
+        this.setState(this.state.open? paneDefaultState : paneVisibleState);
     }
     render() {
         const data = this.props.data;
