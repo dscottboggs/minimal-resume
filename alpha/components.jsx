@@ -47,10 +47,14 @@ const getChildrenPanes = (children) => {
 }
 
 export class PaneParent extends React.Component {
+    get animationDuration(){
+        // A central value to change how quickly animations happen.
+        return "0.66s"
+    }
     constructor (props) {
         super(props);
         console.log(`PaneParent: constructor reached for ${this.props.data.identifier} section.`);
-        this.state = paneDefaultState;
+        this.state = this.initialState;
         this.togglePanelVisibility = this.togglePanelVisibility.bind(this);
         console.log(`PaneParent constructor completed. Current object status follows:`);
         console.log(`Props:\n${JSON.stringify(this['props'], null, 2)}`)
@@ -58,13 +62,13 @@ export class PaneParent extends React.Component {
     }
     togglePanelVisibility () {
         console.log(`Panel ${this.props.data.identifier} is ${
-          this.state.open? "open, closing": "closed, opening."
+          this.state.displayed? "open, closing": "closed, opening."
         }.`);
-        this.setState(this.state.open? paneDefaultState : paneVisibleState);
+        this.setState(this.state.displayed? this.hiddenState : this.visibleState);
     }
     render() {
         const data = this.props.data;
-        if (data.hasChildPanes){
+        if (data.hasChildPanes === true){
             console.log(`Panel ${data.identifier} has child panes.`);
             // The hasChildPanes option is used to note that the pane has subpanes
             return (
@@ -72,10 +76,10 @@ export class PaneParent extends React.Component {
                     className="childPanes"
                     identifier={data.identifier}
                     title={data.title}
-                    onClick={this.toggleSate}
+                    onClick={this.togglePanelVisibility}
                     children={getChildrenPanes(data.children)}
                     childClass={this.state.childClass}
-                    open={this.state.open}
+                    style={this.state.style}
                 />
             )
         }else {
@@ -88,12 +92,51 @@ export class PaneParent extends React.Component {
                 <Pane
                     identifier={data.identifier}
                     title={data.title}
-                    onClick={this.toggleSate}
                     children={data.children}
                     childClass={this.state.childClass}
-                    open={this.state.open}
+                    childStyle={this.state.style}
                 />
             );
+        }
+    }
+    get initialState(){
+        // The initial state of the panel - hidden with no animation to get there
+        return {
+            style: {
+                height: 0,
+                opacity: 0
+            },
+            displayed: false
+        }
+    }
+    get hiddenState(){
+        // Hide the panel, but do so by animating it from open.
+        return {
+            style: {
+                animationFillMode:  "forwards",
+                animationDuration: this.animationDuration,
+                animationName: "hidepanel",
+                height: 0,
+                opacity: 0
+            },
+            displayed: false
+        }
+    }
+    get visibleState(){
+        // Show the panel with animation.
+        return {
+            style: {
+                animationFillMode:  "forwards",
+                animationDuration:  this.animationDuration,
+                animationName:      "showpanel",
+                font-size:          "1.15em",
+                padding:            5,
+                text-align:         left,
+                font-weight:        normal,
+                min-height:         15,
+                opacity:            "100%",
+            },
+            displayed: true
         }
     }
 }
@@ -117,9 +160,8 @@ const Pane = (props) => {
                 >{props.title}
             </div>
             <div
-                id={getPaneChildId(props.identifier)}
                 children={props.children}
-                className={props.childClass}
+                style={props.childStyle}
             >{props.children}</div>
         </div>
     )
