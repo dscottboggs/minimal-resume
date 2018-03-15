@@ -109,11 +109,82 @@ class Title extends React.Component {
     selectThisTitle(){
         this.props.Callback(this.props.Key)
     }
+    getColor(selected, theme){
+        if (selected===true) {
+            if (theme.toLowerCase()==="fg") {
+                return "#FED"
+            }
+            else if (theme.toLowerCase()==="bg") {
+                return "#013"
+            }
+            else {
+                console.log(`'theme' was ${theme}. It should have been "fg" or "bg".`);
+            }
+        }
+        else if (selected === false) {
+            if (theme.toLowerCase()==="fg") {
+                return "#FED"
+            }
+            else if (theme.toLowerCase()==="bg") {
+                return "#013"
+            }
+            else {
+                console.log(`'theme' was ${theme}. It should have been "fg" or "bg".`);
+            }
+        }
+        else {
+            console.log(`'selected' was ${selected}, should have been a bool.`);
+        }
+    }
+    get selectedStyle(){
+        const size = "1.5em"
+        return {
+            textAlign:          "center",
+            fontSize:           size,
+            marginTop:          size,
+            marginBottom:       size,
+            animationName:      "addShadow",
+            animationFillMode:  "forwards",
+            animationDuration:  "0.5s",
+            backgroundColor:    this.getColor(true, "bg"),
+            color:              this.getColor(true, "fg"),
+        };
+    }
+    get unSelectedStyle(){
+      const size = "1.5em"
+      return {
+          textAlign:          "center",
+          fontSize:           size,
+          marginTop:          size,
+          marginBottom:       size,
+          animationName:      "addShadow",
+          animationFillMode:  "backwards",
+          animationDuration:  "0.5s",
+          backgroundColor:    this.getColor(false, "bg"),
+          color:              this.getColor(false, "fg"),
+      };
+    }
     render(){
         if (this.props.Selected === true ) {
-            return <div class="SelectedTitleButton" onClick={this.selectThisTitle}>{this.props.Title}</div>;
+            return (
+                <div
+                  style={this.selectedStyle}
+                  className="SelectedTitleButton"
+                  onClick={this.selectThisTitle}
+                >
+                    {this.props.Title}
+                </div>
+            );
         }else{
-            return <div class="TitleButton" onClick={this.selectThisTitle}>{this.props.Title}</div>;
+            return (
+                <div
+                  style={this.unSelectedStyle}
+                  className="UnselectedTitleButton"
+                  onClick={this.selectThisTitle}
+                >
+                    {this.props.Title}
+                </div>
+            );
         }
     }
 }
@@ -147,11 +218,24 @@ export class Footer extends React.Component {
             console.log(`Title key ${titlekey} not found in ${this.state.available}.`)
         }
     }
+    get FooterStyle(){
+        return {
+          display:      "inline",
+          width:        "100%",
+          marginTop:    "0.5em solid #FED",
+          marginBottom: "0.5em solid #FED",
+          textAlign:    "center",
+          fontFamily:   "Quicksand, sans-serif",
+          position:     "fixed",
+          bottom:       0,
+          background:   "#FED",
+        };
+    }
     render(){
         isSelected = (key) => key === this.state.selected;
         console.log("Rendering page footer.")
         return(
-            <div className='footerMenu'>
+            <div className='footerMenu' style={this.FooterStyle}>
                 {this.props.titles.map(
                     (title) => (
                         <Title
