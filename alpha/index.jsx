@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Header as Head, Sections, IntroText, FooterLinks } from './content';
-import { Header, MainBody, Footer } from './components';
+import { Header as Head, Sections } from './content';
+import { Header, MainBody } from './components';
 
 const dedent = require('dedent-js');
 
@@ -22,9 +22,7 @@ class DocumentRoot extends React.Component {
         return (
             <div id="bodywrapper">
                 <Header name={Head.name} phone={Head.phoneNumber} email={Head.email}/>
-                <div id="intro" />
                 <MainBody bodies={Sections} />
-                <Footer links={this.props.footerlinks}/>
             </div>
         );
     }

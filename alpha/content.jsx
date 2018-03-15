@@ -22,13 +22,13 @@ export const Header = {
     phoneNumber: "(724) 393-5536",
     email: "scott@tams.tech"
 }
-export const IntroText = (
-    <div id="intro-text">
-        This document is here to concisely demonstrate the ways in which I can be valuable to potential clientèle, who may be interested in my services for long- and short-term contract opportunities. As you may notice, I have diversified my skill-set, so that I can approach problems from a unique perspective. I will often see an angle to a problem that others don't see because of my wide field of study. However, because of that, I may have skills that are not relevant to your needs, so I've organized by general category to help you to quickly find the skills most relevant to you. There is also an interactive version of this resume which can be found at https://scott.madscientists.co. If you have any questions, or to set up an interview, I can be reached at the above contact information.
-    </div>
-)
 export const Sections = [
     {
+        title: "Introduction",
+        identifier: "intro",
+        hasChildPanes: false,
+        children: `This document is here to concisely demonstrate the ways in which I can be valuable to potential clientèle, who may be interested in my services for long- and short-term contract opportunities. As you may notice, I have diversified my skill-set, so that I can approach problems from a unique perspective. I will often see an angle to a problem that others don't see because of my wide field of study. However, because of that, I may have skills that are not relevant to your needs, so I've organized by general category to help you to quickly find the skills most relevant to you. There is also an interactive version of this resume which can be found at https://scott.madscientists.co. If you have any questions, or to set up an interview, I can be reached at the above contact information.`
+    },{
         title: "Transportation",
         identifier: "Transportation",
         hasChildPanes: false,
