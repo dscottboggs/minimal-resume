@@ -29,23 +29,6 @@ export const Header = (props) => {
     )
 }
 
-const getChildrenPanes = (children) => {
-    if (!children.type === 'array'){
-        console.log(`ERROR: Array of children is not an array, it is ${children.type}`);
-        return null;
-    }
-    return children.map(
-        // in that case, PaneParents are recursively created for each
-        // subPanel
-        (childPane) => {
-            console.log(`Calling for creation of child pane ${childPane.identifier}`);
-            return (
-                <PaneParent data={childPane} key={childPane.identifier}/>
-            )
-        }
-    );
-}
-
 export class MainBody extends React.Component {
     constructor(props) {
         super(props)
