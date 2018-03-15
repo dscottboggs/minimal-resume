@@ -46,149 +46,123 @@ const getChildrenPanes = (children) => {
     );
 }
 
-export class PaneParent extends React.Component {
-    get animationDuration(){
-        // A central value to change how quickly animations happen.
-        return "0.66s"
-    }
-    constructor (props) {
-        super(props);
-        console.log(`PaneParent: constructor reached for ${this.props.data.identifier} section.`);
-        this.state = this.initialState;
-        this.togglePanelVisibility = this.togglePanelVisibility.bind(this);
-        console.log(`PaneParent constructor completed. Current object status follows:`);
-        console.log(`Props:\n${JSON.stringify(this['props'], null, 2)}`)
-        console.log(`State:\n${JSON.stringify(this['state'], null, 2)}`);
-    }
-    togglePanelVisibility () {
-        console.log(`Panel ${this.props.data.identifier} is ${
-          this.state.displayed? "open, closing": "closed, opening."
-        }.`);
-        this.setState(this.state.displayed? this.hiddenState : this.visibleState);
-    }
-    render() {
-        const data = this.props.data;
-        if (data.hasChildPanes === true){
-            console.log(`Panel ${data.identifier} has child panes.`);
-            // The hasChildPanes option is used to note that the pane has subpanes
-            return (
-                <Pane
-                    className="childPanes"
-                    identifier={data.identifier}
-                    title={data.title}
-                    onClick={this.togglePanelVisibility}
-                    children={getChildrenPanes(data.children)}
-                    childClass={this.state.childClass}
-                    style={this.state.style}
-                />
-            )
-        }else {
-            console.log(dedent `
-                Calling for render of Pane for:
-                    Identifier: ${data.identifier}
-                    Title: ${data.title}
-                    Child (text): ${data.children}`)
-            return (
-                <Pane
-                    identifier={data.identifier}
-                    title={data.title}
-                    children={data.children}
-                    childClass={this.state.childClass}
-                    childStyle={this.state.style}
-                />
-            );
+export class MainBody extends React.Component {
+    constructor(props) {
+        super(props)
+        this.bodies = props.bodies
+        this.titles = props.bodies
+        this.state = {
+            activebody: "intro",
+            title: this.bodies["intro"]["title"],
+            content: this.bodies["intro"]["content"]
         }
     }
-    get initialState(){
-        // The initial state of the panel - hidden with no animation to get there
-        return {
-            style: {
-                height: 0,
-                opacity: 0
-            },
-            displayed: false
-        }
+    setDisplayedItem(key){
+        this.setState({
+            activebody: key,
+            title: this.bodies[key]["title"],
+            content: this.bodies[key]["content"]
+        })
     }
-    get hiddenState(){
-        // Hide the panel, but do so by animating it from open.
-        return {
-            style: {
-                animationFillMode:  "forwards",
-                animationDuration: this.animationDuration,
-                animationName: "hidepanel",
-                height: 0,
-                opacity: 0
-            },
-            displayed: false
-        }
-    }
-    get visibleState(){
-        // Show the panel with animation.
-        return {
-            style: {
-                animationFillMode:  "forwards",
-                animationDuration:  this.animationDuration,
-                animationName:      "showpanel",
-                fontSize:           "1.15em",
-                padding:            5,
-                textAlign:          left,
-                fontWeight:         normal,
-                minHeight:          15,
-                opacity:            "100%",
-            },
-            displayed: true
-        }
-    }
-}
-
-const getPaneParentId = (identifier) => `panel_wrapper_${identifier.replace(' ', '')}`
-const getPaneTitleId = (identifier) => `panel_header_${identifier.replace(' ', '')}`
-const getPaneChildId = (identifier) => `panel_${identifier.replace(' ', '')}`
-
-const Pane = (props) => {
-    console.log(dedent `
-        Rendering Pane for:
-            Identifier: ${props.identifier}
-            Title: ${props.title}
-        ${props.open? "...with": "...without"} content.`)
-    return (
-        <div id={getPaneParentId(props.identifier)}>
-            <div
-                    className={paneTitleClass}
-                    id={getPaneTitleId(props.identifier)}
-                    onClick={props.onClick}
-                >{props.title}
-            </div>
-            <div
-                children={props.children}
-                style={props.childStyle}
-            >{props.children}</div>
-        </div>
-    )
-}
-
-export const Footer = (props) => {
-    console.log("Rendering page footer.")
-    return(
-        <div className="footer">
-            <div id="footer-title">Quick Links</div>
-            <br />
-            { props.links.map(
-                function(link) {
-                    console.log(`Rendering footer link ${link.text} to ${link.link}`)
-                    let identifier = link.text.replace(' ', '')
-                    return (
-                        <a
-                                key={identifier}
-                                href={link.link}
-                                target="_blank"
-                                className="footlink"
-                                id={`footer_link_${identifier}`}
-                            >{link.text}
-                        </a>
-                    )
+    set bodies(bods){
+        this.bodies = {}
+        bods.forEach(function(bod) {
+            if (bod.hasChildPanes === true ){
+                this.bods[bod.identifier] = MainBody(bod)
+            }
+            else {
+                this.bods[bod.identifier] = {
+                    title: bod.title,
+                    content: bod.children
                 }
-            )}
+            }
+        })
+    }
+    set titles(bods){
+        this.titles = bods.map((bod)=>{
+            return {
+              key: bod.identifier,
+              title: bod.title
+            }
+        })
+    }
+    render(){
+        <div className="MainContentWrapper">
+            {this.bodies[this.state.activebody].content}
+            <Footer
+                Active={this.state.activebody}
+                Titles={this.titles}
+                DisplayedItemCallback={this.setDisplayedItem}
+            ></Footer>
         </div>
-    )
+    }
+}
+
+function content(props) {
+  return <span className="content">{props.children}</span>;
+}
+
+class Title extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    selectThisTitle(){
+        this.props.Callback(this.props.Key)
+    }
+    render(){
+        if (this.props.Selected === true ) {
+            return <div class="SelectedTitleButton" onClick={this.selectThisTitle}>{this.props.Title}</div>;
+        }else{
+            return <div class="TitleButton" onClick={this.selectThisTitle}>{this.props.Title}</div>;
+        }
+    }
+}
+
+export class Footer extends React.Component {
+    /*
+    Expects a list of headers in the following format
+    {
+        key: "A short string uniquely identifying the title",
+        title: the actual title. JSX object most likely.
+    }
+    */
+    constructor(props){
+        super(props)
+        let availableTitles = []
+        props.Titles.forEach((title) => {
+            availableTitles.push(title.key)
+        })
+        this.state = {
+            selected: this.props.Active,
+            available: availableTitles
+        }
+        this.selectedTitle = this.selectedTitle.bind(this)
+    }
+    selectedTitle(titlekey){
+        if (this.state.available.indexOf(titlekey) >= 0){
+            console.log(`Setting ${titlekey} as the active title.`);
+            this.props.DisplayedItemCallback(titlekey)
+        }
+        else{
+            console.log(`Title key ${titlekey} not found in ${this.state.available}.`)
+        }
+    }
+    render(){
+        isSelected = (key) => key === this.state.selected;
+        console.log("Rendering page footer.")
+        return(
+            <div className='footerMenu'>
+                {this.props.titles.map(
+                    (title) => (
+                        <Title
+                          Key={title.key}
+                          Callback={this.selectedTitle}
+                          Title={title.title}
+                          Selected={isSelected(title.key)}
+                        ></Title>
+                    )
+                )}
+            </div>
+        );
+    }
 }
