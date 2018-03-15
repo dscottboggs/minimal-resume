@@ -49,20 +49,22 @@ export class MainBody extends React.Component {
     }
     set bodies(bods){
         this._bodies = {}
-        bods.forEach(function(bod) {
-            if (bod.hasChildPanes === true ){
-                this._bodies[bod.identifier] = (
-                    <MainBody bodies={bod.children}>
-                    </MainBody>
-                )
-            }
-            else {
-                this._bodies[bod.identifier] = {
-                    title: bod.title,
-                    content: bod.children
+        for (var bod in bods) {
+            if (bods.hasOwnProperty(bod)) {
+                if (bod.hasChildPanes === true ){
+                    this._bodies[bod.identifier] = (
+                        <MainBody bodies={bod.children}>
+                        </MainBody>
+                    )
+                }
+                else {
+                    this._bodies[bod.identifier] = {
+                        title: bod.title,
+                        content: bod.children
+                    }
                 }
             }
-        })
+        }
     }
     get bodies(){
         return this._bodies
