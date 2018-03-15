@@ -107,8 +107,26 @@ export class MainBody extends React.Component {
     }
 }
 
-function content(props) {
-  return <span className="content">{props.children}</span>;
+class Body extends React.Component {
+    constructor(){
+        super(props)
+    }
+    get Style(){
+        if (this.props.Selected===true) {
+            return {
+                fontSize: "1.15em",
+                opacity: "100%"
+            }
+        }
+        else {
+            return {
+                opacity: 0
+            };
+        }
+    }
+    render() {
+        <div style={this.Style}>{this.props.content}</div>
+    }
 }
 
 class Title extends React.Component {
