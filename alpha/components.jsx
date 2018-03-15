@@ -87,14 +87,23 @@ export class MainBody extends React.Component {
         })
     }
     render(){
-        <div className="MainContentWrapper">
-            {this.bodies[this.state.activebody].content}
-            <Footer
-                Active={this.state.activebody}
-                Titles={this.titles}
-                DisplayedItemCallback={this.setDisplayedItem}
-            ></Footer>
-        </div>
+        (
+            <div className="MainContentWrapper">
+                {this.bodies.keys().forEach(
+                    (bod)=>(
+                        <Body
+                            Content={this.bodies[bod].content}
+                            Selected={this.state.activebody===bod} >
+                        </Body>
+                    )
+                )}
+                <Footer
+                    Active={this.state.activebody}
+                    Titles={this.titles}
+                    DisplayedItemCallback={this.setDisplayedItem}
+                ></Footer>
+            </div>
+        )
     }
 }
 
