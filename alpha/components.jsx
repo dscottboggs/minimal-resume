@@ -48,29 +48,35 @@ export class MainBody extends React.Component {
         })
     }
     set bodies(bods){
-        this.bodies = {}
+        this._bodies = {}
         bods.forEach(function(bod) {
             if (bod.hasChildPanes === true ){
-                this.bodies[bod.identifier] = (
+                this._bodies[bod.identifier] = (
                     <MainBody bodies={bod.children}>
                     </MainBody>
                 )
             }
             else {
-                this.bodies[bod.identifier] = {
+                this._bodies[bod.identifier] = {
                     title: bod.title,
                     content: bod.children
                 }
             }
         })
     }
+    get bodies(){
+        return this._bodies
+    }
     set titles(bods){
-        this.titles = bods.map((bod)=>{
+        this._titles = bods.map((bod)=>{
             return {
               key: bod.identifier,
               title: bod.title
             }
         })
+    }
+    get titles(){
+        return this._titles
     }
     render(){
         (
