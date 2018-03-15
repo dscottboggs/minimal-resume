@@ -68,10 +68,10 @@ export class MainBody extends React.Component {
         this.bodies = {}
         bods.forEach(function(bod) {
             if (bod.hasChildPanes === true ){
-                this.bods[bod.identifier] = MainBody(bod)
+                this.bodies[bod.identifier] = <MainBody bodies=bod.children> </MainBody>
             }
             else {
-                this.bods[bod.identifier] = {
+                this.bodies[bod.identifier] = {
                     title: bod.title,
                     content: bod.children
                 }
