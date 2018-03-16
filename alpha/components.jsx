@@ -163,6 +163,7 @@ class Title extends React.Component {
     get selectedStyle(){
         const size = "1.5em"
         return {
+            display:            "inline-block",
             textAlign:          "center",
             fontSize:           size,
             marginTop:          size,
@@ -177,6 +178,7 @@ class Title extends React.Component {
     get unSelectedStyle(){
       const size = "1.5em"
       return {
+          display:            "inline-block",
           textAlign:          "center",
           fontSize:           size,
           marginTop:          size,
@@ -244,7 +246,6 @@ export class Footer extends React.Component {
     }
     get FooterStyle(){
         return {
-          display:      "inline",
           width:        "100%",
           marginTop:    "0.5em solid #FED",
           marginBottom: "0.5em solid #FED",
