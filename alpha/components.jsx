@@ -119,7 +119,7 @@ class Body extends React.Component {
         }
     }
     render() {
-        <div style={this.Style}>{this.props.content}</div>
+        return <div style={this.Style}>{this.props.content}</div>;
     }
 }
 
@@ -253,7 +253,7 @@ export class Footer extends React.Component {
         };
     }
     render(){
-        isSelected = (key) => key === this.state.selected;
+        const isSelected = (key) => key === this.state.selected;
         console.log("Rendering page footer.")
         return(
             <div className='footerMenu' style={this.FooterStyle}>
