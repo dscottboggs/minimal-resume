@@ -32,7 +32,7 @@ export const Header = (props) => {
 export class MainBody extends React.Component {
     constructor(props) {
         super(props)
-        this.bodies = props.bodies
+        this.setBodies(props.bodies)
         this.titles = props.bodies
         this.state = {
             activebody: "intro",
@@ -47,12 +47,12 @@ export class MainBody extends React.Component {
             content: this.bodies[key]["content"]
         })
     }
-    set bodies(bods){
-        this._bodies = {}
+    setBodies(bods){
+        this.bodies = {}
         for (var bod in bods) {
             if (bods.hasOwnProperty(bod)) {
                 if (bod.hasChildPanes === true ){
-                    this._bodies[bod.identifier] = (
+                    this.bodies[bod.identifier] = (
                         <MainBody bodies={bod.children}>
                         </MainBody>
                     )
@@ -61,7 +61,7 @@ export class MainBody extends React.Component {
                     console.log(`Storing section ${bod.identifier}:
                         title: ${bod.title}
                         content: ${bod.children}`);
-                    this._bodies[bod.identifier] = {
+                    this.bodies[bod.identifier] = {
                         title: bod.title,
                         content: bod.children
                     }
@@ -70,7 +70,7 @@ export class MainBody extends React.Component {
         }
     }
     get bodies(){
-        return this._bodies
+        return this.bodies
     }
     set titles(bods){
         this._titles = bods.map((bod)=>{
