@@ -126,6 +126,7 @@ class Body extends React.Component {
 class Title extends React.Component {
     constructor(props) {
         super(props);
+        this.selectThisTitle = this.selectThisTitle.bind(this)
     }
     selectThisTitle(){
         this.props.Callback(this.props.key)
