@@ -91,6 +91,7 @@ export class MainBody extends React.Component {
                         console.log(`Adding body ${this.bodies[key].title}`);
                         return (
                             <Body
+                                key={key}
                                 Content={this.bodies[key].content}
                                 Selected={this.state.activebody===key} >
                             </Body>
@@ -108,14 +109,14 @@ export class MainBody extends React.Component {
 }
 
 class Body extends React.Component {
-    constructor(){
+    constructor(props){
         super(props)
     }
     get Style(){
         if (this.props.Selected===true) {
             return {
                 fontSize: "1.15em",
-                opacity: "100%"
+                opacity: 100
             }
         }
         else {
@@ -125,7 +126,7 @@ class Body extends React.Component {
         }
     }
     render() {
-        return <div style={this.Style}>{this.props.content}</div>;
+        return <div style={this.Style}>{this.props.Content}</div>;
     }
 }
 
