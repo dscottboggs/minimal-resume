@@ -21,14 +21,17 @@ class DocumentRoot extends React.Component {
         console.log("DocumentRoot.render: Beginning rendering of document root");
         return (
             <div id="bodywrapper">
-                <Header name={Head.name} phone={Head.phoneNumber} email={Head.email}/>
-                <MainBody bodies={Sections} />
+                <Header
+                    name={this.props.Head.name}
+                    phone={this.props.Head.phoneNumber}
+                    email={this.props.Head.email}/>
+                <MainBody bodies={this.props.Sections} />
             </div>
         );
     }
 }
 
 ReactDOM.render(
-  <DocumentRoot sections={Sections} footerlinks={FooterLinks} />,
+  <DocumentRoot Sections={Sections} Head={Head}/>,
   document.getElementById('doc')
 );
