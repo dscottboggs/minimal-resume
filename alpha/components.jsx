@@ -51,19 +51,19 @@ export class MainBody extends React.Component {
         this.bodies = {}
         for (var bod in bods) {
             if (bods.hasOwnProperty(bod)) {
-                if (bod.hasChildPanes === true ){
-                    this.bodies[bod.identifier] = (
-                        <MainBody bodies={bod.children}>
+                if (bods[bod].hasChildPanes === true ){
+                    this.bodies[bods[bod].identifier] = (
+                        <MainBody bodies={bods[bod].children}>
                         </MainBody>
                     )
                 }
                 else {
-                    console.log(`Storing section ${bod.identifier}:
-                        title: ${bod.title}
-                        content: ${bod.children}`);
-                    this.bodies[bod.identifier] = {
-                        title: bod.title,
-                        content: bod.children
+                    console.log(`Storing section ${bods[bod].identifier}:
+                        title: ${bods[bod].title}
+                        content: ${bods[bod].children}`);
+                    this.bodies[bods[bod].identifier] = {
+                        title: bods[bod].title,
+                        content: bods[bod].children
                     }
                 }
             }
