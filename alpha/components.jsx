@@ -129,10 +129,10 @@ class Title extends React.Component {
         this.selectThisTitle = this.selectThisTitle.bind(this)
     }
     selectThisTitle(){
-        this.props.Callback(this.props.key)
+        this.props.Callback(this.props.Key)
     }
     getColor(selected, theme){
-        if (selected===true) {
+        if (selected===false) {
             if (theme.toLowerCase()==="fg") {
                 return "#FED"
             }
@@ -143,7 +143,7 @@ class Title extends React.Component {
                 console.log(`'theme' was ${theme}. It should have been "fg" or "bg".`);
             }
         }
-        else if (selected === false) {
+        else if (selected === true) {
             if (theme.toLowerCase()==="fg") {
                 return "#FED"
             }
@@ -256,12 +256,19 @@ export class Footer extends React.Component {
     render(){
         const isSelected = (key) => key === this.props.Active;
         console.log("Rendering page footer.")
+        /* I have a few gripes about JSX. Genericaly, I find it pretty annoying
+        that there's really no good way to put comments inside of JSX code.
+
+        More specifically to this method here, I find it annoying that you have
+        to include a unique prop called 'key', but then you can't use that prop.
+        */
         return(
             <div className='footerMenu' style={this.FooterStyle}>
                 {this.props.Titles.map(
                     (title) => (
                         <Title
                           key={title.key}
+                          Key={title.key}
                           Callback={this.selectedTitle}
                           Title={title.title}
                           Selected={isSelected(title.key)}
