@@ -86,12 +86,13 @@ export class MainBody extends React.Component {
         return (
             <div className="MainContentWrapper">
                 {Object.keys(this.bodies).forEach(
-                    (bod)=>(
-                        <Body
+                    (bod)=>{
+                        console.log(`Adding body ${bod.title}`);
+                        return (<Body
                             Content={this.bodies[bod].content}
                             Selected={this.state.activebody===bod} >
-                        </Body>
-                    )
+                        </Body>);
+                    }
                 )}
                 <Footer
                     Active={this.state.activebody}
