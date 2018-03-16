@@ -14,6 +14,42 @@ const paneVisibleState={
   childClass: paneChildClass
 }
 
+const footerFontSize = 1.75; // in em
+const leftMargin = "15%";
+const bodyFontSize = 1.15;
+const animationTime = '0.5s';
+const buttonPadding = 5;
+const footerFontFamily = "Quicksand, sans-serif";
+const backgroundColor = secondaryForegroundColor = "#FED";
+const foregroundColor = secondaryBackgroundColor = "#013";
+function getColor(selected, theme){
+    if (selected===true) {
+        if (theme.toLowerCase()==="fg") {
+            return foreGroundColor;
+        }
+        else if (theme.toLowerCase()==="bg") {
+            return backGroundColor;
+        }
+        else {
+            console.log(`'theme' was ${theme}. It should have been "fg" or "bg".`);
+        }
+    }
+    else if (selected === false) {
+        if (theme.toLowerCase()==="fg") {
+            return secondaryForegroundColor;
+        }
+        else if (theme.toLowerCase()==="bg") {
+            return secondaryBackgroundColor;
+        }
+        else {
+            console.log(`'theme' was ${theme}. It should have been "fg" or "bg".`);
+        }
+    }
+    else {
+        console.log(`'selected' was ${selected}, should have been a bool.`);
+    }
+}
+
 export const Header = (props) => {
     console.log("Rendering page header.");
     return (
@@ -115,13 +151,17 @@ class Body extends React.Component {
     get Style(){
         if (this.props.Selected===true) {
             return {
-                fontSize: "1.15em",
-                opacity: 100
+                fontSize:       bodyFontSize,
+                position:       "absolute",
+                marginLeft:     leftMargin,
+                paddingBottom:  `${footerFontSize*4}em`,
+                opacity:        100
             }
         }
         else {
             return {
-                opacity: 0
+                position:   "absolute",
+                opacity:    0
             };
         }
     }
@@ -138,63 +178,34 @@ class Title extends React.Component {
     selectThisTitle(){
         this.props.Callback(this.props.Key)
     }
-    getColor(selected, theme){
-        if (selected===true) {
-            if (theme.toLowerCase()==="fg") {
-                return "#FED"
-            }
-            else if (theme.toLowerCase()==="bg") {
-                return "#013"
-            }
-            else {
-                console.log(`'theme' was ${theme}. It should have been "fg" or "bg".`);
-            }
-        }
-        else if (selected === false) {
-            if (theme.toLowerCase()==="fg") {
-                return "#013"
-            }
-            else if (theme.toLowerCase()==="bg") {
-                return "#FED"
-            }
-            else {
-                console.log(`'theme' was ${theme}. It should have been "fg" or "bg".`);
-            }
-        }
-        else {
-            console.log(`'selected' was ${selected}, should have been a bool.`);
-        }
-    }
     get selectedStyle(){
-        const size = "1.5em"
         return {
             display:            "inline-block",
             textAlign:          "center",
-            fontSize:           size,
-            marginTop:          size,
-            marginBottom:       size,
+            fontSize:           `${footerFontSize}em`,
+            marginTop:          `${footerFontSize}em`,
+            marginBottom:       `${footerFontSize}em`,
             animationName:      "addShadow",
             animationFillMode:  "forwards",
-            animationDuration:  "0.5s",
+            animationDuration:  animationTime,
             padding:            5,
-            backgroundColor:    this.getColor(true, "bg"),
-            color:              this.getColor(true, "fg"),
+            backgroundColor:    getColor(true, "bg"),
+            color:              getColor(true, "fg"),
         };
     }
     get unSelectedStyle(){
-      const size = "1.5em"
       return {
           display:              "inline-block",
           textAlign:            "center",
-          fontSize:             size,
-          marginTop:            size,
-          marginBottom:         size,
+          fontSize:             `${footerFontSize}em`,
+          marginTop:            `${footerFontSize}em`,
+          marginBottom:         `${footerFontSize}em`,
           animationName:        "addShadow",
           animationFillMode:    "backwards",
-          animationDuration:    "0.5s",
-          padding:              5,
-          backgroundColor:      this.getColor(false, "bg"),
-          color:                this.getColor(false, "fg"),
+          animationDuration:    animationTime,
+          padding:              buttonPadding,
+          backgroundColor:      getColor(false, "bg"),
+          color:                getColor(false, "fg"),
       };
     }
     render(){
@@ -254,10 +265,10 @@ export class Footer extends React.Component {
     get FooterStyle(){
         return {
           textAlign:    "center",
-          fontFamily:   "Quicksand, sans-serif",
+          fontFamily:   footerFontFamily,
           position:     "fixed",
           bottom:       0,
-          background:   "#FED",
+          background:   backgroundColor,
         };
     }
     render(){
