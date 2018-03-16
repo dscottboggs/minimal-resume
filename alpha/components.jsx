@@ -83,7 +83,7 @@ export class MainBody extends React.Component {
     render(){
         (
             <div className="MainContentWrapper">
-                {this.bodies.keys().forEach(
+                {Object.keys(this.bodies).forEach(
                     (bod)=>(
                         <Body
                             Content={this.bodies[bod].content}
