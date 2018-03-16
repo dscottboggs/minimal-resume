@@ -248,9 +248,6 @@ export class Footer extends React.Component {
     }
     get FooterStyle(){
         return {
-          width:        "100%",
-          marginTop:    "0.5em solid #FED",
-          marginBottom: "0.5em solid #FED",
           textAlign:    "center",
           fontFamily:   "Quicksand, sans-serif",
           position:     "fixed",
