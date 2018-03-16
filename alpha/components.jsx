@@ -128,7 +128,7 @@ class Title extends React.Component {
         super(props);
     }
     selectThisTitle(){
-        this.props.Callback(this.props.Key)
+        this.props.Callback(this.props.key)
     }
     getColor(selected, theme){
         if (selected===true) {
@@ -253,14 +253,14 @@ export class Footer extends React.Component {
         };
     }
     render(){
-        const isSelected = (key) => key === this.state.selected;
+        const isSelected = (key) => key === this.props.Active;
         console.log("Rendering page footer.")
         return(
             <div className='footerMenu' style={this.FooterStyle}>
-                {this.props.titles.map(
+                {this.props.Titles.map(
                     (title) => (
                         <Title
-                          Key={title.key}
+                          key={title.key}
                           Callback={this.selectedTitle}
                           Title={title.title}
                           Selected={isSelected(title.key)}
