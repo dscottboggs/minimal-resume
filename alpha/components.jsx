@@ -25,7 +25,7 @@ const secondaryBackgroundColor = "#013";
 const foregroundColor = "#013";
 const secondaryForegroundColor = "#FED";
 function getColor(selected, theme){
-    if (selected===true) {
+    if (selected===false) {
         if (theme.toLowerCase()==="fg") {
             return foregroundColor;
         }
@@ -36,7 +36,7 @@ function getColor(selected, theme){
             console.log(`'theme' was ${theme}. It should have been "fg" or "bg".`);
         }
     }
-    else if (selected === false) {
+    else if (selected===true) {
         if (theme.toLowerCase()==="fg") {
             return secondaryForegroundColor;
         }
