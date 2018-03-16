@@ -69,9 +69,6 @@ export class MainBody extends React.Component {
             }
         }
     }
-    get bodies(){
-        return this.bodies
-    }
     set titles(bods){
         this._titles = bods.map((bod)=>{
             return {
