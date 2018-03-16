@@ -176,7 +176,7 @@ export const Sections = [
                 )
             },{
                 title: "Networking and more...",
-                identifier: "Networking and more...",
+                identifier: "Networking",
                 hasChildPanes: false,
                 children: (
                     <div className="subpanel">
@@ -202,7 +202,7 @@ export const Sections = [
         ]
     },{
         title: "Photography and Video",
-        identifier: "Photography and Video",
+        identifier: "Photography",
         hasChildPanes: false,
         children: (
             <div id="panel4" className="panel"      >
@@ -231,7 +231,7 @@ export const Sections = [
         )
     },{
         title: "Relevant Equipment",
-        identifier: "Relevant Equipment",
+        identifier: "Equipment",
         children: (
             <ul>
                 <li>Transportion

@@ -83,6 +83,7 @@ export class MainBody extends React.Component {
         return this._titles
     }
     render(){
+        console.log(`Bodies: ${Object.keys(this.bodies)}`);
         return (
             <div className="MainContentWrapper">
                 {Object.keys(this.bodies).forEach(
