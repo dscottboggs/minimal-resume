@@ -132,7 +132,7 @@ class Title extends React.Component {
         this.props.Callback(this.props.Key)
     }
     getColor(selected, theme){
-        if (selected===false) {
+        if (selected===true) {
             if (theme.toLowerCase()==="fg") {
                 return "#FED"
             }
@@ -143,12 +143,12 @@ class Title extends React.Component {
                 console.log(`'theme' was ${theme}. It should have been "fg" or "bg".`);
             }
         }
-        else if (selected === true) {
+        else if (selected === false) {
             if (theme.toLowerCase()==="fg") {
-                return "#FED"
+                return "#013"
             }
             else if (theme.toLowerCase()==="bg") {
-                return "#013"
+                return "#FED"
             }
             else {
                 console.log(`'theme' was ${theme}. It should have been "fg" or "bg".`);
