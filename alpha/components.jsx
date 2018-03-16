@@ -171,6 +171,7 @@ class Title extends React.Component {
             animationName:      "addShadow",
             animationFillMode:  "forwards",
             animationDuration:  "0.5s",
+            padding:            5,
             backgroundColor:    this.getColor(true, "bg"),
             color:              this.getColor(true, "fg"),
         };
@@ -178,16 +179,17 @@ class Title extends React.Component {
     get unSelectedStyle(){
       const size = "1.5em"
       return {
-          display:            "inline-block",
-          textAlign:          "center",
-          fontSize:           size,
-          marginTop:          size,
-          marginBottom:       size,
-          animationName:      "addShadow",
-          animationFillMode:  "backwards",
-          animationDuration:  "0.5s",
-          backgroundColor:    this.getColor(false, "bg"),
-          color:              this.getColor(false, "fg"),
+          display:              "inline-block",
+          textAlign:            "center",
+          fontSize:             size,
+          marginTop:            size,
+          marginBottom:         size,
+          animationName:        "addShadow",
+          animationFillMode:    "backwards",
+          animationDuration:    "0.5s",
+          padding:              5,
+          backgroundColor:      this.getColor(false, "bg"),
+          color:                this.getColor(false, "fg"),
       };
     }
     render(){
