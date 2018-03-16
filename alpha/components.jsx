@@ -81,7 +81,7 @@ export class MainBody extends React.Component {
         return this._titles
     }
     render(){
-        (
+        return (
             <div className="MainContentWrapper">
                 {Object.keys(this.bodies).forEach(
                     (bod)=>(
@@ -97,7 +97,7 @@ export class MainBody extends React.Component {
                     DisplayedItemCallback={this.setDisplayedItem}
                 ></Footer>
             </div>
-        )
+        );
     }
 }
 
