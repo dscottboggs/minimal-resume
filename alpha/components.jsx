@@ -20,10 +20,10 @@ const bodyFontSize = 1.15;
 const animationTime = '0.5s';
 const buttonPadding = 5;
 const footerFontFamily = "Quicksand, sans-serif";
-const backgroundColor = "#FED";
-const secondaryBackgroundColor = "#013";
-const foregroundColor = "#013";
-const secondaryForegroundColor = "#FED";
+const backgroundColor = "#013";
+const secondaryBackgroundColor = "#FED";
+const foregroundColor = "#FED";
+const secondaryForegroundColor = "#013";
 function getColor(selected, theme){
     if (selected===true) {
         if (theme.toLowerCase()==="fg") {
@@ -153,7 +153,7 @@ class Body extends React.Component {
     get Style(){
         if (this.props.Selected===true) {
             return {
-                fontSize:       bodyFontSize,
+                fontSize:       `${bodyFontSize}em`,
                 position:       "absolute",
                 marginLeft:     leftMargin,
                 paddingBottom:  `${footerFontSize*4}em`,
