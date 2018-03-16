@@ -86,13 +86,15 @@ export class MainBody extends React.Component {
         console.log(`Bodies: ${Object.keys(this.bodies)}`);
         return (
             <div className="MainContentWrapper">
-                {Object.keys(this.bodies).forEach(
-                    (bod)=>{
-                        console.log(`Adding body ${bod.title}`);
-                        return (<Body
-                            Content={this.bodies[bod].content}
-                            Selected={this.state.activebody===bod} >
-                        </Body>);
+                {Object.keys(this.bodies).map(
+                    (key)=>{
+                        console.log(`Adding body ${this.bodies[key].title}`);
+                        return (
+                            <Body
+                                Content={this.bodies[key].content}
+                                Selected={this.state.activebody===key} >
+                            </Body>
+                        );
                     }
                 )}
                 <Footer
