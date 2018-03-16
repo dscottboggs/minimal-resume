@@ -58,6 +58,9 @@ export class MainBody extends React.Component {
                     )
                 }
                 else {
+                    console.log(`Storing section ${bod.identifier}:
+                        title: ${bod.title}
+                        content: ${bod.children}`);
                     this._bodies[bod.identifier] = {
                         title: bod.title,
                         content: bod.children
