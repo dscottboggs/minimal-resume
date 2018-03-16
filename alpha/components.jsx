@@ -32,6 +32,8 @@ export const Header = (props) => {
 export class MainBody extends React.Component {
     constructor(props) {
         super(props)
+        this.setDisplayedItem = this.setDisplayedItem.bind(this)
+        this.setBodies = this.setBodies.bind(this)
         this.setBodies(props.bodies)
         this.titles = props.bodies
         this.state = {
