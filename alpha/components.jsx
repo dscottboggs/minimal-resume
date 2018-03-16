@@ -27,10 +27,10 @@ const secondaryForegroundColor = "#FED";
 function getColor(selected, theme){
     if (selected===true) {
         if (theme.toLowerCase()==="fg") {
-            return foreGroundColor;
+            return foregroundColor;
         }
         else if (theme.toLowerCase()==="bg") {
-            return backGroundColor;
+            return backgroundColor;
         }
         else {
             console.log(`'theme' was ${theme}. It should have been "fg" or "bg".`);
