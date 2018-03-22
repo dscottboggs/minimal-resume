@@ -179,26 +179,24 @@ class Title extends React.Component {
     }
     get selectedStyle(){
         return {
-            display:            "inline-block",
+            display:            "table-cell",
             textAlign:          "center",
+            verticalAlign:      "middle",
             fontSize:           `${footerFontSize}em`,
-            marginTop:          `${footerFontSize}em`,
-            marginBottom:       `${footerFontSize}em`,
             animationName:      "addShadow",
             animationFillMode:  "forwards",
             animationDuration:  animationTime,
-            padding:            5,
+            padding:            buttonPadding,
             backgroundColor:    getColor(true, "bg"),
             color:              getColor(true, "fg"),
         };
     }
     get unSelectedStyle(){
       return {
-          display:              "inline-block",
+          display:              "table-cell",
           textAlign:            "center",
+          verticalAlign:        "middle",
           fontSize:             `${footerFontSize}em`,
-          marginTop:            `${footerFontSize}em`,
-          marginBottom:         `${footerFontSize}em`,
           animationName:        "addShadow",
           animationFillMode:    "backwards",
           animationDuration:    animationTime,
@@ -265,11 +263,15 @@ class Footer extends React.Component {
     }
     get FooterStyle(){
         return {
-          textAlign:    "center",
-          fontFamily:   footerFontFamily,
-          position:     "fixed",
-          bottom:       0,
-          background:   backgroundColor,
+            display:        "table-row",
+            textAlign:      "center",
+            fontFamily:     footerFontFamily,
+            position:       "fixed",
+            bottom:         0,
+            width:          '100%',
+            height:         `${footerFontSize*3}em`,
+            background:     backgroundColor,
+            borderTop:      `.75px solid ${foregroundColor}`
         };
     }
     render(){
