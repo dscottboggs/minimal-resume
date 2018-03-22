@@ -75,16 +75,16 @@ export class MainBody extends React.Component {
         this.setBodies(props.bodies)
         this.setTitlesFromBodies(props.bodies)
         this.state = {
-            activebody: "intro",
-            title: this.bodies["intro"]["title"],
-            content: this.bodies["intro"]["content"]
+            activebody: props.bodies[0].identifier,
+            title: props.bodies[0].title,
+            content: props.bodies[0].content
         }
     }
     setDisplayedItem(key){
         this.setState({
             activebody: key,
-            title: this.bodies[key]["title"],
-            content: this.bodies[key]["content"]
+            title: this.bodies[key].title,
+            content: this.bodies[key].content
         })
     }
     setBodies(bods){
@@ -92,10 +92,12 @@ export class MainBody extends React.Component {
         for (var bod in bods) {
             if (bods.hasOwnProperty(bod)) {
                 if (bods[bod].hasChildPanes === true ){
-                    this.bodies[bods[bod].identifier] = (
-                        <MainBody bodies={bods[bod].children}>
-                        </MainBody>
-                    )
+                    this.bodies[bods[bod].identifier] = {
+                        title: bods[bod].title,
+                        content: (
+                            <MainBody bodies={bods[bod].children}>
+                            </MainBody>
+                    )}
                 }
                 else {
                     console.log(`Storing section ${bods[bod].identifier}:
