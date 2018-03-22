@@ -232,33 +232,35 @@ class Title extends React.Component {
     }
 }
 
-export class Footer extends React.Component {
+class Footer extends React.Component {
     /*
     Expects a list of headers in the following format
     {
         key: "A short string uniquely identifying the title",
-        title: the actual title. JSX object most likely.
+        title: the actual title. JSX object most likely, although a string also
+               works
     }
     */
     constructor(props){
         super(props)
-        let availableTitles = []
-        props.Titles.forEach((title) => {
-            availableTitles.push(title.key)
-        })
+        this.availableTitles = props.Titles.map(
+            (title) => title.key
+        );
         this.state = {
-            selected: this.props.Active,
-            available: availableTitles
-        }
-        this.selectedTitle = this.selectedTitle.bind(this)
+            selected: this.props.Active
+        };
+        this.selectedTitle = this.selectedTitle.bind(this);
     }
     selectedTitle(titlekey){
-        if (this.state.available.indexOf(titlekey) >= 0){
+        // Checks the recvd key is valid and then calls the callback function
+        if (this.availableTitles.indexOf(titlekey) >= 0){
             console.log(`Setting ${titlekey} as the active title.`);
-            this.props.DisplayedItemCallback(titlekey)
+            this.props.DisplayedItemCallback(titlekey);
         }
         else{
-            console.log(`Title key ${titlekey} not found in ${this.state.available}.`)
+            console.log(
+                `Title key ${titlekey} not found in ${this.availableTitles}.`
+            );
         }
     }
     get FooterStyle(){
@@ -281,17 +283,19 @@ export class Footer extends React.Component {
         */
         return(
             <div className='footerMenu' style={this.FooterStyle}>
-                {this.props.Titles.map(
-                    (title) => (
-                        <Title
-                          key={title.key}
-                          Key={title.key}
-                          Callback={this.selectedTitle}
-                          Title={title.title}
-                          Selected={isSelected(title.key)}
-                        ></Title>
+                {
+                    this.props.Titles.map(
+                        (title) => (
+                            <Title
+                              key={title.key}
+                              Key={title.key}
+                              Callback={this.selectedTitle}
+                              Title={title.title}
+                              Selected={isSelected(title.key)}
+                            ></Title>
+                        )
                     )
-                )}
+                }
             </div>
         );
     }
