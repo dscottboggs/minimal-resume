@@ -25,7 +25,7 @@ class DocumentRoot extends React.Component {
                     name={this.props.Head.name}
                     phone={this.props.Head.phoneNumber}
                     email={this.props.Head.email}/>
-                <MainBody bodies={this.props.Sections} />
+                <MainBody bodies={this.props.Sections} RecursionLevel={0}/>
             </div>
         );
     }

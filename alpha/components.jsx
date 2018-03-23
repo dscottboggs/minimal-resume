@@ -95,8 +95,10 @@ export class MainBody extends React.Component {
                     this.bodies[bods[bod].identifier] = {
                         title: bods[bod].title,
                         content: (
-                            <MainBody bodies={bods[bod].children}>
-                            </MainBody>
+                            <MainBody
+                                bodies={bods[bod].children}
+                                RecursionLevel={this.props.RecursionLevel + 1}
+                            />
                     )}
                 }
                 else {
@@ -130,7 +132,8 @@ export class MainBody extends React.Component {
                             <Body
                                 key={key}
                                 Content={this.bodies[key].content}
-                                Selected={this.state.activebody===key} >
+                                Selected={this.state.activebody===key}
+                                RecursionLevel={this.props.RecursionLevel} >
                             </Body>
                         );
                     }
@@ -139,6 +142,7 @@ export class MainBody extends React.Component {
                     Active={this.state.activebody}
                     Titles={this.titles}
                     DisplayedItemCallback={this.setDisplayedItem}
+                    RecursionLevel={this.props.RecursionLevel}
                 ></Footer>
             </div>
         );
@@ -157,12 +161,14 @@ class Body extends React.Component {
                 marginLeft:     leftMargin,
                 paddingBottom:  `${footerFontSize*4}em`,
                 opacity:        100
+                paddingBottom:      `${(this.props.RecursionLevel+1)*footerFontSize*4}em`,
             }
         }
         else {
             return {
                 position:   "absolute",
                 opacity:    0
+                marginBottom:      `${(this.props.RecursionLevel+1)*footerFontSize*4}em`,
             };
         }
     }
@@ -263,17 +269,23 @@ class Footer extends React.Component {
             );
         }
     }
+    get bottomMargin(){
+        return `${this.props.RecursionLevel*footerFontSize*2.33}em`;
+    }
     get FooterStyle(){
+        console.log(`Getting FooterStyle. RecursionLevel: ${this.props.RecursionLevel}, so bottom should be set to ${this.props.RecursionLevel*footerFontSize*3}em.`);
         return {
             display:        "table-row",
             textAlign:      "center",
             fontFamily:     footerFontFamily,
             position:       "fixed",
-            bottom:         0,
+            bottom:         this.bottomMargin,
+            left:           0,
             width:          '100%',
             height:         `${footerFontSize*3}em`,
             background:     backgroundColor,
-            borderTop:      `.75px solid ${foregroundColor}`
+            borderTop:      `.75px solid ${foregroundColor}`,
+            zIndex:         1
         };
     }
     render(){
