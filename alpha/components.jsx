@@ -17,7 +17,7 @@ const paneVisibleState={
 const footerFontSize = 1.75; // in em
 const leftMargin = "15%";
 const bodyFontSize = 1.15;
-const animationTime = '0.5s';
+const animationTime = '0.7s';
 const buttonPadding = ".75em";
 const footerFontFamily = "Quicksand, sans-serif";
 const backgroundColor = "#FED";
@@ -156,19 +156,30 @@ class Body extends React.Component {
     get Style(){
         if (this.props.Selected===true) {
             return {
-                fontSize:       `${bodyFontSize}em`,
-                position:       "absolute",
-                marginLeft:     leftMargin,
-                paddingBottom:  `${footerFontSize*4}em`,
-                opacity:        100
+                fontSize:           `${bodyFontSize}em`,
+                position:           "fixed",
+                top:                "7em",
+                left:               leftMargin,
+                marginRight:        "20%",
                 paddingBottom:      `${(this.props.RecursionLevel+1)*footerFontSize*4}em`,
+                textAlign:          'justified',
+                animationName:      "showpanel",
+                animationDuration:  animationTime,
+                animationFillMode:  "forwards"
             }
         }
         else {
             return {
-                position:   "absolute",
-                opacity:    0
+                fontSize:           `${bodyFontSize}em`,
+                position:           "fixed",
+                top:                "7em",
+                left:               leftMargin,
+                marginRight:        "20%",
                 marginBottom:      `${(this.props.RecursionLevel+1)*footerFontSize*4}em`,
+                textAlign:          'justified',
+                animationDuration:  animationTime,
+                animationName:      "hidepanel",
+                animationFillMode:  "forwards"
             };
         }
     }
@@ -191,7 +202,7 @@ class Title extends React.Component {
             textAlign:          "center",
             verticalAlign:      "middle",
             fontSize:           `${footerFontSize}em`,
-            animationName:      "addShadow",
+            animationName:      "titleSelectedAnimation",
             animationFillMode:  "forwards",
             animationDuration:  animationTime,
             padding:            buttonPadding,
@@ -200,18 +211,18 @@ class Title extends React.Component {
         };
     }
     get unSelectedStyle(){
-      return {
-          display:              "table-cell",
-          textAlign:            "center",
-          verticalAlign:        "middle",
-          fontSize:             `${footerFontSize}em`,
-          animationName:        "addShadow",
-          animationFillMode:    "backwards",
-          animationDuration:    animationTime,
-          padding:              buttonPadding,
-          backgroundColor:      getColor(false, "bg"),
-          color:                getColor(false, "fg"),
-      };
+        return {
+            display:            "table-cell",
+            textAlign:          "center",
+            verticalAlign:      "middle",
+            fontSize:           `${footerFontSize}em`,
+            animationName:      "titleUnselectedAnimation",
+            animationFillMode:  "forwards",
+            padding:            buttonPadding,
+            animationDuration:  animationTime,
+            backgroundColor:    getColor(false, "bg"),
+            color:              getColor(false, "fg"),
+        };
     }
     render(){
         if (this.props.Selected === true ) {

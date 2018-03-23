@@ -8,30 +8,39 @@
 }
 @keyframes hidepanel {
     from {
-        font-size:1.15em;
-        padding:5px;
-        text-align:left;
-        font-weight:normal;
-        min-height: 15px;
-        opacity: 100%
+        opacity:        100%
     }
     to {
-        height: 0px;
         opacity: 0;
     }
 }
 @keyframes showpanel {
     from {
-        height: 0px;
         opacity: 0;
     }
     to {
-        font-size:1.15em;
-        padding:5px;
-        text-align:left;
-        font-weight:normal;
-        min-height: 15px;
         opacity: 100%;
+    }
+}
+
+@keyframes titleUnselectedAnimation {
+    from{
+        color: #FED;
+        background-color: #013;
+    }
+    to {
+        color: #013;
+        background-color: #FED;
+    }
+}
+@keyframes titleSelectedAnimation {
+    from{
+        color: #013;
+        background-color: #FED;
+    }
+    to {
+        color: #FED;
+        background-color: #013;
     }
 }
 
@@ -49,7 +58,11 @@ h1,h3{
     font-family:Worksans,sans-serif;
 }
 h1{
-    margin-bottom:-.5em
+    font-size: 2em;
+    margin-bottom:-.6em;
+}
+h3{
+    font-size: 1.35em;
 }
 a{
     color:#036;
