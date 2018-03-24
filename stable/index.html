@@ -28,8 +28,8 @@
   If you have any questions, or to set up an interview, I can be reached
   at the above contact information.
   </div>
-  <div id="f1" class="flip"       >Transportation     +</div>
-  <div id="fd1" class="flipped"   >Transportation     -</div>
+  <div id="f1" class="flip" onclick="Expand(1)"      >Transportation     +</div>
+  <div id="fd1" class="flipped" onclick="Retract(1)" >Transportation     -</div>
   <div id="panel1" class="panel"  >
       My largest range of official experience is in the transportation industry.
       I have around three years of professional experience. I prefer to drive a manual
@@ -56,12 +56,27 @@
       </ul>
   </div>
 
-  <div id="f2" class="flip"       >Technology     +</div>
-  <div id="fd2" class="flipped"   >Technology     -</div>
-  <div id="panel2" class="panel"      >While professionally I am very qualified in the transportation industry, my real passion is to creatively solve problems, especially through technology. I don't have a lot of official qualifications in that regard, but I do study any material available to me constantly and I'm always adding to the list below.
-      <div id="f2A" class="subflip"       >Hardware   +</div>
-      <div id="fd2A" class="subflipped"   >Hardware   -</div>
-      <div id="panel2A" class="subpanel"      ><ul>
+  <div id="f2" class="flip" onclick="Expand(2)"          >Technology     +</div>
+  <div id="fd2" class="flipped" onclick="Retract(2)"     >Technology     -</div>
+  <div id="panel2" class="panel"      >While professionally I am very qualified
+      in the transportation industry, my real passion is to creatively solve
+      problems, especially through technology. I don't have many official
+      qualifications in that regard, but I do study any material available to
+      me constantly and I'm always adding to the list below.
+      <div
+          id="f2A"
+          class="subflip"
+          onclick="Expand('2A')"
+        >Hardware +
+      </div>
+      <div
+          id="fd2A"
+          class="subflipped"
+          onclick="Retract('2A')"
+        >Hardware -
+      </div>
+      <div id="panel2A" class="subpanel" >
+        <ul>
           <li>I began my study of the inner workings of electronics on my own when I was
               younger, but at 14 a local TV repairman agreed to teach me, and I spent a
               year and a half learning how electricity and circuits work and learning to
@@ -76,9 +91,9 @@
               target="_blank">OpenSCAD</a></li>
           <li>I brushed up on my circuit design recently; I still need more practice.</li>
       </ul></div>
-      <div id="f2B" class="subflip"       >Software   +</div>
-      <div id="fd2B" class="subflipped"   >Software   -</div>
-      <div id="panel2B" class="subpanel"      >
+      <div id="f2B" class="subflip" onclick="Expand('2B')"     >Software +</div>
+      <div id="fd2B" class="subflipped" onclick="Retract('2B')">Software -</div>
+      <div id="panel2B" class="subpanel" >
           <ul>
               <li><a href="https://madscientists.co/category/tech/serving/" target="_blank">
                 LAMP/LEMP setup</a> for web site, cloud server, etc. I prefer nginx over apache,
@@ -106,8 +121,8 @@
                   libreoffice or more recently collabora online for my personal documents)</li>
           </ul>
       </div>
-      <div id="f2D" class="subflip"       >Code +</div>
-      <div id="fd2D" class="subflipped"   >Code -</div>
+      <div id="f2D" class="subflip" onclick="Expand('2D')"      >Code    +</div>
+      <div id="fd2D" class="subflipped" onclick="Retract('2D')" >Code    -</div>
       <div id="panel2D" class="subpanel"      >
           <ul>
               <li>Java - studied at college and HS, up through data structures (see my
@@ -149,9 +164,19 @@
               <li>Some machine learning and data analysis</li>
           </ul>
       </div>
-      <div id="f2C" class="subflip"       >Networking and more... +</div>
-      <div id="fd2C" class="subflipped"   >Networking and more... -</div>
-      <div id="panel2C" class="subpanel"      >
+      <div
+          id="f2C"
+          class="subflip"
+          onclick="Expand('2C')"
+        >Networking and more... +
+      </div>
+      <div
+          id="fd2C"
+          class="subflipped"
+          onclick="Retract('2C')"
+        >Networking and more... -
+      </div>
+      <div id="panel2C" class="subpanel" >
           <ul>
               <li>Network configuration and security, routing.</li>
               <li>LAMP setup for web site, cloud server, etc.</li>
@@ -170,9 +195,19 @@
           </ul>
       </div>
   </div> <!-- panel2 -->
-  <div id="f4" class="flip"       >Photography and Video      +</div>
-  <div id="fd4" class="flipped"   >Photography and Video      -</div>
-  <div id="panel4" class="panel"      >
+  <div
+      id="f3"
+      class="flip"
+      onclick="Expand(3)"
+    >Photography and Video +
+  </div>
+  <div
+      id="fd3"
+      class="flipped"
+      onclick="Retract(3)"
+    >Photography and Video -
+  </div>
+  <div id="panel3" class="panel"      >
       I have been working with digital photography and videography quite
       steadily for the past year or so, and it's been a passing interest
       most of my life. There were a lot of broken cameras when I was younger
@@ -183,9 +218,9 @@
 
       <!-- TODO add photography -->
   </div>
-  <div id="f5" class="flip"       >Education      +</div>
-  <div id="fd5" class="flipped"   >Education      -</div>
-  <div id="panel5" class="panel"  >
+  <div id="f4" class="flip" onclick="Expand(4)"      >Education          +</div>
+  <div id="fd4" class="flipped" onclick="Retract(4)" >Education          -</div>
+  <div id="panel4" class="panel"  >
       <ul>
           <li>Graduated from Burrell High School in Lower Burrell, PA; class of 2011.</li>
           <li>Attended some college at Westmoreland County Community Colllege and the
@@ -193,9 +228,9 @@
               devote my time to less structured educational endeavors.</li>
       </ul>
   </div>
-  <div id="f6" class="flip"       >Relevant Equipment     +</div>
-  <div id="fd6" class="flipped"   >Relevant Equipment     -</div>
-  <div id="panel6" class="panel"  >
+  <div id="f5" class="flip" onclick="Expand(5)"     >Relevant Equipment  +</div>
+  <div id="fd5" class="flipped" onclick="Retract(5)">Relevant Equipment  -</div>
+  <div id="panel5" class="panel"  >
       <ul>
           <li>Transportion
               <ul><li>2009 Honda Civic</li></ul>
