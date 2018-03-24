@@ -114,10 +114,10 @@ export class MainBody extends React.Component {
         }
     }
     setTitlesFromBodies(bodies){
-        this.titles = bodies.map((bod)=>{
+        this.titles = bodies.map((bod)=> {
             return {
-              key: bod.identifier,
-              title: bod.title
+                key: bod.identifier,
+                title: bod.title
             }
         })
     }
