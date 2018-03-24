@@ -196,11 +196,11 @@ class Title extends React.Component {
         this.props.Callback(this.props.Key)
     }
     get Style(){
-        if (this.props.Selected!=true&&this.props.Selected!=false){
-            console.log(dedent `
-                In Title, while getting the style, prop Selected
-                wasn't boolean, it was ${this.props.Selected}`);
-        }
+        console.log(dedent `
+            In Title ${this.props.Key}, while getting the style, prop Selected
+            was ${this.props.Selected}, so we'll be using color
+            ${getColor(this.props.Selected, "fg")} for the foreground and
+            ${getColor(this.props.Selected, "bg")} for the background.`);
         return {
             display:            "table-cell",
             textAlign:          "center",
@@ -211,7 +211,7 @@ class Title extends React.Component {
             animationDuration:  animationTime,
             padding:            buttonPadding,
             backgroundColor:    getColor(this.props.Selected, "bg"),
-            color:              getColor(this.props.Selected, "fg"),
+            color:              getColor(this.props.Selected, "fg")
         };
     }
     render(){
