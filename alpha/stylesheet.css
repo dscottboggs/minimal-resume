@@ -75,3 +75,9 @@ html{
     background:#FED;
     color:#013;
 }
+div.MainContentWrapper{
+    position: absolute;
+    margin-top: 0;
+    margin-left: 0;
+    width: 99%;
+}

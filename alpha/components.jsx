@@ -16,6 +16,7 @@ const paneVisibleState={
 
 const footerFontSize = 1.75; // in em
 const leftMargin = "15%";
+const rightMargin = "20%";
 const bodyFontSize = 1.15;
 const animationTime = '0.7s';
 const buttonPadding = ".75em";
@@ -157,10 +158,9 @@ class Body extends React.Component {
         if (this.props.Selected===true) {
             return {
                 fontSize:           `${bodyFontSize}em`,
-                position:           "fixed",
-                top:                "7em",
-                left:               leftMargin,
-                marginRight:        "20%",
+                position:           "absolute",
+                left:               this.props.RecursionLevel===0? leftMargin:0,
+                right:              this.props.RecursionLevel===0? rightMargin:0,
                 paddingBottom:      `${(this.props.RecursionLevel+1)*footerFontSize*4}em`,
                 textAlign:          'justified',
                 animationName:      "showpanel",
@@ -171,10 +171,9 @@ class Body extends React.Component {
         else {
             return {
                 fontSize:           `${bodyFontSize}em`,
-                position:           "fixed",
-                top:                "7em",
-                left:               leftMargin,
-                marginRight:        "20%",
+                position:           "absolute",
+                left:               this.props.RecursionLevel===0? leftMargin:0,
+                right:              this.props.RecursionLevel===0? rightMargin:0,
                 marginBottom:      `${(this.props.RecursionLevel+1)*footerFontSize*4}em`,
                 textAlign:          'justified',
                 animationDuration:  animationTime,
