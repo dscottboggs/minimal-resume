@@ -195,7 +195,12 @@ class Title extends React.Component {
     selectThisTitle(){
         this.props.Callback(this.props.Key)
     }
-    get selectedStyle(){
+    get Style(){
+        if (this.props.Selected!=true&&this.props.Selected!=false){
+            console.log(dedent `
+                In Title, while getting the style, prop Selected
+                wasn't boolean, it was ${this.props.Selected}`);
+        }
         return {
             display:            "table-cell",
             textAlign:          "center",
@@ -205,46 +210,20 @@ class Title extends React.Component {
             animationFillMode:  "forwards",
             animationDuration:  animationTime,
             padding:            buttonPadding,
-            backgroundColor:    getColor(true, "bg"),
-            color:              getColor(true, "fg"),
-        };
-    }
-    get unSelectedStyle(){
-        return {
-            display:            "table-cell",
-            textAlign:          "center",
-            verticalAlign:      "middle",
-            fontSize:           `${footerFontSize}em`,
-            animationName:      "titleUnselectedAnimation",
-            animationFillMode:  "forwards",
-            padding:            buttonPadding,
-            animationDuration:  animationTime,
-            backgroundColor:    getColor(false, "bg"),
-            color:              getColor(false, "fg"),
+            backgroundColor:    getColor(this.props.Selected, "bg"),
+            color:              getColor(this.props.Selected, "fg"),
         };
     }
     render(){
-        if (this.props.Selected === true ) {
-            return (
-                <div
-                  style={this.selectedStyle}
-                  className="SelectedTitleButton"
-                  onClick={this.selectThisTitle}
-                >
-                    {this.props.Title}
-                </div>
-            );
-        }else{
-            return (
-                <div
-                  style={this.unSelectedStyle}
-                  className="UnselectedTitleButton"
-                  onClick={this.selectThisTitle}
-                >
-                    {this.props.Title}
-                </div>
-            );
-        }
+        return (
+            <div
+              style={this.Style}
+              className="SelectedTitleButton"
+              onClick={this.selectThisTitle}
+            >
+                {this.props.Title}
+            </div>
+        );
     }
 }
 
