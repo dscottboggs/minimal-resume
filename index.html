@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<HTML>
-  <HEAD>
-    <META charset="utf-8"/>
-    <SCRIPT type="text/javascript" src="jquery-3.2.1.min.js"></SCRIPT>
-    <SCRIPT type="text/javascript" src="animation.js"></SCRIPT>
-    <LINK href=stylesheet.css rel=stylesheet type="text/css" />
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="animation.js"></script>
+    <link href="stylesheet.css" rel="stylesheet" type="text/css" />
 
-  <TITLE>D. Scott Boggs -- Resume</TITLE>
-  </HEAD>
-<BODY>
+  <title>D. Scott Boggs -- Resume</title>
+  </head>
+<body>
 <div id="header">
-  <H1>D. Scott Boggs, Jr.</H1>
-  <H3>scott@tams.tech
-  <BR>(724) 393 - 5536</H3>
+  <h1>D. Scott Boggs, Jr.</h1>
+  <h3>scott@tams.tech
+  <br />(724) 393 - 5536</h3>
 </div>
-<DIV id="main_body">
-  <DIV id="intro" class="panel">
+<div id="main_body">
+  <div id="intro" class="panel">
   This page is here to concisely demonstrate the ways in which I can be
   valuable to potential clientèle, who may be interested in my services
   for long- and short-term contract opportunities. As you may notice, I
@@ -27,19 +27,19 @@
   to you. Simply click the category you find most relevant to expand it.
   If you have any questions, or to set up an interview, I can be reached
   at the above contact information.
-  </DIV>
-  <DIV id="f1" class="flip"       >Transportation     +</DIV>
-  <DIV id="fd1" class="flipped"   >Transportation     -</DIV>
-  <DIV id="panel1" class="panel"  >
+  </div>
+  <div id="f1" class="flip" onclick="Expand(1)"      >Transportation     +</div>
+  <div id="fd1" class="flipped" onclick="Retract(1)" >Transportation     -</div>
+  <div id="panel1" class="panel"  >
       My largest range of official experience is in the transportation industry.
       I have around three years of professional experience. I prefer to drive a manual
       transmission vehicle, do my own maintenance, and am comfortable behind the wheel
-      of large vehicles as well as small.<BR>
-      <UL>
-          <LI><EM>DDC4 Certified</EM> - an accredited defensive driving course from the National Safety Council</LI>
-          <LI><EM>Pizza delivery</EM> for <I><A target="_blank" href="http://pizzabellagio.com/">
-                  Pizza Bellagio</A></I> (2014-2015), <A target="_blank" href="https://pizzahut.com/">
-                  <i>Pizza Hut</i></a>(2014-2015), <I><A target="_blank" href="http://www.nonnispizzamenu.com/">Nonni's Pizza</a></i>
+      of large vehicles as well as small.<br />
+      <ul>
+          <li><em>DDC4 Certified</em> - an accredited defensive driving course from the National Safety Council</li>
+          <li><em>Pizza delivery</em> for <i><a target="_blank" href="http://pizzabellagio.com/">
+                  Pizza Bellagio</a></i> (2014-2015), <a target="_blank" href="https://pizzahut.com/">
+                  <i>Pizza Hut</i></a>(2014-2015), <i><a target="_blank" href="http://www.nonnispizzamenu.com/">Nonni's Pizza</a></i>
                   (2015), <i><a target="_blank" href="http://www.pizzariviera.com/">Pizza Rivera</a></i> (2016),
                   and <i><a target="_blank" href="http://lucianospizzanorthhills.com/">Luciano's Pizza</a></i> (2016)</li>
           <li><em>Courier/Package delivery</em> for <i>
@@ -56,12 +56,27 @@
       </ul>
   </div>
 
-  <div id="f2" class="flip"       >Technology     +</div>
-  <div id="fd2" class="flipped"   >Technology     -</div>
-  <div id="panel2" class="panel"      >While professionally I am very qualified in the transportation industry, my real passion is to creatively solve problems, especially through technology. I don't have a lot of official qualifications in that regard, but I do study any material available to me constantly and I'm always adding to the list below.
-      <div id="f2A" class="subflip"       >Hardware   +</div>
-      <div id="fd2A" class="subflipped"   >Hardware   -</div>
-      <div id="panel2A" class="subpanel"      ><ul>
+  <div id="f2" class="flip" onclick="Expand(2)"          >Technology     +</div>
+  <div id="fd2" class="flipped" onclick="Retract(2)"     >Technology     -</div>
+  <div id="panel2" class="panel"      >While professionally I am very qualified
+      in the transportation industry, my real passion is to creatively solve
+      problems, especially through technology. I don't have many official
+      qualifications in that regard, but I do study any material available to
+      me constantly and I'm always adding to the list below.
+      <div
+          id="f2A"
+          class="subflip"
+          onclick="Expand('2A')"
+        >Hardware +
+      </div>
+      <div
+          id="fd2A"
+          class="subflipped"
+          onclick="Retract('2A')"
+        >Hardware -
+      </div>
+      <div id="panel2A" class="subpanel" >
+        <ul>
           <li>I began my study of the inner workings of electronics on my own when I was
               younger, but at 14 a local TV repairman agreed to teach me, and I spent a
               year and a half learning how electricity and circuits work and learning to
@@ -71,23 +86,38 @@
           <li>I have built several custom computers.</li>
           <li>I'm experimenting with Raspberry Pi and Arduino.</li>
           <li>I built a Prusa i3</li>
-          <li><a href="https://gitlab.com/dashboard/projects?&name=cad" target="_blank">
+          <li><a href="https://gitlab.com/dashboard/projects?name=cad" target="_blank">
               3D modelling</a> with <a href="https://madscientists.co/category/tech/3d/"
-              target="_blank">OpenSCAD</a></li>
+              target="_blank">OpenSCAD</a>, and familiarity with other machining
+              equipment as well, through my family.</li>
           <li>I brushed up on my circuit design recently; I still need more practice.</li>
-      </ul></div>
-      <div id="f2B" class="subflip"       >Software   +</div>
-      <div id="fd2B" class="subflipped"   >Software   -</div>
-      <div id="panel2B" class="subpanel"      >
+        </ul>
+      </div>
+      <div id="f2B" class="subflip" onclick="Expand('2B')"     >Software +</div>
+      <div id="fd2B" class="subflipped" onclick="Retract('2B')">Software -</div>
+      <div id="panel2B" class="subpanel" >
           <ul>
-              <li><a href="https://madscientists.co/category/tech/serving/" target="_blank">
-                LAMP/LEMP setup</a> for web site, cloud server, etc. I prefer nginx over apache,
-                and I am familiar with the concepts of designing and integrating RESTful APIs</li>
+              <li>
+                <a
+                    href="https://madscientists.co/category/tech/serving/"
+                    target="_blank">
+                  Various types of server deployment, configuration, and
+                  management
+                </a> for web sites, cloud servers, virtualization systems, and
+                more. I am familiar with the concepts of designing and
+                integrating RESTful APIs. Specifically, the majority of my
+                experience is in Linux-based systems. I'd be happy to work in a
+                unix-based environment, but would require training to
+                administrate Windows-based systems on the server-side.
+              </li>
               <li>Virtualization and scalable computing:<ul>
-                  <li>Some Citrix from my time at </li>
-                  <li>KVM/QEMU with virt-manager and a bit of the CLI stuff</li>
+                  <li>Some Citrix from my time at FedEx/InnoSource</li>
+                  <li>KVM/QEMU</li>
                   <li>VirtualBox</li>
-                  <li>Docker, primarily using docker-compose.</li>
+                  <li>Docker, through docker compose and directly through the
+                    API. LXC is similar enough in the API that I can also work
+                    with that for a deployment, if you prefer.
+                  </li>
                   <li>Industry standard security measures with automated HTTPS
                       certificate renewal through <a target="_blank" href="">Let's
                       Encrypt</a> and <a target="_blank"
@@ -97,32 +127,46 @@
                       >SSLLabs</a> for detailed information on why all my sites have
                       an A+ rating.</li>
               </ul></li>
-              <li>Linux BASH (although I prefer to have my .zshrc file) and command interface
-                  (I run linux and live in the terminal for most of my computing)</li>
-              <li>I consider myself much more proficient in Linux/Unix-like systems than
-                  in Windows. I don't currently have Windows on any of my computers and rely
-                  solely on free (libre) software for my workflow.
-              <li>MS Office (including some Excel; although it has been some time - I use
-                  libreoffice or more recently collabora online for my personal documents)</li>
+              <li>Linux BASH (although I prefer to have my .zshrc file) as well
+                as shell scripting. However, I've often found myself using
+                Python for even basic shell management scripts, due to its
+                ease-of-use and clarity of syntax.
+              </li>
+              <li>I consider myself much more proficient in Linux/Unix-like
+                systems than in Windows. I don't currently have Windows on any
+                of my computers and rely solely on free (libre) software for my
+                workflow.
+              </li>
+              <li>MS Office including some Excel - although it has been some
+                time since I've used Office proper, as I use LibreOffice for my
+                personal documents.</li>
           </ul>
       </div>
-      <div id="f2D" class="subflip"       >Code +</div>
-      <div id="fd2D" class="subflipped"   >Code -</div>
+      <div id="f2D" class="subflip" onclick="Expand('2D')"      >Code    +</div>
+      <div id="fd2D" class="subflipped" onclick="Retract('2D')" >Code    -</div>
       <div id="panel2D" class="subpanel"      >
           <ul>
               <li>Java - studied at college and HS, up through data structures (see my
                   <a target="_blank" href="https://github.com/dscottboggs/TemperatureConverter">
                   github</a>)</li>
               <li>Web development:<ul>
-                  <li>LAMP/<a target="_blank" href="https://madscientists.co/category/serving/">
-                      server architecture</a></li>
-                  <li>HTML(5), CSS, Jquery (see this web site - handwritten - all visible with "View Source" [F12] )</li>
+                  <li><a target="_blank" href="https://madscientists.co/category/serving/">
+                      server deployment</a>, maintenance, and management.</li>
+                  <li>HTML(5), CSS, Jquery (see this web site - handwritten
+                     - all visible with "View Source" [F12] ). I have
+                    improving my JavaScript adeptness lately as well. This site
+                    is in the process of being refactored in ReactJS, to see my
+                    progress check out my github.</li>
                   <li><a target="_blank" href="https://madscientists.co/category/serving/containers/">
-                      Docker, primarily using docker-compose.</a> Multi-application composition,
-                      automation, development-testing-production life cycles, etc.</li>
-                  <li>RESTful API development, using Python's "flask" library on the server,
-                      wget for test requests, and Python's "requests" for scripted client-side
-                      interactions.</li>
+                      Docker, primarily using docker-compose.</a> I have been using
+                      docker for multi-application, swarm server composition,
+                      and to learn about configuration automation, development-
+                      testing-production life cycles, and deploying micro- and
+                      macroservices. I am also familiar with the API (using the
+                      Python front end primarily).</li>
+                  <li>RESTful API development, using Python's "flask" library on
+                    the server, wget for test requests, and Python's "requests"
+                    for scripted client-side interactions.</li>
                   <li>Industry standard security measures with automated HTTPS
                       certificate renewal through <a target="_blank" href="">Let's
                       Encrypt</a> and <a target="_blank"
@@ -131,33 +175,55 @@
                       href="https://www.ssllabs.com/ssltest/analyze.html?d=scott.madscientists.co"
                       >SSLLabs</a> for detailed information on why all my sites have
                       an A+ rating.</li>
-              </ul>
+              </ul></li>
               <li>Python (see my <a target="_blank"
-                  href="https://github.com/dscottboggs?utf8=%E2%9C%93&tab=repositories&q=&type=&language=python">
+                  href="https://github.com/dscottboggs?utf8=%E2%9C%93&amp;tab=repositories&amp;q=&amp;type=&amp;language=python">
                   github</a> and <a target="_blank"
                   href="https://madscientists.co/category/programming/python/">blog</a>).
                   Definitely my preferred language, when feasible.</li>
               <li>I've danced around C++ and other C-based languages for years;
                   they're pretty hard to avoid. I have some familiarity, but not
                   as much as I'd like to. See my <a target="_blank"
-                  href="https://github.com/dscottboggs?utf8=%E2%9C%93&tab=repositories&q=&type=&language=c%2B%2B">github</a>
+                  href="https://github.com/dscottboggs?utf8=%E2%9C%93&amp;tab=repositories&amp;q=&amp;type=&amp;language=c%2B%2B">github</a>
                 for anything relevant as it's posted.</li>
               <li>BASIC - the first language I learned, at age 12. I've always had a thing for old tech</li>
               <li>BASH shell scripting (see my <a target="_blank"
-                  href="https://github.com/dscottboggs?utf8=%E2%9C%93&tab=repositories&q=&type=&language=shell">
+                  href="https://github.com/dscottboggs?utf8=%E2%9C%93&amp;tab=repositories&amp;q=&amp;type=&amp;language=shell">
                   github</a>) and some Windows shell/DOS</li>
               <li>Some machine learning and data analysis</li>
           </ul>
       </div>
-      <div id="f2C" class="subflip"       >Networking and more... +</div>
-      <div id="fd2C" class="subflipped"   >Networking and more... -</div>
-      <div id="panel2C" class="subpanel"      >
+      <div
+          id="f2C"
+          class="subflip"
+          onclick="Expand('2C')"
+        >DevOps and SysAdmin +
+      </div>
+      <div
+          id="fd2C"
+          class="subflipped"
+          onclick="Retract('2C')"
+        >DevOps and SysAdmin -
+      </div>
+      <div id="panel2C" class="subpanel" >
           <ul>
-              <li>Network configuration and security, routing.</li>
-              <li>LAMP setup for web site, cloud server, etc.</li>
+              <li>Network configuration and security, routing and subnets.</li>
+              <li>
+                <a
+                    href="https://madscientists.co/category/tech/serving/"
+                    target="_blank">
+                  Various types of server deployment, configuration, and
+                  management
+                </a> for web sites, cloud servers, virtualization systems, and
+                more.
+                Specifically, the majority of my experience is in Linux-based
+                systems. I'd be happy to work in a unix-based environment, but
+                would require training to administrate Windows-based systems on
+                the server-side.
+              </li>
               <li>More to come (pfSense, VPN, security and IOT)</li>
               <li>Data interchange mediums like JSON, YAML, and XML</li>
-              <li>Relational database management in SQLite (on Android primarily),
+              <li>Relational database management in SQLite,
                   MariaDB/MySQL, and PostGRES</li>
               <li>Industry standard security measures with automated HTTPS
                   certificate renewal through <a target="_blank" href="">Let's
@@ -167,14 +233,40 @@
                   href="https://www.ssllabs.com/ssltest/analyze.html?d=scott.madscientists.co"
                   >SSLLabs</a> for detailed information on why all my sites have
                   an A+ rating.</li>
+              <li>
+                I use git for my revision control, and host some work on GitHub,
+                as well as some on GitLab. I have read up on their various
+                options for deployment, but haven't gotten to learning that yet.
+                I wanted to prioritize open deployment options before managed.
+              </li>
+              <li>
+                I am starting out with Puppet for configuration management.
+              </li>
+              <li>
+                Various packaging and deployment options. I'm familiar with DEB
+                packages, Snaps, Docker, LXC/LXD, virtualization, PIP, and NPM
+                for packaging, deploying, and generally managing the lifecycle
+                of an application, regardless of whether you prefer agile DevOps
+                or a more methodic Waterfall-style development.
+              </li>
           </ul>
       </div>
   </div> <!-- panel2 -->
-  <div id="f4" class="flip"       >Photography and Video      +</div>
-  <div id="fd4" class="flipped"   >Photography and Video      -</div>
-  <div id="panel4" class="panel"      >
+  <div
+      id="f3"
+      class="flip"
+      onclick="Expand(3)"
+    >Photography and Video +
+  </div>
+  <div
+      id="fd3"
+      class="flipped"
+      onclick="Retract(3)"
+    >Photography and Video -
+  </div>
+  <div id="panel3" class="panel"      >
       I have been working with digital photography and videography quite
-      steadily for the past year or so, and it's been a passing interest
+      steadily for the past several years, and it's been a passing interest
       most of my life. There were a lot of broken cameras when I was younger
       so there was a lot of time that I held an interest and studied it,
       but didn't have the equipment to experiment with it, until more recently.
@@ -183,9 +275,9 @@
 
       <!-- TODO add photography -->
   </div>
-  <div id="f5" class="flip"       >Education      +</div>
-  <div id="fd5" class="flipped"   >Education      -</div>
-  <div id="panel5" class="panel"  >
+  <div id="f4" class="flip" onclick="Expand(4)"      >Education          +</div>
+  <div id="fd4" class="flipped" onclick="Retract(4)" >Education          -</div>
+  <div id="panel4" class="panel"  >
       <ul>
           <li>Graduated from Burrell High School in Lower Burrell, PA; class of 2011.</li>
           <li>Attended some college at Westmoreland County Community Colllege and the
@@ -193,9 +285,9 @@
               devote my time to less structured educational endeavors.</li>
       </ul>
   </div>
-  <div id="f6" class="flip"       >Relevant Equipment     +</div>
-  <div id="fd6" class="flipped"   >Relevant Equipment     -</div>
-  <div id="panel6" class="panel"  >
+  <div id="f5" class="flip" onclick="Expand(5)"     >Relevant Equipment  +</div>
+  <div id="fd5" class="flipped" onclick="Retract(5)">Relevant Equipment  -</div>
+  <div id="panel5" class="panel"  >
       <ul>
           <li>Transportion
               <ul><li>2009 Honda Civic</li></ul>
@@ -223,12 +315,12 @@
       </ul>
   </div>
 </div>
-<div class="footer"><div id="footer_title">Quick Links</div><br>
+<div class="footer"><div id="footer_title">Quick Links</div><br />
   <a href="https://gitlab.com/users/dscottboggs/projects" target="_blank" class="footlink">Code</a> --
   <a target="_blank" class="footlink" href="https://madscientists.co/category/photography/">Photography</a> --
   <a target="_blank" class="footlink" href="http://soundcloud.com/dscottboggs">Music</a> --
   <a target="_blank" class="footlink" href="printable-version.html">Printable Verision</a> --
   <a target="_blank" class="footlink" href="printable-version.pdf">PDF Version</a>
 </div>
-<body>
+</body>
 </html>
