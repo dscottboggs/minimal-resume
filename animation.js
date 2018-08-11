@@ -1,20 +1,25 @@
-function Expand(panelNumber) {
+function Expand(panelID) {
   $.ajax(
-    $(`#panel${panelNumber}`).slideDown(
+    $(`#panel-${panelID}`).slideDown(
       function() {
-        $(`#fd${panelNumber}`).show();
-        $(`#f${panelNumber}`).hide();
+        $(`#flipped-${panelID}`).show();
+        $(`#flip-${panelID}`).hide();
       }
     )
   );
 };
-function Retract(panelNumber) {
+function Retract(panelID) {
   $.ajax(
-    $(`#panel${panelNumber}`).slideUp(
+    $(`#panel-${panelID}`).slideUp(
       function() {
-        $(`#f${panelNumber}`).show();
-        $(`#fd${panelNumber}`).hide();
+        $(`#flip-${panelID}`).show();
+        $(`#flipped-${panelID}`).hide();
       }
     )
   );
 };
+function ToggleFooter() {
+    $.ajax(
+        $('#footlink-div').slideToggle()
+    );
+}

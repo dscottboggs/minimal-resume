@@ -6,6 +6,20 @@
     font-family: "Worksans";
     src: url('WorkSans-Regular.ttf');
 }
+@keyframes bounce {
+    0%, 50%, 75%, 90%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-.5em);
+    }
+    66%, 83% {
+        transform: translateY(-.25em);
+    }
+    95% {
+        transform: translateY(-.1em);
+    }
+}
 div.flip{
     position:relative;
     padding:5px;
@@ -71,10 +85,9 @@ div#header{
 h1,h3{
     font-family:Worksans,sans-serif;
 }
-div.footer{
+.footer{
     display:inline;
     width:100%;
-    border-top:1.5em solid #FED;
     border-bottom:1.5em solid #FED;
     text-align:center;
     font-size: 1em;
@@ -83,27 +96,34 @@ div.footer{
     bottom:0;
     background:#FED;
 }
-div#footer_title{
+.footer-arrow{
+    font-size: 1.5em;
+}
+.footer-arrow:hover{
+    animation: bounce 1s linear;
+}
+#footer_title{
   font-size:1.15em;
   font-weight: bold;
-  margin-top: -0.5em;
-  margin-bottom: -0.5em;
   font-family: WorkSans, sans-serif;
 }
 a.footlink{
     margin-left:2em;
     margin-right:2em;
     font-family: Quicksand, sans-serif;
-    display: inline;
+    display: block;
     z-index: 1000;
     font-size: 1em;
     font-weight: normal;
+}
+#footlink-div{
+  display: none;
 }
 div#main_body{
     position:absolute;
     font-family:Quicksand,sans-serif;
     margin-left:15%;
-    padding-bottom: 5em;
+    padding-bottom: 4em;
     width:65%;
 }
 h1{
