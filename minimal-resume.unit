@@ -1,0 +1,10 @@
+[Unit]
+Description="D. Scott Boggs' resume site"
+
+[Service]
+Requires=docker.service
+ExecStartPre=/home/scott/Documents/code/minimal_resume/update.sh
+ExecStart=/usr/bin/docker run minimal_resume
+
+[Install]
+WantedBy=multi-user.target
