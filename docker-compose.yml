@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  minimal_resume:
+    build: ./
+    expose:
+      - 80
+    networks:
+      - web
+    labels:
+      traefik.docker.network: web
+      traefik.enable: "true"
+      traefik.domain: scott.madscientists.co
+      traefik.scott_resume.frontend.rule: Host:scott.tams.tech,scott.madscientists.co
+      traefik.scott_resume.port: 80
+      traefik.scott_resume.protocol: http
+      tech.tams.dns_host: scott.tams.tech,scott.madscientists.co
+
+networks:
+  web:
+    external: true
+
