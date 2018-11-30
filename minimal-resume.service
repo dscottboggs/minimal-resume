@@ -4,8 +4,7 @@ Requires=docker-public-network.service
 RequiresMountsFor=/media/deployments/minimal-resume
 
 [Service]
-ExecStartPre=/media/deployments/minimal-resume/update.sh
-ExecStart=/usr/bin/docker run minimal-resume
+ExecStart=/media/deployments/minimal-resume/run.sh
 
 [Install]
 WantedBy=multi-user.target
