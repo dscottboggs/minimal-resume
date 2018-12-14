@@ -4,6 +4,8 @@ Requires=docker-public-network.service
 RequiresMountsFor=/media/deployments/minimal-resume
 
 [Service]
+Restart=on-failure
+RestartSec=5
 ExecStart=/media/deployments/minimal-resume/run.sh
 
 [Install]
